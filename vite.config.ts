@@ -1,6 +1,6 @@
 import { copyFileSync, mkdirSync, readFileSync } from "node:fs";
 import tailwindcss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import { defineConfig, type Plugin } from "vite";
 
 function copyDataPlugin(): Plugin {
