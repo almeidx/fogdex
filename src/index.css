@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+	--color-bg: #0a0a0f;
+	--color-surface: #141420;
+	--color-surface-light: #1c1c30;
+	--color-border: #252540;
+	--color-text: #e0e0e8;
+	--color-text-muted: #6b6b80;
+	--color-accent: #c41e3a;
+	--color-accent-light: #e8334f;
+	--color-gold: #d4a017;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	background-image:
+		radial-gradient(ellipse at 20% 50%, rgba(196, 30, 58, 0.04) 0%, transparent 50%),
+		radial-gradient(ellipse at 80% 20%, rgba(212, 160, 23, 0.03) 0%, transparent 50%);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	margin: 0;
+	-webkit-appearance: none;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
