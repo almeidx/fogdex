@@ -4,5 +4,11 @@
 		"directory": "dist"
 	},
 	"compatibility_date": "2026-04-14",
-	"name": "fogdex"
+	"name": "fogdex",
+	"observability": {
+		"enabled": true,
+		"logs": {
+			"enabled": true
+		}
+	}
 }
