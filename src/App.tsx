@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { DisclaimerPage } from "./components/DisclaimerPage.tsx";
 import { FilterBar } from "./components/FilterBar.tsx";
 import { KillerTable } from "./components/KillerTable.tsx";
 import killersData from "./data/killers.json";
@@ -8,6 +9,14 @@ import type { Killer } from "./types/killer.ts";
 const killers = killersData as Killer[];
 
 export function App() {
+	if (window.location.pathname === "/disclaimer") {
+		return <DisclaimerPage />;
+	}
+
+	return <HomePage />;
+}
+
+function HomePage() {
 	const { filters, sort, setFilter, setSort, filteredKillers, clearFilters } = useFilters(killers);
 	const filterBarRef = useRef<HTMLDivElement>(null);
 
@@ -80,6 +89,10 @@ export function App() {
 					</a>
 					{" \u00b7 "}
 					AGPL-3.0
+					{" \u00b7 "}
+					<a className="text-accent hover:text-accent-light underline" href="/disclaimer">
+						Disclaimer
+					</a>
 				</p>
 			</footer>
 		</div>
