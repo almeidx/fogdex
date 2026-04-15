@@ -116,9 +116,9 @@
 		"gender": "Man",
 		"origin": "United States",
 		"speed": {
-			"base": 4.2,
+			"base": 4.4,
 			"unit": "m/s",
-			"percentage": 105
+			"percentage": 110
 		},
 		"speedNotes": "Tier I: 4.2 m/s (105%); Tier II/III: 4.6 m/s (115%)",
 		"terrorRadius": 32,
