@@ -1,6 +1,6 @@
 ---
 name: update-data
-description: Scrape Dead by Daylight killer data from the wiki and update local data files
+description: Scrape Dead by Daylight killer, survivor, and perk data from the wiki and update local data files
 tools:
   - WebFetch
   - Read
@@ -11,75 +11,117 @@ tools:
   - Grep
 ---
 
-# Update Killer Data
+# Update Game Data
 
-You are a data scraping agent for **Fogdex**, a Dead by Daylight killer reference site. Your job is to scrape all killer data from the DBD wiki and update the local data files.
+You are a data scraping agent for **Fogdex**, a Dead by Daylight reference site. Your job is to scrape game data from the DBD wiki's Lua data modules and update local data files.
 
-## Context
+## Data Source
 
-- Data file: `src/data/killers.json` (array of killer objects)
-- Schema: `src/data/killers.schema.json` (JSON Schema for validation)
-- Images: stored in R2 bucket at `images/killers/<slug>.webp` (256x256 WebP portraits)
-- Image script: `scripts/download-image.ts` (downloads + optimizes a portrait, then upload to R2)
-- Type definitions: `src/types/killer.ts`
+The DBD wiki (deadbydaylight.wiki.gg) runs MediaWiki with Scribunto. All structured game data lives in Lua modules fetchable via the MediaWiki API:
+
+| Module | API URL | Contents |
+|---|---|---|
+| `Module:Datatable` | `https://deadbydaylight.wiki.gg/api.php?action=query&titles=Module:Datatable&prop=revisions&rvprop=content&rvslots=main&format=json` | All killers, survivors, DLCs/chapters |
+| `Module:Datatable/Loadout` | `https://deadbydaylight.wiki.gg/api.php?action=query&titles=Module:Datatable/Loadout&prop=revisions&rvprop=content&rvslots=main&format=json` | All perks, items, offerings, add-ons |
+
+**These two requests contain ALL the data needed.** Do not scrape individual wiki pages.
+
+The response is JSON wrapping Lua source code. Extract the Lua source from `response.query.pages[pageId].revisions[0].slots.main["*"]`.
+
+## Data Files
+
+| File | Schema | Source |
+|---|---|---|
+| `src/data/killers.json` | `src/types/killer.ts` | `Module:Datatable` (killers + DLCs) |
+| `src/data/survivors.json` | `src/types/survivor.ts` | `Module:Datatable` (survivors + DLCs) |
+| `src/data/killer-perks.json` | `src/types/perk.ts` | `Module:Datatable/Loadout` + `Module:Datatable` |
+| `src/data/survivor-perks.json` | `src/types/perk.ts` | `Module:Datatable/Loadout` + `Module:Datatable` |
 
 ## Workflow
 
-### Step 1: Read current state
+### Step 1: Ask what to update
 
-Read `src/data/killers.json` to understand what data currently exists. Also read `src/types/killer.ts` to understand the data model.
+Ask the user what data to update:
+- **killers** — update `killers.json`
+- **survivors** — update `survivors.json`
+- **perks** — update `killer-perks.json` and `survivor-perks.json`
+- **all** — update everything
 
-### Step 2: Fetch the killer list
+### Step 2: Read current state
 
-Use `WebFetch` on `https://deadbydaylight.wiki.gg/wiki/Killers` with this prompt:
+Read the relevant current data files and type definitions to understand the existing data and schema.
 
-> List every killer on this page. For each killer, provide: their display name (e.g. "The Trapper") and their wiki page URL path (e.g. "/wiki/The_Trapper"). Format as a JSON array of objects with "name" and "path" fields. Include ALL killers — both original and licensed.
+### Step 3: Fetch Lua modules
 
-### Step 3: Fetch each killer's data
+Fetch only the modules needed:
+- Killers or survivors → fetch `Module:Datatable`
+- Perks → fetch `Module:Datatable/Loadout` AND `Module:Datatable` (for character ID mapping)
+- All → fetch both modules
 
-For each killer, use `WebFetch` on their individual wiki page (e.g. `https://deadbydaylight.wiki.gg/wiki/The_Trapper`) with this extraction prompt:
+Use `WebFetch` with the API URLs above.
 
-> Extract ALL data from this killer's infobox. Return a JSON object with exactly these fields:
->
-> - "displayName": the full killer title (e.g. "The Trapper")
-> - "realName": the character's real name, or null if unknown
-> - "aliases": array of other names/nicknames, empty array if none
-> - "gender": exactly one of "Man", "Woman", "Non-binary", "Unknown"
-> - "origin": nationality/origin as listed (e.g. "American")
-> - "speedBase": base movement speed in m/s as a number (e.g. 4.6)
-> - "speedPercentage": base movement speed as percentage (e.g. 115)
-> - "speedNotes": string describing notable alternate speeds from their power, or null if standard
-> - "terrorRadius": base terror radius in metres as a number (e.g. 32)
-> - "terrorRadiusNotes": string describing variable TR if applicable, or null
-> - "attackDetail": the exact attack type description from the wiki (e.g. "Special Attack (Trap Catches)")
-> - "height": exactly one of "Short", "Average", "Tall"
-> - "releaseDate": release date in YYYY-MM-DD format
-> - "chapter": the DLC/chapter name (e.g. "CHAPTER 2: The HALLOWEEN Chapter")
-> - "powerName": name of the killer's power
-> - "weapon": name of the killer's weapon
-> - "portraitImageUrl": URL to the killer's portrait/icon image
->
-> Return ONLY the JSON object, no additional text.
+### Step 4: Parse Lua source
 
-### Step 4: Process and normalize
+Parse the Lua table syntax into JavaScript objects. The data uses simple Lua table literals:
 
-For each killer, build the full data object:
+```lua
+-- Killers table entry
+{id = 1, name = "Trapper", realName = "Evan MacMillan", altName = "Chuckles",
+ gender = "Man", origin = "American", speed = 4.6, radius = 32, height = 'T',
+ specialAttack = true, altAttackNote = "Trap Catches", weapon = "The Cleaver",
+ power = "Bear Trap", diff = 1, dlc = 1}
 
-- **id**: derive from display name — lowercase, remove "The ", replace spaces with hyphens (e.g. "The Trapper" -> "trapper")
-- **commonName**: display name without "The " prefix
-- **attackCategory**: classify the `attackDetail` into one of: "Melee" (only basic M1 attacks, no ranged power), "Ranged" (has a ranged or special attack — all killers can also melee, so there is no "Hybrid")
-- **licensed**: determine from the chapter name — if it references a known IP (Halloween, Saw, Stranger Things, Resident Evil, Silent Hill, etc.) or contains trademark symbols, it's licensed
-- **portraitPath**: `/images/killers/<id>.webp`
-- **wikiUrl**: the full wiki URL
+-- DLC table entry
+{id = 1, name = "Base Game", rDate = "14.06.2016", category = 1, licensed = false}
 
-### Step 5: Validate
-
-Run the validation script:
-```bash
-node scripts/validate-data.ts
+-- Survivor table entry
+{id = 1, name = "Dwight Fairfield", gender = "Man", origin = "American", dlc = 1}
 ```
 
-If validation fails, fix the issues before proceeding.
+Key parsing patterns:
+- Strings: `"double quoted"` or `'single quoted'`
+- Numbers: plain numbers like `4.6`, `32`
+- Booleans: `true`, `false`
+- Arrays: `{value1, value2}`
+- Nested tables: `{{6.0, "Cloaked"}, {4.4, "Stalking"}}`
+- Nil: `nil`
+
+### Step 5: Normalize and transform
+
+**For killers**, build each entry by:
+- `id`: derive from name — lowercase, replace spaces with hyphens (e.g. "Trapper" → "trapper")
+- `displayName`: prepend "The " to the name (e.g. "The Trapper")
+- `commonName`: the name as-is
+- `realName`: from Lua `realName` field, or null
+- `aliases`: from `altName` field (may be string or array), or empty array
+- `gender`: direct mapping
+- `origin`: direct mapping
+- `speed`: `{base: speed, percentage: Math.round(speed / 4.0 * 100), unit: "m/s"}` — base speed 4.0 m/s = 100%
+- `speedNotes`: derive from `altSpeed` array if present, otherwise null
+- `terrorRadius`: from `radius`
+- `terrorRadiusNotes`: from `altRadius` if present, otherwise null
+- `attackCategory`: if `specialAttack` is true → "Ranged", otherwise "Melee"
+- `attackDetail`: from `altAttackNote` or "Basic Attack"
+- `height`: map 'T' → "Tall", 'A' → "Average", 'S' → "Short"
+- `licensed`: from the DLC entry referenced by `dlc` field
+- `releaseDate`: from the DLC entry, convert "DD.MM.YYYY" to "YYYY-MM-DD"
+- `chapter`: from the DLC entry name
+- `powerName`: from `power` field
+- `weapon`: from `weapon` field
+- `portraitPath`: `/images/killers/<id>.webp`
+- `wikiUrl`: `https://deadbydaylight.wiki.gg/wiki/The_<Name>` (with underscores for spaces)
+
+**For survivors**, same DLC join pattern, simpler fields (no speed, TR, height, weapon, power).
+
+**For perks**, from `Module:Datatable/Loadout`:
+- Identify perk entries (distinguished from items/add-ons by their table location in the Lua module)
+- `role`: "killer" or "survivor" based on which table the perk belongs to
+- `owner`: character id derived from the associated character, or null for universal perks
+- `ownerName`: character display name, or null
+- `chapter`: from the owner's DLC, or null
+- `description`: parse the description template, replacing variable tier values with `{namedPlaceholder}` syntax
+- `tierValues`: extract the 3 tiers' values as `[{name: val}, {name: val}, {name: val}]`
+- `tags`: extract from the perk's category/tags in the Lua data
 
 ### Step 6: Present dry-run summary
 
@@ -88,39 +130,59 @@ If validation fails, fix the issues before proceeding.
 ```
 ## Data Update Summary
 
-**Total killers found**: X
-**New killers** (not in current data): [list]
-**Updated killers** (changed fields): [list with field-by-field changes]
-**Removed killers** (in current data but not on wiki): [list]
-**Validation errors**: [list, or "None"]
+**Updating**: [killers/survivors/perks/all]
+
+### Killers (if updating)
+**Total found**: X
+**New**: [list]
+**Updated** (changed fields): [list with changes]
+**Removed**: [list]
+
+### Survivors (if updating)
+**Total found**: X
+**New**: [list]
+**Updated**: [list with changes]
+**Removed**: [list]
+
+### Perks (if updating)
+**Killer perks found**: X
+**Survivor perks found**: X
+**New**: [list]
+**Updated**: [list]
+**Removed**: [list]
 
 Shall I proceed with writing these changes?
 ```
 
-Wait for the user to confirm before proceeding.
+Wait for user confirmation before proceeding.
 
 ### Step 7: Write data and download images
 
 On confirmation:
 
-1. Write the updated `src/data/killers.json` (formatted with tabs, sorted by release date)
-2. For each killer with a new or changed portrait, download the image:
+1. Write the updated JSON files (formatted with tabs, sorted by release date for characters, alphabetically for perks)
+2. For each new or changed portrait/icon, download the image:
    ```bash
-   node scripts/download-image.ts "<portrait-url>" "<killer-id>"
+   node scripts/download-image.ts "<image-url>" "<id>"
    ```
-3. Run validation again to confirm the written data is valid
+   Note: the image URL may need to be resolved from the wiki. Use `https://deadbydaylight.wiki.gg/wiki/Special:FilePath/<filename>` to get image URLs.
+3. Run validation:
+   ```bash
+   node scripts/validate-data.ts
+   ```
 
 ### Step 8: Final report
 
 Summarize what was done:
-- Number of killers written
+- Number of entries written per file
 - Number of images downloaded
-- Suggest reviewing changes with `git diff`
+- Suggest reviewing with `git diff`
 
-## Important notes
+## Important Notes
 
-- Always do a **full re-scrape** of all killers, not incremental
-- Use **best-effort** for missing data: if a field can't be extracted, use "Unknown" for strings or reasonable defaults
+- Always do a **full re-scrape** of the requested data types, not incremental
+- Use **best-effort** for missing data: "Unknown" for strings, reasonable defaults for numbers
 - The **dry-run summary is mandatory** — never write files without user confirmation
-- Sort killers by `releaseDate` in the JSON output
-- Format the JSON with tabs for indentation
+- Format JSON with tabs for indentation
+- Sort killers/survivors by `releaseDate`, perks alphabetically by `name`
+- Image paths: `/images/killers/<id>.webp`, `/images/survivors/<id>.webp`, `/images/perks/<id>.webp`

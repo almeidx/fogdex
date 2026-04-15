@@ -9,6 +9,9 @@ function copyDataPlugin(): Plugin {
 		writeBundle() {
 			mkdirSync("dist/data", { recursive: true });
 			copyFileSync("src/data/killers.json", "dist/data/killers.json");
+			copyFileSync("src/data/survivors.json", "dist/data/survivors.json");
+			copyFileSync("src/data/killer-perks.json", "dist/data/killer-perks.json");
+			copyFileSync("src/data/survivor-perks.json", "dist/data/survivor-perks.json");
 		},
 	};
 }

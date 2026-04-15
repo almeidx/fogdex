@@ -1,21 +1,18 @@
-import type { Killer, SortColumn, SortState } from "../types/killer.ts";
-import { SORT_COLUMNS } from "../types/killer.ts";
-import { KillerCard, KillerRow } from "./KillerRow.tsx";
+import type { Survivor, SurvivorSortColumn, SurvivorSortState } from "../types/survivor.ts";
+import { SURVIVOR_SORT_COLUMNS } from "../types/survivor.ts";
+import { SurvivorCard, SurvivorRow } from "./SurvivorRow.tsx";
 
-const SORT_LABELS: Record<SortColumn, string> = {
-	height: "Height",
+const SORT_LABELS: Record<SurvivorSortColumn, string> = {
 	licensed: "Licensed",
 	name: "Name",
 	origin: "Origin",
 	releaseDate: "Released",
-	speed: "Speed",
-	terrorRadius: "Terror Radius",
 };
 
-interface KillerTableProps {
-	killers: Killer[];
-	onSortChange: (sort: SortState) => void;
-	sort: SortState;
+interface SurvivorTableProps {
+	onSortChange: (sort: SurvivorSortState) => void;
+	sort: SurvivorSortState;
+	survivors: Survivor[];
 }
 
 function SortHeader({
@@ -24,9 +21,9 @@ function SortHeader({
 	onSort,
 	children,
 }: {
-	column: SortColumn;
-	sort: SortState;
-	onSort: (column: SortColumn) => void;
+	column: SurvivorSortColumn;
+	sort: SurvivorSortState;
+	onSort: (column: SurvivorSortColumn) => void;
 	children: React.ReactNode;
 }) {
 	const active = sort.column === column;
@@ -46,8 +43,8 @@ function SortHeader({
 	);
 }
 
-export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
-	const toggleSort = (column: SortColumn) => {
+export function SurvivorTable({ survivors, sort, onSortChange }: SurvivorTableProps) {
+	const toggleSort = (column: SurvivorSortColumn) => {
 		if (sort.column === column) {
 			onSortChange({ column, direction: sort.direction === "asc" ? "desc" : "asc" });
 		} else {
@@ -55,10 +52,10 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 		}
 	};
 
-	if (killers.length === 0) {
+	if (survivors.length === 0) {
 		return (
 			<div className="py-16 text-center text-text-muted">
-				<p className="text-lg">No killers match your filters</p>
+				<p className="text-lg">No survivors match your filters</p>
 				<p className="mt-2 text-sm">Try adjusting or clearing your filters.</p>
 			</div>
 		);
@@ -77,24 +74,21 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 							<SortHeader column="name" onSort={toggleSort} sort={sort}>
 								Name
 							</SortHeader>
-							<SortHeader column="speed" onSort={toggleSort} sort={sort}>
-								Speed
-							</SortHeader>
-							<SortHeader column="terrorRadius" onSort={toggleSort} sort={sort}>
-								TR
+							<th
+								className="sticky bg-surface/95 backdrop-blur-sm py-3 px-2 text-sm font-medium text-text-muted"
+								style={{ top: "var(--filter-bar-h, 0px)" }}
+							>
+								Gender
+							</th>
+							<SortHeader column="origin" onSort={toggleSort} sort={sort}>
+								Origin
 							</SortHeader>
 							<th
 								className="sticky bg-surface/95 backdrop-blur-sm py-3 px-2 text-sm font-medium text-text-muted"
 								style={{ top: "var(--filter-bar-h, 0px)" }}
 							>
-								Attack
+								Chapter
 							</th>
-							<SortHeader column="height" onSort={toggleSort} sort={sort}>
-								Height
-							</SortHeader>
-							<SortHeader column="origin" onSort={toggleSort} sort={sort}>
-								Origin
-							</SortHeader>
 							<SortHeader column="releaseDate" onSort={toggleSort} sort={sort}>
 								Released
 							</SortHeader>
@@ -108,8 +102,8 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 						</tr>
 					</thead>
 					<tbody>
-						{killers.map((killer, i) => (
-							<KillerRow key={killer.id} killer={killer} priority={i < 10} />
+						{survivors.map((survivor, i) => (
+							<SurvivorRow key={survivor.id} priority={i < 10} survivor={survivor} />
 						))}
 					</tbody>
 				</table>
@@ -119,10 +113,10 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 				<span className="text-xs text-text-muted">Sort by</span>
 				<select
 					className="rounded border border-border bg-surface px-2 py-1.5 text-sm text-text"
-					onChange={(e) => onSortChange({ column: e.target.value as SortColumn, direction: sort.direction })}
+					onChange={(e) => onSortChange({ column: e.target.value as SurvivorSortColumn, direction: sort.direction })}
 					value={sort.column}
 				>
-					{SORT_COLUMNS.map((col) => (
+					{SURVIVOR_SORT_COLUMNS.map((col) => (
 						<option key={col} value={col}>
 							{SORT_LABELS[col]}
 						</option>
@@ -138,8 +132,8 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 			</div>
 
 			<div className="space-y-3 md:hidden">
-				{killers.map((killer, i) => (
-					<KillerCard key={killer.id} killer={killer} priority={i < 4} />
+				{survivors.map((survivor, i) => (
+					<SurvivorCard key={survivor.id} priority={i < 4} survivor={survivor} />
 				))}
 			</div>
 		</>

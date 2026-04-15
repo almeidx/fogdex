@@ -1,72 +1,31 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { AttackCategory, Filters, Gender, Height, Killer } from "../types/killer.ts";
-import { ATTACK_CATEGORIES, GENDERS, HEIGHTS } from "../types/killer.ts";
+import type { Gender, LicensedOption } from "../types/killer.ts";
+import { GENDERS } from "../types/killer.ts";
+import type { Survivor, SurvivorFilters } from "../types/survivor.ts";
 import { MultiSelect } from "./MultiSelect.tsx";
 
-interface FilterBarProps {
+interface SurvivorFilterBarProps {
 	filteredCount: number;
-	filters: Filters;
-	killers: Killer[];
+	filters: SurvivorFilters;
 	onClear: () => void;
-	onFilterChange: <K extends keyof Filters>(key: K, value: Filters[K]) => void;
+	onFilterChange: <K extends keyof SurvivorFilters>(key: K, value: SurvivorFilters[K]) => void;
 	ref?: React.Ref<HTMLDivElement>;
+	survivors: Survivor[];
 	totalCount: number;
 }
 
-function RangeFilter({
-	label,
-	unit,
-	step,
-	valueMin,
-	valueMax,
-	onChangeMin,
-	onChangeMax,
-}: {
-	label: string;
-	unit: string;
-	step: number;
-	valueMin: number | null;
-	valueMax: number | null;
-	onChangeMin: (v: number | null) => void;
-	onChangeMax: (v: number | null) => void;
-}) {
-	return (
-		<div className="flex items-center gap-1.5 text-sm">
-			<span className="text-text-muted">{label}</span>
-			<input
-				className="w-16 rounded border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-muted/50 focus:border-accent/50 focus:outline-none transition-colors"
-				onChange={(e) => onChangeMin(e.target.value ? Number(e.target.value) : null)}
-				placeholder="min"
-				step={step}
-				type="number"
-				value={valueMin ?? ""}
-			/>
-			<span className="text-text-muted">&ndash;</span>
-			<input
-				className="w-16 rounded border border-border bg-surface px-2 py-1.5 text-sm text-text placeholder:text-text-muted/50 focus:border-accent/50 focus:outline-none transition-colors"
-				onChange={(e) => onChangeMax(e.target.value ? Number(e.target.value) : null)}
-				placeholder="max"
-				step={step}
-				type="number"
-				value={valueMax ?? ""}
-			/>
-			<span className="text-xs text-text-muted">{unit}</span>
-		</div>
-	);
-}
-
-export function FilterBar({
+export function SurvivorFilterBar({
 	filteredCount,
 	filters,
 	onFilterChange,
 	onClear,
-	killers,
+	survivors,
 	ref,
 	totalCount,
-}: FilterBarProps) {
+}: SurvivorFilterBarProps) {
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const searchRef = useRef<HTMLInputElement>(null);
-	const origins = useMemo(() => [...new Set(killers.map((k) => k.origin))].sort(), [killers]);
+	const origins = useMemo(() => [...new Set(survivors.map((s) => s.origin))].sort(), [survivors]);
 
 	const searchValueRef = useRef(filters.search);
 	searchValueRef.current = filters.search;
@@ -93,43 +52,15 @@ export function FilterBar({
 	if (filters.search) {
 		chips.push({ key: "search", label: `"${filters.search}"`, onRemove: () => onFilterChange("search", "") });
 	}
-	if (filters.speedMin !== null || filters.speedMax !== null) {
-		const parts: string[] = [];
-		if (filters.speedMin !== null) parts.push(`\u2265${filters.speedMin}`);
-		if (filters.speedMax !== null) parts.push(`\u2264${filters.speedMax}`);
-		chips.push({
-			key: "speed",
-			label: `Speed: ${parts.join(", ")} m/s`,
-			onRemove: () => {
-				onFilterChange("speedMin", null);
-				onFilterChange("speedMax", null);
-			},
-		});
-	}
-	if (filters.trMin !== null || filters.trMax !== null) {
-		const parts: string[] = [];
-		if (filters.trMin !== null) parts.push(`\u2265${filters.trMin}`);
-		if (filters.trMax !== null) parts.push(`\u2264${filters.trMax}`);
-		chips.push({
-			key: "tr",
-			label: `TR: ${parts.join(", ")}m`,
-			onRemove: () => {
-				onFilterChange("trMin", null);
-				onFilterChange("trMax", null);
-			},
-		});
-	}
 	for (const [key, values] of [
-		["heights", filters.heights],
 		["genders", filters.genders],
-		["attackCategories", filters.attackCategories],
 		["origins", filters.origins],
 	] as const) {
 		for (const v of values) {
 			chips.push({
 				key: `${key}-${v}`,
 				label: v,
-				onRemove: () => onFilterChange(key, values.filter((x) => x !== v) as Filters[typeof key]),
+				onRemove: () => onFilterChange(key, values.filter((x) => x !== v) as SurvivorFilters[typeof key]),
 			});
 		}
 	}
@@ -164,48 +95,17 @@ export function FilterBar({
 					<input
 						className="w-full rounded border border-border bg-surface px-3 py-1.5 text-sm text-text placeholder:text-text-muted/50 focus:border-accent/50 focus:outline-none transition-colors md:w-48"
 						onChange={(e) => onFilterChange("search", e.target.value)}
-						placeholder="Search killers..."
+						placeholder="Search survivors..."
 						ref={searchRef}
 						type="text"
 						value={filters.search}
 					/>
 
-					<RangeFilter
-						label="Speed"
-						onChangeMax={(v) => onFilterChange("speedMax", v)}
-						onChangeMin={(v) => onFilterChange("speedMin", v)}
-						step={0.05}
-						unit="m/s"
-						valueMax={filters.speedMax}
-						valueMin={filters.speedMin}
-					/>
-					<RangeFilter
-						label="TR"
-						onChangeMax={(v) => onFilterChange("trMax", v)}
-						onChangeMin={(v) => onFilterChange("trMin", v)}
-						step={1}
-						unit="m"
-						valueMax={filters.trMax}
-						valueMin={filters.trMin}
-					/>
-
-					<MultiSelect
-						label="Height"
-						onChange={(v) => onFilterChange("heights", v as Height[])}
-						options={HEIGHTS}
-						selected={filters.heights}
-					/>
 					<MultiSelect
 						label="Gender"
 						onChange={(v) => onFilterChange("genders", v as Gender[])}
 						options={GENDERS}
 						selected={filters.genders}
-					/>
-					<MultiSelect
-						label="Attack"
-						onChange={(v) => onFilterChange("attackCategories", v as AttackCategory[])}
-						options={ATTACK_CATEGORIES}
-						selected={filters.attackCategories}
 					/>
 					<MultiSelect
 						label="Origin"
@@ -223,7 +123,7 @@ export function FilterBar({
 										: "bg-surface text-text-muted hover:border-accent/50 hover:text-text"
 								}`}
 								key={v}
-								onClick={() => onFilterChange("licensed", v)}
+								onClick={() => onFilterChange("licensed", v as LicensedOption)}
 								type="button"
 							>
 								{v === "all" ? "All" : v === "yes" ? "Licensed" : "Original"}

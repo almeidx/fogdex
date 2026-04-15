@@ -7,6 +7,7 @@
 		"build:typecheck": "tsc --noEmit",
 		"dev": "vite",
 		"download-image": "node scripts/download-image.ts",
+		"download-images": "node scripts/batch-download-images.ts",
 		"fmt": "biome check --write",
 		"lint": "biome check",
 		"preview": "vite preview",

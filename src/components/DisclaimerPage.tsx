@@ -1,3 +1,6 @@
+import { Footer } from "./Footer.tsx";
+import { NavBar } from "./NavBar.tsx";
+
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
 	return (
 		<div className="py-4">
@@ -10,13 +13,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 export function DisclaimerPage() {
 	return (
 		<div className="min-h-screen flex flex-col">
-			<header className="border-b border-border px-6 py-8 text-center">
-				<a className="inline-block" href="/">
-					<h1 className="text-4xl font-bold tracking-tight">
-						Fog<span className="text-accent">dex</span>
-					</h1>
-				</a>
-			</header>
+			<NavBar />
 
 			<main className="mx-auto w-full max-w-2xl flex-1 px-6 py-10">
 				<h2 className="text-2xl font-bold text-text">Disclaimer</h2>
@@ -24,16 +21,16 @@ export function DisclaimerPage() {
 				<div className="mt-6 divide-y divide-border/50">
 					<Section title="Purpose">
 						Fogdex is a fan-made, non-commercial project created for educational and informational purposes. It serves
-						as a quick-reference tool for Dead by Daylight killer statistics.
+						as a quick-reference tool for Dead by Daylight statistics.
 					</Section>
 
 					<Section title="Copyright">
-						Dead by Daylight is a registered trademark of Behaviour Interactive Inc. All killer names, portraits, terror
-						radius audio, and related game content are the property of Behaviour Interactive Inc.
+						Dead by Daylight is a registered trademark of Behaviour Interactive Inc. All character names, portraits,
+						perk icons, terror radius audio, and related game content are the property of Behaviour Interactive Inc.
 					</Section>
 
 					<Section title="Content Sources">
-						Killer data, images, and audio files are sourced from the{" "}
+						Data, images, and audio files are sourced from the{" "}
 						<a
 							className="text-accent hover:text-accent-light underline underline-offset-2"
 							href="https://deadbydaylight.wiki.gg"
@@ -79,11 +76,7 @@ export function DisclaimerPage() {
 				</div>
 			</main>
 
-			<footer className="border-t border-border px-6 py-8 text-center text-sm text-text-muted">
-				<a className="text-accent hover:text-accent-light underline" href="/">
-					Back to Fogdex
-				</a>
-			</footer>
+			<Footer />
 		</div>
 	);
 }
