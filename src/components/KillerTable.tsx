@@ -1,5 +1,16 @@
 import type { Killer, SortColumn, SortState } from "../types/killer.ts";
+import { SORT_COLUMNS } from "../types/killer.ts";
 import { KillerCard, KillerRow } from "./KillerRow.tsx";
+
+const SORT_LABELS: Record<SortColumn, string> = {
+	height: "Height",
+	licensed: "Licensed",
+	name: "Name",
+	origin: "Origin",
+	releaseDate: "Released",
+	speed: "Speed",
+	terrorRadius: "Terror Radius",
+};
 
 interface KillerTableProps {
 	killers: Killer[];
@@ -20,7 +31,7 @@ function SortHeader({
 }) {
 	const active = sort.column === column;
 	return (
-		<th className="py-3 px-2">
+		<th className="sticky bg-surface/95 backdrop-blur-sm py-3 px-2" style={{ top: "var(--filter-bar-h, 0px)" }}>
 			<button
 				className={`flex items-center gap-1 text-left text-sm font-medium transition-colors ${
 					active ? "text-accent" : "text-text-muted hover:text-text"
@@ -55,11 +66,14 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 
 	return (
 		<>
-			<div className="hidden overflow-x-auto md:block">
+			<div className="hidden md:block">
 				<table className="w-full">
 					<thead>
 						<tr className="border-b border-border text-left">
-							<th className="w-14 py-3 px-2" />
+							<th
+								className="sticky bg-surface/95 backdrop-blur-sm w-14 py-3 px-2"
+								style={{ top: "var(--filter-bar-h, 0px)" }}
+							/>
 							<SortHeader column="name" onSort={toggleSort} sort={sort}>
 								Name
 							</SortHeader>
@@ -69,7 +83,12 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 							<SortHeader column="terrorRadius" onSort={toggleSort} sort={sort}>
 								TR
 							</SortHeader>
-							<th className="py-3 px-2 text-sm font-medium text-text-muted">Attack</th>
+							<th
+								className="sticky bg-surface/95 backdrop-blur-sm py-3 px-2 text-sm font-medium text-text-muted"
+								style={{ top: "var(--filter-bar-h, 0px)" }}
+							>
+								Attack
+							</th>
 							<SortHeader column="height" onSort={toggleSort} sort={sort}>
 								Height
 							</SortHeader>
@@ -90,6 +109,28 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 						))}
 					</tbody>
 				</table>
+			</div>
+
+			<div className="flex items-center gap-2 mb-3 md:hidden">
+				<span className="text-xs text-text-muted">Sort by</span>
+				<select
+					className="rounded border border-border bg-surface px-2 py-1.5 text-sm text-text"
+					onChange={(e) => onSortChange({ column: e.target.value as SortColumn, direction: sort.direction })}
+					value={sort.column}
+				>
+					{SORT_COLUMNS.map((col) => (
+						<option key={col} value={col}>
+							{SORT_LABELS[col]}
+						</option>
+					))}
+				</select>
+				<button
+					className="rounded border border-border bg-surface px-2 py-1.5 text-sm text-text-muted hover:text-text transition-colors"
+					onClick={() => onSortChange({ column: sort.column, direction: sort.direction === "asc" ? "desc" : "asc" })}
+					type="button"
+				>
+					{sort.direction === "asc" ? "\u2191 Asc" : "\u2193 Desc"}
+				</button>
 			</div>
 
 			<div className="space-y-3 md:hidden">

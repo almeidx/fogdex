@@ -3,10 +3,13 @@ import type { AttackCategory, Filters, Gender, Height, Killer } from "../types/k
 import { ATTACK_CATEGORIES, GENDERS, HEIGHTS } from "../types/killer.ts";
 
 interface FilterBarProps {
+	filteredCount: number;
 	filters: Filters;
 	killers: Killer[];
 	onClear: () => void;
 	onFilterChange: <K extends keyof Filters>(key: K, value: Filters[K]) => void;
+	ref?: React.Ref<HTMLDivElement>;
+	totalCount: number;
 }
 
 function MultiSelect<T extends string>({
@@ -32,6 +35,17 @@ function MultiSelect<T extends string>({
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, []);
+
+	useEffect(() => {
+		if (!open) return;
+		function handleKeyDown(e: KeyboardEvent) {
+			if (e.key === "Escape") {
+				setOpen(false);
+			}
+		}
+		document.addEventListener("keydown", handleKeyDown);
+		return () => document.removeEventListener("keydown", handleKeyDown);
+	}, [open]);
 
 	const toggle = (option: T) => {
 		if (selected.includes(option)) {
@@ -118,9 +132,36 @@ function RangeFilter({
 	);
 }
 
-export function FilterBar({ filters, onFilterChange, onClear, killers }: FilterBarProps) {
+export function FilterBar({
+	filteredCount,
+	filters,
+	onFilterChange,
+	onClear,
+	killers,
+	ref,
+	totalCount,
+}: FilterBarProps) {
 	const [mobileOpen, setMobileOpen] = useState(false);
+	const searchRef = useRef<HTMLInputElement>(null);
 	const origins = useMemo(() => [...new Set(killers.map((k) => k.origin))].sort(), [killers]);
+
+	useEffect(() => {
+		function handleKeyDown(e: KeyboardEvent) {
+			if (e.key === "/" && !(e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement)) {
+				e.preventDefault();
+				searchRef.current?.focus();
+			}
+			if (e.key === "Escape" && document.activeElement === searchRef.current) {
+				if (filters.search) {
+					onFilterChange("search", "");
+				} else {
+					searchRef.current?.blur();
+				}
+			}
+		}
+		document.addEventListener("keydown", handleKeyDown);
+		return () => document.removeEventListener("keydown", handleKeyDown);
+	}, [filters.search, onFilterChange]);
 
 	const activeCount = [
 		filters.search,
@@ -135,8 +176,90 @@ export function FilterBar({ filters, onFilterChange, onClear, killers }: FilterB
 		filters.origins.length > 0,
 	].filter(Boolean).length;
 
+	const chips: { key: string; label: string; onRemove: () => void }[] = [];
+	if (filters.search) {
+		chips.push({ key: "search", label: `"${filters.search}"`, onRemove: () => onFilterChange("search", "") });
+	}
+	if (filters.speedMin !== null || filters.speedMax !== null) {
+		const parts: string[] = [];
+		if (filters.speedMin !== null) parts.push(`\u2265${filters.speedMin}`);
+		if (filters.speedMax !== null) parts.push(`\u2264${filters.speedMax}`);
+		chips.push({
+			key: "speed",
+			label: `Speed: ${parts.join(", ")} m/s`,
+			onRemove: () => {
+				onFilterChange("speedMin", null);
+				onFilterChange("speedMax", null);
+			},
+		});
+	}
+	if (filters.trMin !== null || filters.trMax !== null) {
+		const parts: string[] = [];
+		if (filters.trMin !== null) parts.push(`\u2265${filters.trMin}`);
+		if (filters.trMax !== null) parts.push(`\u2264${filters.trMax}`);
+		chips.push({
+			key: "tr",
+			label: `TR: ${parts.join(", ")}m`,
+			onRemove: () => {
+				onFilterChange("trMin", null);
+				onFilterChange("trMax", null);
+			},
+		});
+	}
+	for (const h of filters.heights) {
+		chips.push({
+			key: `height-${h}`,
+			label: h,
+			onRemove: () =>
+				onFilterChange(
+					"heights",
+					filters.heights.filter((x) => x !== h),
+				),
+		});
+	}
+	for (const g of filters.genders) {
+		chips.push({
+			key: `gender-${g}`,
+			label: g,
+			onRemove: () =>
+				onFilterChange(
+					"genders",
+					filters.genders.filter((x) => x !== g),
+				),
+		});
+	}
+	for (const a of filters.attackCategories) {
+		chips.push({
+			key: `attack-${a}`,
+			label: a,
+			onRemove: () =>
+				onFilterChange(
+					"attackCategories",
+					filters.attackCategories.filter((x) => x !== a),
+				),
+		});
+	}
+	for (const o of filters.origins) {
+		chips.push({
+			key: `origin-${o}`,
+			label: o,
+			onRemove: () =>
+				onFilterChange(
+					"origins",
+					filters.origins.filter((x) => x !== o),
+				),
+		});
+	}
+	if (filters.licensed !== "all") {
+		chips.push({
+			key: "licensed",
+			label: filters.licensed === "yes" ? "Licensed" : "Original",
+			onRemove: () => onFilterChange("licensed", "all"),
+		});
+	}
+
 	return (
-		<div className="sticky top-0 z-10 border-b border-border bg-surface/95 backdrop-blur-sm">
+		<div className="sticky top-0 z-10 border-b border-border bg-surface/95 backdrop-blur-sm" ref={ref}>
 			<div className="md:hidden flex items-center justify-between px-4 py-3">
 				<button
 					className="flex items-center gap-2 text-sm text-text-muted hover:text-text transition-colors"
@@ -154,94 +277,112 @@ export function FilterBar({ filters, onFilterChange, onClear, killers }: FilterB
 			</div>
 
 			<div className={`${mobileOpen ? "block" : "hidden"} md:block px-4 py-3`}>
-				<div className="mx-auto max-w-350 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center">
+				<div className="mx-auto max-w-350 flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:gap-2">
 					<input
 						className="w-full rounded border border-border bg-surface px-3 py-1.5 text-sm text-text placeholder:text-text-muted/50 focus:border-accent/50 focus:outline-none transition-colors md:w-48"
 						onChange={(e) => onFilterChange("search", e.target.value)}
 						placeholder="Search killers..."
+						ref={searchRef}
 						type="text"
 						value={filters.search}
 					/>
 
-					<div className="h-5 w-px bg-border hidden md:block" />
+					<RangeFilter
+						label="Speed"
+						onChangeMax={(v) => onFilterChange("speedMax", v)}
+						onChangeMin={(v) => onFilterChange("speedMin", v)}
+						step={0.05}
+						unit="m/s"
+						valueMax={filters.speedMax}
+						valueMin={filters.speedMin}
+					/>
+					<RangeFilter
+						label="TR"
+						onChangeMax={(v) => onFilterChange("trMax", v)}
+						onChangeMin={(v) => onFilterChange("trMin", v)}
+						step={1}
+						unit="m"
+						valueMax={filters.trMax}
+						valueMin={filters.trMin}
+					/>
 
-					<div className="flex flex-wrap items-center gap-2">
-						<RangeFilter
-							label="Speed"
-							onChangeMax={(v) => onFilterChange("speedMax", v)}
-							onChangeMin={(v) => onFilterChange("speedMin", v)}
-							step={0.05}
-							unit="m/s"
-							valueMax={filters.speedMax}
-							valueMin={filters.speedMin}
-						/>
+					<MultiSelect
+						label="Height"
+						onChange={(v) => onFilterChange("heights", v as Height[])}
+						options={HEIGHTS}
+						selected={filters.heights}
+					/>
+					<MultiSelect
+						label="Gender"
+						onChange={(v) => onFilterChange("genders", v as Gender[])}
+						options={GENDERS}
+						selected={filters.genders}
+					/>
+					<MultiSelect
+						label="Attack"
+						onChange={(v) => onFilterChange("attackCategories", v as AttackCategory[])}
+						options={ATTACK_CATEGORIES}
+						selected={filters.attackCategories}
+					/>
+					<MultiSelect
+						label="Origin"
+						onChange={(v) => onFilterChange("origins", v)}
+						options={origins}
+						selected={filters.origins}
+					/>
 
-						<RangeFilter
-							label="TR"
-							onChangeMax={(v) => onFilterChange("trMax", v)}
-							onChangeMin={(v) => onFilterChange("trMin", v)}
-							step={1}
-							unit="m"
-							valueMax={filters.trMax}
-							valueMin={filters.trMin}
-						/>
+					<div className="flex items-center gap-1">
+						{(["all", "yes", "no"] as const).map((v) => (
+							<button
+								className={`rounded border border-border px-2.5 py-1.5 text-sm font-medium transition-colors ${
+									filters.licensed === v
+										? "bg-accent border-accent text-white"
+										: "bg-surface text-text-muted hover:border-accent/50 hover:text-text"
+								}`}
+								key={v}
+								onClick={() => onFilterChange("licensed", v)}
+								type="button"
+							>
+								{v === "all" ? "All" : v === "yes" ? "Licensed" : "Original"}
+							</button>
+						))}
 					</div>
-
-					<div className="h-5 w-px bg-border hidden md:block" />
-
-					<div className="flex flex-wrap items-center gap-2">
-						<MultiSelect
-							label="Height"
-							onChange={(v) => onFilterChange("heights", v as Height[])}
-							options={HEIGHTS}
-							selected={filters.heights}
-						/>
-						<MultiSelect
-							label="Gender"
-							onChange={(v) => onFilterChange("genders", v as Gender[])}
-							options={GENDERS}
-							selected={filters.genders}
-						/>
-						<MultiSelect
-							label="Attack"
-							onChange={(v) => onFilterChange("attackCategories", v as AttackCategory[])}
-							options={ATTACK_CATEGORIES}
-							selected={filters.attackCategories}
-						/>
-						<MultiSelect
-							label="Origin"
-							onChange={(v) => onFilterChange("origins", v)}
-							options={origins}
-							selected={filters.origins}
-						/>
-
-						<div className="flex items-center gap-1">
-							{(["all", "yes", "no"] as const).map((v) => (
-								<button
-									className={`rounded px-2.5 py-1 text-xs font-medium transition-colors ${
-										filters.licensed === v ? "bg-accent text-white" : "bg-surface-light text-text-muted hover:text-text"
-									}`}
-									key={v}
-									onClick={() => onFilterChange("licensed", v)}
-									type="button"
-								>
-									{v === "all" ? "All" : v === "yes" ? "Licensed" : "Original"}
-								</button>
-							))}
-						</div>
-					</div>
-
-					{activeCount > 0 && (
-						<button
-							className="ml-auto hidden text-xs text-accent hover:text-accent-light md:inline"
-							onClick={onClear}
-							type="button"
-						>
-							Clear ({activeCount})
-						</button>
-					)}
 				</div>
 			</div>
+
+			{activeCount > 0 && (
+				<div className="px-4 pb-3">
+					<div className="mx-auto max-w-350 flex items-center gap-3">
+						<div className="flex flex-1 flex-wrap gap-1.5">
+							{chips.map((chip) => (
+								<span
+									className="flex items-center gap-1 rounded-full bg-surface-light px-2.5 py-1 text-xs text-text-muted"
+									key={chip.key}
+								>
+									{chip.label}
+									<button
+										className="ml-0.5 text-text-muted/70 hover:text-text transition-colors"
+										onClick={chip.onRemove}
+										type="button"
+									>
+										{"\u00d7"}
+									</button>
+								</span>
+							))}
+						</div>
+						<div className="hidden shrink-0 items-center gap-2 text-xs text-text-muted md:flex">
+							{filteredCount < totalCount && (
+								<span>
+									{filteredCount} of {totalCount}
+								</span>
+							)}
+							<button className="text-accent hover:text-accent-light" onClick={onClear} type="button">
+								Clear all
+							</button>
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }

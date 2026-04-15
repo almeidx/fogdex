@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { FilterBar } from "./components/FilterBar.tsx";
 import { KillerTable } from "./components/KillerTable.tsx";
 import killersData from "./data/killers.json";
@@ -8,6 +9,17 @@ const killers = killersData as Killer[];
 
 export function App() {
 	const { filters, sort, setFilter, setSort, filteredKillers, clearFilters } = useFilters(killers);
+	const filterBarRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const el = filterBarRef.current;
+		if (!el) return;
+		const observer = new ResizeObserver(() => {
+			document.documentElement.style.setProperty("--filter-bar-h", `${el.offsetHeight}px`);
+		});
+		observer.observe(el);
+		return () => observer.disconnect();
+	}, []);
 
 	return (
 		<div className="min-h-screen flex flex-col">
@@ -21,7 +33,15 @@ export function App() {
 
 			{killers.length > 0 ? (
 				<>
-					<FilterBar filters={filters} killers={killers} onClear={clearFilters} onFilterChange={setFilter} />
+					<FilterBar
+						filteredCount={filteredKillers.length}
+						filters={filters}
+						killers={killers}
+						onClear={clearFilters}
+						onFilterChange={setFilter}
+						ref={filterBarRef}
+						totalCount={killers.length}
+					/>
 
 					<main className="mx-auto w-full max-w-350 flex-1 px-4 py-6">
 						<KillerTable killers={filteredKillers} onSortChange={setSort} sort={sort} />
