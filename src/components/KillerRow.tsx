@@ -35,17 +35,13 @@ export function KillerRow({ killer }: { killer: Killer }) {
 				<span>{killer.speed.base} m/s</span>
 				<span className="ml-1 text-xs text-text-muted">{killer.speed.percentage}%</span>
 				{killer.speedNotes && (
-					<span className="ml-1 cursor-help text-xs text-gold" title={killer.speedNotes}>
-						*
-					</span>
+					<div className="text-[0.65rem] leading-tight text-text-muted/70">{killer.speedNotes}</div>
 				)}
 			</td>
 			<td className="py-2 px-2 tabular-nums">
 				{killer.terrorRadius}m
 				{killer.terrorRadiusNotes && (
-					<span className="ml-1 cursor-help text-xs text-gold" title={killer.terrorRadiusNotes}>
-						*
-					</span>
+					<div className="text-[0.65rem] leading-tight text-text-muted/70">{killer.terrorRadiusNotes}</div>
 				)}
 			</td>
 			<td className="py-2 px-2">
@@ -83,17 +79,13 @@ export function KillerCard({ killer }: { killer: Killer }) {
 					<span>
 						{killer.speed.base} m/s
 						{killer.speedNotes && (
-							<span className="ml-0.5 text-gold" title={killer.speedNotes}>
-								*
-							</span>
+							<span className="ml-0.5 text-[0.6rem] text-text-muted/70">({killer.speedNotes})</span>
 						)}
 					</span>
 					<span>
 						TR {killer.terrorRadius}m
 						{killer.terrorRadiusNotes && (
-							<span className="ml-0.5 text-gold" title={killer.terrorRadiusNotes}>
-								*
-							</span>
+							<span className="ml-0.5 text-[0.6rem] text-text-muted/70">({killer.terrorRadiusNotes})</span>
 						)}
 					</span>
 					<AttackBadge category={killer.attackCategory} detail={killer.attackDetail} />
