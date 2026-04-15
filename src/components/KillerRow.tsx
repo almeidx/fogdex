@@ -77,14 +77,15 @@ function AttackBadge({ category, detail }: { category: string; detail: string })
 	);
 }
 
-export function KillerRow({ killer }: { killer: Killer }) {
+export function KillerRow({ killer, priority }: { killer: Killer; priority: boolean }) {
 	return (
 		<tr className="border-b border-border/50 transition-colors hover:bg-surface-light/50">
 			<td className="py-2 px-2">
 				<img
 					alt=""
 					className="h-12 w-12 rounded bg-surface object-cover"
-					loading="lazy"
+					fetchPriority={priority ? "high" : "auto"}
+					loading={priority ? "eager" : "lazy"}
 					src={`${import.meta.env.VITE_CDN_URL}${killer.portraitPath}`}
 				/>
 			</td>
@@ -127,13 +128,14 @@ export function KillerRow({ killer }: { killer: Killer }) {
 	);
 }
 
-export function KillerCard({ killer }: { killer: Killer }) {
+export function KillerCard({ killer, priority }: { killer: Killer; priority: boolean }) {
 	return (
 		<div className="flex gap-3 rounded-lg border border-border bg-surface p-3">
 			<img
 				alt=""
 				className="size-16 shrink-0 rounded bg-surface-light object-cover"
-				loading="lazy"
+				fetchPriority={priority ? "high" : "auto"}
+				loading={priority ? "eager" : "lazy"}
 				src={`${import.meta.env.VITE_CDN_URL}${killer.portraitPath}`}
 			/>
 			<div className="min-w-0 flex-1">

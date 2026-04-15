@@ -104,8 +104,8 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 						</tr>
 					</thead>
 					<tbody>
-						{killers.map((killer) => (
-							<KillerRow key={killer.id} killer={killer} />
+						{killers.map((killer, i) => (
+							<KillerRow key={killer.id} killer={killer} priority={i < 10} />
 						))}
 					</tbody>
 				</table>
@@ -134,8 +134,8 @@ export function KillerTable({ killers, sort, onSortChange }: KillerTableProps) {
 			</div>
 
 			<div className="space-y-3 md:hidden">
-				{killers.map((killer) => (
-					<KillerCard key={killer.id} killer={killer} />
+				{killers.map((killer, i) => (
+					<KillerCard key={killer.id} killer={killer} priority={i < 4} />
 				))}
 			</div>
 		</>
