@@ -1,4 +1,63 @@
+import { useEffect, useState } from "react";
 import type { Killer } from "../types/killer.ts";
+
+let currentAudio: HTMLAudioElement | null = null;
+
+function PlayButton({ killerId }: { killerId: string }) {
+	const [playing, setPlaying] = useState(false);
+
+	useEffect(() => {
+		function handleChange(e: Event) {
+			setPlaying((e as CustomEvent).detail === killerId);
+		}
+		document.addEventListener("tr-audio-change", handleChange);
+		return () => document.removeEventListener("tr-audio-change", handleChange);
+	}, [killerId]);
+
+	const toggle = () => {
+		if (playing) {
+			currentAudio?.pause();
+			currentAudio = null;
+			document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: null }));
+		} else {
+			currentAudio?.pause();
+			const audio = new Audio(`${import.meta.env.VITE_CDN_URL}/audio/tr/${killerId}.ogg`);
+			currentAudio = audio;
+			audio.play();
+			document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: killerId }));
+			audio.addEventListener("ended", () => {
+				if (currentAudio === audio) {
+					currentAudio = null;
+					document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: null }));
+				}
+			});
+		}
+	};
+
+	return (
+		<button
+			className={`flex size-6 items-center justify-center rounded-full border transition-colors ${
+				playing
+					? "border-accent bg-accent/20 text-accent"
+					: "border-border bg-surface-light text-text-muted hover:border-accent/50 hover:text-accent"
+			}`}
+			onClick={toggle}
+			title={playing ? "Stop terror radius" : "Play terror radius"}
+			type="button"
+		>
+			{playing ? (
+				<svg aria-hidden="true" className="size-2.5" fill="currentColor" viewBox="0 0 16 16">
+					<rect height="12" width="3" x="3" y="2" />
+					<rect height="12" width="3" x="10" y="2" />
+				</svg>
+			) : (
+				<svg aria-hidden="true" className="size-2.5 ml-0.5" fill="currentColor" viewBox="0 0 16 16">
+					<path d="M4 2l10 6-10 6V2z" />
+				</svg>
+			)}
+		</button>
+	);
+}
 
 function formatDate(iso: string): string {
 	const date = new Date(`${iso}T00:00:00`);
@@ -23,7 +82,12 @@ export function KillerRow({ killer }: { killer: Killer }) {
 	return (
 		<tr className="border-b border-border/50 transition-colors hover:bg-surface-light/50">
 			<td className="py-2 px-2">
-				<img alt="" className="h-12 w-12 rounded bg-surface object-cover" loading="lazy" src={killer.portraitPath} />
+				<img
+					alt=""
+					className="h-12 w-12 rounded bg-surface object-cover"
+					loading="lazy"
+					src={`${import.meta.env.VITE_CDN_URL}${killer.portraitPath}`}
+				/>
 			</td>
 			<td className="py-2 px-2">
 				<a className="group" href={killer.wikiUrl} rel="noopener noreferrer" target="_blank">
@@ -39,7 +103,10 @@ export function KillerRow({ killer }: { killer: Killer }) {
 				)}
 			</td>
 			<td className="py-2 px-2 tabular-nums">
-				{killer.terrorRadius}m
+				<div className="flex items-center gap-1.5">
+					<PlayButton killerId={killer.id} />
+					<span>{killer.terrorRadius}m</span>
+				</div>
 				{killer.terrorRadiusNotes && (
 					<div className="text-[0.65rem] leading-tight text-text-muted/70">{killer.terrorRadiusNotes}</div>
 				)}
@@ -68,7 +135,7 @@ export function KillerCard({ killer }: { killer: Killer }) {
 				alt=""
 				className="size-16 shrink-0 rounded bg-surface-light object-cover"
 				loading="lazy"
-				src={killer.portraitPath}
+				src={`${import.meta.env.VITE_CDN_URL}${killer.portraitPath}`}
 			/>
 			<div className="min-w-0 flex-1">
 				<a className="group" href={killer.wikiUrl} rel="noopener noreferrer" target="_blank">
@@ -82,7 +149,8 @@ export function KillerCard({ killer }: { killer: Killer }) {
 							<span className="ml-0.5 text-[0.6rem] text-text-muted/70">({killer.speedNotes})</span>
 						)}
 					</span>
-					<span>
+					<span className="inline-flex items-center gap-1">
+						<PlayButton killerId={killer.id} />
 						TR {killer.terrorRadius}m
 						{killer.terrorRadiusNotes && (
 							<span className="ml-0.5 text-[0.6rem] text-text-muted/70">({killer.terrorRadiusNotes})</span>
