@@ -1,7 +1,7 @@
 export const GENDERS = ["Man", "Woman", "Unknown"] as const;
 export type Gender = (typeof GENDERS)[number];
 
-export const ATTACK_CATEGORIES = ["Melee", "Ranged", "Hybrid"] as const;
+export const ATTACK_CATEGORIES = ["Melee", "Ranged"] as const;
 export type AttackCategory = (typeof ATTACK_CATEGORIES)[number];
 
 export const HEIGHTS = ["Short", "Average", "Tall"] as const;

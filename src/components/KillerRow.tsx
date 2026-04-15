@@ -65,7 +65,6 @@ function formatDate(iso: string): string {
 }
 
 const ATTACK_BADGE_STYLES: Record<string, string> = {
-	Hybrid: "bg-purple-500/20 text-purple-300",
 	Melee: "bg-gray-500/20 text-gray-300",
 	Ranged: "bg-blue-500/20 text-blue-300",
 };
