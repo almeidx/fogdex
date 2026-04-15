@@ -1,7 +1,18 @@
 import { useEffect, useState } from "react";
-import type { Killer } from "../types/killer.ts";
+import type { AttackCategory, Killer } from "../types/killer.ts";
+
+const CDN_URL = import.meta.env.VITE_CDN_URL;
 
 let currentAudio: HTMLAudioElement | null = null;
+
+function stopAudio() {
+	if (currentAudio) {
+		currentAudio.pause();
+		currentAudio.src = "";
+		currentAudio = null;
+	}
+	document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: null }));
+}
 
 function PlayButton({ killerId }: { killerId: string }) {
 	const [playing, setPlaying] = useState(false);
@@ -16,20 +27,15 @@ function PlayButton({ killerId }: { killerId: string }) {
 
 	const toggle = () => {
 		if (playing) {
-			currentAudio?.pause();
-			currentAudio = null;
-			document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: null }));
+			stopAudio();
 		} else {
-			currentAudio?.pause();
-			const audio = new Audio(`${import.meta.env.VITE_CDN_URL}/audio/tr/${killerId}.ogg`);
+			stopAudio();
+			const audio = new Audio(`${CDN_URL}/audio/tr/${killerId}.ogg`);
 			currentAudio = audio;
 			audio.play();
 			document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: killerId }));
 			audio.addEventListener("ended", () => {
-				if (currentAudio === audio) {
-					currentAudio = null;
-					document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: null }));
-				}
+				if (currentAudio === audio) stopAudio();
 			});
 		}
 	};
@@ -64,12 +70,12 @@ function formatDate(iso: string): string {
 	return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }
 
-const ATTACK_BADGE_STYLES: Record<string, string> = {
+const ATTACK_BADGE_STYLES: Record<AttackCategory, string> = {
 	Melee: "bg-gray-500/20 text-gray-300",
 	Ranged: "bg-blue-500/20 text-blue-300",
 };
 
-function AttackBadge({ category, detail }: { category: string; detail: string }) {
+function AttackBadge({ category, detail }: { category: AttackCategory; detail: string }) {
 	return (
 		<span className={`inline-block rounded px-2 py-0.5 text-xs ${ATTACK_BADGE_STYLES[category] ?? ""}`} title={detail}>
 			{category}
@@ -86,7 +92,7 @@ export function KillerRow({ killer, priority }: { killer: Killer; priority: bool
 					className="h-12 w-12 rounded bg-surface object-cover"
 					fetchPriority={priority ? "high" : "auto"}
 					loading={priority ? "eager" : "lazy"}
-					src={`${import.meta.env.VITE_CDN_URL}${killer.portraitPath}`}
+					src={`${CDN_URL}${killer.portraitPath}`}
 				/>
 			</td>
 			<td className="py-2 px-2">
@@ -136,7 +142,7 @@ export function KillerCard({ killer, priority }: { killer: Killer; priority: boo
 				className="size-16 shrink-0 rounded bg-surface-light object-cover"
 				fetchPriority={priority ? "high" : "auto"}
 				loading={priority ? "eager" : "lazy"}
-				src={`${import.meta.env.VITE_CDN_URL}${killer.portraitPath}`}
+				src={`${CDN_URL}${killer.portraitPath}`}
 			/>
 			<div className="min-w-0 flex-1">
 				<a className="group" href={killer.wikiUrl} rel="noopener noreferrer" target="_blank">

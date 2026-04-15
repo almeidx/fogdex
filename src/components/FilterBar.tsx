@@ -145,6 +145,9 @@ export function FilterBar({
 	const searchRef = useRef<HTMLInputElement>(null);
 	const origins = useMemo(() => [...new Set(killers.map((k) => k.origin))].sort(), [killers]);
 
+	const searchValueRef = useRef(filters.search);
+	searchValueRef.current = filters.search;
+
 	useEffect(() => {
 		function handleKeyDown(e: KeyboardEvent) {
 			if (e.key === "/" && !(e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement)) {
@@ -152,7 +155,7 @@ export function FilterBar({
 				searchRef.current?.focus();
 			}
 			if (e.key === "Escape" && document.activeElement === searchRef.current) {
-				if (filters.search) {
+				if (searchValueRef.current) {
 					onFilterChange("search", "");
 				} else {
 					searchRef.current?.blur();
@@ -161,20 +164,7 @@ export function FilterBar({
 		}
 		document.addEventListener("keydown", handleKeyDown);
 		return () => document.removeEventListener("keydown", handleKeyDown);
-	}, [filters.search, onFilterChange]);
-
-	const activeCount = [
-		filters.search,
-		filters.speedMin !== null,
-		filters.speedMax !== null,
-		filters.trMin !== null,
-		filters.trMax !== null,
-		filters.heights.length > 0,
-		filters.genders.length > 0,
-		filters.attackCategories.length > 0,
-		filters.licensed !== "all",
-		filters.origins.length > 0,
-	].filter(Boolean).length;
+	}, [onFilterChange]);
 
 	const chips: { key: string; label: string; onRemove: () => void }[] = [];
 	if (filters.search) {
@@ -206,49 +196,19 @@ export function FilterBar({
 			},
 		});
 	}
-	for (const h of filters.heights) {
-		chips.push({
-			key: `height-${h}`,
-			label: h,
-			onRemove: () =>
-				onFilterChange(
-					"heights",
-					filters.heights.filter((x) => x !== h),
-				),
-		});
-	}
-	for (const g of filters.genders) {
-		chips.push({
-			key: `gender-${g}`,
-			label: g,
-			onRemove: () =>
-				onFilterChange(
-					"genders",
-					filters.genders.filter((x) => x !== g),
-				),
-		});
-	}
-	for (const a of filters.attackCategories) {
-		chips.push({
-			key: `attack-${a}`,
-			label: a,
-			onRemove: () =>
-				onFilterChange(
-					"attackCategories",
-					filters.attackCategories.filter((x) => x !== a),
-				),
-		});
-	}
-	for (const o of filters.origins) {
-		chips.push({
-			key: `origin-${o}`,
-			label: o,
-			onRemove: () =>
-				onFilterChange(
-					"origins",
-					filters.origins.filter((x) => x !== o),
-				),
-		});
+	for (const [key, values] of [
+		["heights", filters.heights],
+		["genders", filters.genders],
+		["attackCategories", filters.attackCategories],
+		["origins", filters.origins],
+	] as const) {
+		for (const v of values) {
+			chips.push({
+				key: `${key}-${v}`,
+				label: v,
+				onRemove: () => onFilterChange(key, values.filter((x) => x !== v) as Filters[typeof key]),
+			});
+		}
 	}
 	if (filters.licensed !== "all") {
 		chips.push({
@@ -267,9 +227,9 @@ export function FilterBar({
 					type="button"
 				>
 					Filters
-					{activeCount > 0 && <span className="rounded-full bg-accent px-1.5 text-xs text-white">{activeCount}</span>}
+					{chips.length > 0 && <span className="rounded-full bg-accent px-1.5 text-xs text-white">{chips.length}</span>}
 				</button>
-				{activeCount > 0 && (
+				{chips.length > 0 && (
 					<button className="text-xs text-accent hover:text-accent-light" onClick={onClear} type="button">
 						Clear all
 					</button>
@@ -350,7 +310,7 @@ export function FilterBar({
 				</div>
 			</div>
 
-			{activeCount > 0 && (
+			{chips.length > 0 && (
 				<div className="px-4 pb-3">
 					<div className="mx-auto max-w-350 flex items-center gap-3">
 						<div className="flex flex-1 flex-wrap gap-1.5">
