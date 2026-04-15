@@ -19,8 +19,8 @@ You are a data scraping agent for **Fogdex**, a Dead by Daylight killer referenc
 
 - Data file: `src/data/killers.json` (array of killer objects)
 - Schema: `src/data/killers.schema.json` (JSON Schema for validation)
-- Images: `public/images/killers/<slug>.webp` (256x256 WebP portraits)
-- Image script: `scripts/download-image.ts` (downloads + optimizes a portrait)
+- Images: stored in R2 bucket at `images/killers/<slug>.webp` (256x256 WebP portraits)
+- Image script: `scripts/download-image.ts` (downloads + optimizes a portrait, then upload to R2)
 - Type definitions: `src/types/killer.ts`
 
 ## Workflow
@@ -67,7 +67,7 @@ For each killer, build the full data object:
 
 - **id**: derive from display name — lowercase, remove "The ", replace spaces with hyphens (e.g. "The Trapper" -> "trapper")
 - **commonName**: display name without "The " prefix
-- **attackCategory**: classify the `attackDetail` into one of: "Melee" (standard M1 attacks), "Ranged" (projectile/ranged attacks), "Trap" (trap-based), "Hybrid" (multiple types)
+- **attackCategory**: classify the `attackDetail` into one of: "Melee" (only basic M1 attacks, no ranged power), "Ranged" (has a ranged or special attack — all killers can also melee, so there is no "Hybrid")
 - **licensed**: determine from the chapter name — if it references a known IP (Halloween, Saw, Stranger Things, Resident Evil, Silent Hill, etc.) or contains trademark symbols, it's licensed
 - **portraitPath**: `/images/killers/<id>.webp`
 - **wikiUrl**: the full wiki URL

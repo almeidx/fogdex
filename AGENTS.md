@@ -34,22 +34,25 @@ src/
   data/killers.json          All killer data (populated by update-data agent)
   hooks/useFilters.ts        Filter/sort logic + nuqs URL state sync
   components/
-    FilterBar.tsx            Sticky filter bar (search, ranges, multi-selects, licensed toggle)
+    FilterBar.tsx            Sticky filter bar (search, ranges, multi-selects, licensed toggle, chips)
     KillerTable.tsx          Desktop table + mobile cards, sortable column headers
-    KillerRow.tsx            Table row + mobile card with attack badges
+    KillerRow.tsx            Table row + mobile card + TR audio play button
 scripts/
   download-image.ts          Downloads URL -> 256x256 WebP via sharp
   validate-data.ts           Validates killers.json with zod schema
 .agents/
   update-data.md             Agent that scrapes DBD wiki and updates killer data
-public/images/killers/       256x256 WebP killer portraits
 ```
 
 ## Data model
 
 Killer data lives in `src/data/killers.json`. Types and const arrays are in `src/types/killer.ts`. The const arrays (`GENDERS`, `ATTACK_CATEGORIES`, `HEIGHTS`, `SORT_COLUMNS`, etc.) are the single source of truth — used by types, nuqs parsers, filter UI, and zod validation.
 
-Key fields: `id`, `displayName`, `commonName`, `realName`, `gender`, `origin`, `speed` (base/percentage), `terrorRadius`, `attackCategory` (Melee/Ranged/Hybrid), `height`, `licensed`, `releaseDate`, `chapter`, `powerName`, `weapon`.
+Key fields: `id`, `displayName`, `commonName`, `realName`, `gender`, `origin`, `speed` (base/percentage), `terrorRadius`, `attackCategory` (Melee/Ranged), `height`, `licensed`, `releaseDate`, `chapter`, `powerName`, `weapon`.
+
+## Static assets
+
+Killer portraits (WebP) and terror radius audio (OGG) are stored in a Cloudflare R2 bucket, not in the repo. The `VITE_CDN_URL` env var (set in `.env`) provides the base URL. Paths in `killers.json` are relative (e.g. `/images/killers/trapper.webp`) and prefixed at render time.
 
 ## Conventions
 
