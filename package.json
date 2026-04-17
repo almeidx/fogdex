@@ -11,6 +11,7 @@
 		"fmt": "biome check --write",
 		"lint": "biome check",
 		"preview": "vite preview",
+		"scrape-perk-descriptions": "node scripts/scrape-perk-descriptions.ts",
 		"validate-data": "node scripts/validate-data.ts"
 	},
 	"dependencies": {

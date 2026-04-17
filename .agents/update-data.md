@@ -17,14 +17,15 @@ You are a data scraping agent for **Fogdex**, a Dead by Daylight reference site.
 
 ## Data Source
 
-The DBD wiki (deadbydaylight.wiki.gg) runs MediaWiki with Scribunto. All structured game data lives in Lua modules fetchable via the MediaWiki API:
+The DBD wiki (deadbydaylight.wiki.gg) runs MediaWiki with Scribunto. Structured metadata lives in Lua modules; **perk descriptions and tier values are NOT reliable in the Lua module** — they must be scraped per-page from the rendered HTML.
 
-| Module | API URL | Contents |
+| Source | API URL / Method | Contents |
 |---|---|---|
 | `Module:Datatable` | `https://deadbydaylight.wiki.gg/api.php?action=query&titles=Module:Datatable&prop=revisions&rvprop=content&rvslots=main&format=json` | All killers, survivors, DLCs/chapters |
-| `Module:Datatable/Loadout` | `https://deadbydaylight.wiki.gg/api.php?action=query&titles=Module:Datatable/Loadout&prop=revisions&rvprop=content&rvslots=main&format=json` | All perks, items, offerings, add-ons |
+| `Module:Datatable/Loadout` | `https://deadbydaylight.wiki.gg/api.php?action=query&titles=Module:Datatable/Loadout&prop=revisions&rvprop=content&rvslots=main&format=json` | Perk metadata: names, owners, tags, icon paths — **NOT descriptions or tier values** |
+| Per-perk rendered page | `scripts/scrape-perk-descriptions.ts` → `action=parse&page=<slug>&prop=text&redirects=1` | Perk descriptions + tier values (authoritative source) |
 
-**These two requests contain ALL the data needed.** Do not scrape individual wiki pages.
+**Why per-page scraping for perks**: the Lua module `Module:Datatable/Loadout` has incomplete descriptions (missing secondary effects like Lethal Pursuer's +2s extension, Pain Resonance's scream) and sometimes stale tier values. The wiki pages render via `{{#Invoke:Loadout|resolvePerkPage}}` which pulls from `Module:Datatable/Loadout/Descriptions` — scraping the rendered HTML captures the final, correct output.
 
 The response is JSON wrapping Lua source code. Extract the Lua source from `response.query.pages[pageId].revisions[0].slots.main["*"]`.
 
@@ -113,15 +114,39 @@ Key parsing patterns:
 
 **For survivors**, same DLC join pattern, simpler fields (no speed, TR, height, weapon, power).
 
-**For perks**, from `Module:Datatable/Loadout`:
+**For perks**, metadata comes from `Module:Datatable/Loadout`; descriptions + tier values come from per-page scraping (Step 5b below).
+
+From `Module:Datatable/Loadout`:
 - Identify perk entries (distinguished from items/add-ons by their table location in the Lua module)
 - `role`: "killer" or "survivor" based on which table the perk belongs to
 - `owner`: character id derived from the associated character, or null for universal perks
 - `ownerName`: character display name, or null
 - `chapter`: from the owner's DLC, or null
-- `description`: parse the description template, replacing variable tier values with `{namedPlaceholder}` syntax
-- `tierValues`: extract the 3 tiers' values as `[{name: val}, {name: val}, {name: val}]`
 - `tags`: extract from the perk's category/tags in the Lua data
+- `aliases`: from renamed/historical names in the Lua data (if present)
+- `wikiUrl`: `https://deadbydaylight.wiki.gg/wiki/<Perk_Name>` (spaces → underscores, preserve colons)
+- `description`: initially set from the Lua module's short description — will be overwritten in Step 5b
+- `tierValues`: initially set from the Lua module — will be overwritten in Step 5b
+
+### Step 5b: Scrape authoritative perk descriptions
+
+Run the dedicated script:
+
+```bash
+node scripts/scrape-perk-descriptions.ts
+```
+
+This fetches each perk's rendered wiki page, extracts the description from `<div class="perkDesc divTableCell">`, identifies `N/N/N` tier triplets from `<b><span>...</span></b>/<b>...` patterns, and replaces them with `{namedPlaceholder}` syntax. It updates `description` and `tierValues` in both perk JSON files in place.
+
+Flags:
+- `--dry-run` — print the diff without writing files
+- `--only <id1,id2>` — only process specific perk ids (useful for spot-checking)
+- `--limit <n>` — process only the first N perks
+- `--verbose` — also log unchanged perks
+
+The script follows wiki redirects (`redirects=1`) so perks whose `wikiUrl` points at a pre-rename slug (e.g. `/wiki/Deadlock` for No Holds Barred) resolve correctly. Rate-limited at 150ms between requests (~50s for 306 perks).
+
+**Known phantom entry**: `Module:Datatable/Loadout` lists a perk called "Elusive" attributed to Sable Ward that does not exist in-game (her real perks are Invocation: Weaving Spiders, Strength in Shadows, Wicked). **Filter it out during Lua parsing** — do not include it in `survivor-perks.json`. If it somehow gets through, the description scraper will FAIL on it because the `/wiki/Elusive` slug redirects to the Elusive status effect page.
 
 ### Step 6: Present dry-run summary
 
@@ -160,13 +185,18 @@ Wait for user confirmation before proceeding.
 
 On confirmation:
 
-1. Write the updated JSON files (formatted with tabs, sorted by release date for characters, alphabetically for perks)
-2. For each new or changed portrait/icon, download the image:
+1. Write the updated JSON files (formatted with tabs, sorted by release date for characters, alphabetically for perks).
+2. **If perks were updated**, run the per-page description scraper to overwrite `description` and `tierValues` with the authoritative rendered-wiki values:
+   ```bash
+   node scripts/scrape-perk-descriptions.ts
+   ```
+   (See Step 5b for details and flags. One known FAIL is expected for the "Elusive" perk — ignore.)
+3. For each new or changed portrait/icon, download the image:
    ```bash
    node scripts/download-image.ts "<image-url>" "<id>"
    ```
    Note: the image URL may need to be resolved from the wiki. Use `https://deadbydaylight.wiki.gg/wiki/Special:FilePath/<filename>` to get image URLs.
-3. Run validation:
+4. Run validation:
    ```bash
    node scripts/validate-data.ts
    ```
