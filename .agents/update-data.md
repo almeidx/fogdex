@@ -136,7 +136,23 @@ Run the dedicated script:
 node scripts/scrape-perk-descriptions.ts
 ```
 
-This fetches each perk's rendered wiki page, extracts the description from `<div class="perkDesc divTableCell">`, identifies `N/N/N` tier triplets from `<b><span>...</span></b>/<b>...` patterns, and replaces them with `{namedPlaceholder}` syntax. It updates `description` and `tierValues` in both perk JSON files in place.
+This fetches each perk's rendered wiki page, extracts the description from `<div class="perkDesc divTableCell">`, identifies `N/N/N` tier triplets from `<b><span>...</span></b>/<b>...` patterns, and replaces them with `{namedPlaceholder}` syntax. It re-derives `tags` from description content. Updates `description`, `tierValues`, and `tags` in both perk JSON files in place.
+
+### Step 5c: LLM rewrite perk descriptions (for readability)
+
+Raw scraped descriptions contain a lot of boilerplate ("Unlocks potential in your Aura-reading ability.", "[PerkName] activates:", "you benefit from the following effect:", leading flavor prose like "Overwhelming pain reverberates outwards.", trailing attributed quotes). These need to be stripped while preserving every piece of gameplay information, placeholders (`{duration}`, `{range}`, etc.), hardcoded numbers, and status effect names.
+
+There is no script for this. It's done conversationally with Claude Code: paste the raw descriptions (or load them from `src/data/*-perks.json`) and ask Claude to rewrite them per the style rules above. Claude produces a `{id: newDescription}` mapping, which a small node one-liner applies to the perk JSONs. This avoids a regex-rules approach (brittle; see earlier attempts) and an API-key-based Anthropic SDK script (user preference).
+
+Rules for the rewriter:
+- Remove the boilerplate patterns listed above.
+- Preserve placeholders `{name}` exactly — never rename, remove, merge, reorder, or invent new ones.
+- Preserve all hardcoded numeric values (e.g. "24 metres", "60 seconds", "4 Tokens", "5 %").
+- Preserve status effect names verbatim (Haste, Hindered, Exposed, Exhausted, Oblivious, Broken, Haemorrhage, Undetectable, Blindness, Mangled, Incapacitated, Endurance, Deep Wound).
+- Preserve DBD terminology and capitalization (Survivor, Killer, Trial, Hook, Generator, Aura, Skill Check, Status Effect, etc.).
+- Single paragraph of plain English, concise but complete, with the trigger/condition first and the effect after.
+
+After the rewrite lands in the JSONs, re-derive tags if needed (the scrape step does this automatically; or run the derivation inline via a small node script that applies the same regex rules used in `scrape-perk-descriptions.ts`).
 
 Flags:
 - `--dry-run` — print the diff without writing files

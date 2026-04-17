@@ -2,7 +2,7 @@
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "Unlocks potential in your Aura-reading ability: The Auras of injured Survivors being healed or healing themselves are revealed to you within {range} metres.",
+		"description": "The Auras of injured Survivors being healed or healing themselves are revealed to you within {range} metres.",
 		"iconPath": "/images/perks/a-nurses-calling.webp",
 		"id": "a-nurses-calling",
 		"name": "A Nurse's Calling",
@@ -10,13 +10,23 @@
 		"ownerName": "The Nurse",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "range": 28 }, { "range": 30 }, { "range": 32 }],
+		"tierValues": [
+			{
+				"range": 28
+			},
+			{
+				"range": 30
+			},
+			{
+				"range": 32
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/A_Nurse%27s_Calling"
 	},
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "While carrying a Survivor, Agitation activates: Increases your Carrying speed by {percentage}%. Increases your Terror Radius by +12 metres.",
+		"description": "While carrying a Survivor, your Carrying speed is increased by {percentage}% and your Terror Radius is increased by +12 metres.",
 		"iconPath": "/images/perks/agitation.webp",
 		"id": "agitation",
 		"name": "Agitation",
@@ -24,13 +34,23 @@
 		"ownerName": "The Trapper",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 6 }, { "percentage": 12 }, { "percentage": 18 }],
+		"tierValues": [
+			{
+				"percentage": 6
+			},
+			{
+				"percentage": 12
+			},
+			{
+				"percentage": 18
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Agitation"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 29: Alien",
-		"description": "Whenever you hook a Survivor, Alien Instinct activates: The Aura of the farthest Survivor from your current location who is in the Injured State is revealed to you for 8 seconds. Causes that Survivor to suffer from the Oblivious Status Effect for {duration} seconds.",
+		"description": "Whenever you hook a Survivor, the Aura of the farthest injured Survivor is revealed to you for 8 seconds, and that Survivor suffers from the Oblivious Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/alien-instinct.webp",
 		"id": "alien-instinct",
 		"name": "Alien Instinct",
@@ -38,13 +58,23 @@
 		"ownerName": "The Xenomorph",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Alien_Instinct"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 36: Houndmaster's Call",
-		"description": "After falling from a height, All-Shaking Thunder activates for {duration} seconds: Increases the range of your Lunge Attack by +75 %. All-Shaking Thunder has a cool-down of 5 seconds.",
+		"description": "After falling from a height, the range of your Lunge Attack is increased by +75 % for {duration} seconds. Has a cool-down of 5 seconds.",
 		"iconPath": "/images/perks/all-shaking-thunder.webp",
 		"id": "all-shaking-thunder",
 		"name": "All-Shaking Thunder",
@@ -52,13 +82,23 @@
 		"ownerName": "The Houndmaster",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 15 }, { "duration": 20 }, { "duration": 25 }],
+		"tierValues": [
+			{
+				"duration": 15
+			},
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/All-Shaking_Thunder"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 25: Resident Evil: PROJECT W",
-		"description": "While carrying a Survivor, you benefit from the following effect: The Auras of other Survivors within {range} metres of your location are revealed to you.",
+		"description": "While carrying a Survivor, the Auras of other Survivors within {range} metres of your location are revealed to you.",
 		"iconPath": "/images/perks/awakened-awareness.webp",
 		"id": "awakened-awareness",
 		"name": "Awakened Awareness",
@@ -66,13 +106,23 @@
 		"ownerName": "The Mastermind",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "range": 16 }, { "range": 18 }, { "range": 20 }],
+		"tierValues": [
+			{
+				"range": 16
+			},
+			{
+				"range": 18
+			},
+			{
+				"range": 20
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Awakened_Awareness"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 8: Curtain Call",
-		"description": "You benefit from the following permanent effect: Increases your Vaulting speed by {percentage}%. Whenever you vault a Window, Bamboozle calls upon The Entity for the following effect: Blocks it to all Survivors for {duration} seconds. Vaulting it again within that time resets the timer. Vaulting a different one transfers the effect to it instead. Bamboozle does not extend its effects to vaulting a dropped Pallet.",
+		"description": "Your Vaulting speed is increased by {percentage}%. Whenever you vault a Window, that Window is blocked for all Survivors for {duration} seconds. Vaulting it again within that time resets the timer. Vaulting a different one transfers the effect to it instead. Does not apply to dropped Pallets.",
 		"iconPath": "/images/perks/bamboozle.webp",
 		"id": "bamboozle",
 		"name": "Bamboozle",
@@ -81,16 +131,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "duration": 8, "percentage": 5 },
-			{ "duration": 12, "percentage": 10 },
-			{ "duration": 16, "percentage": 15 }
+			{
+				"duration": 8,
+				"percentage": 5
+			},
+			{
+				"duration": 12,
+				"percentage": 10
+			},
+			{
+				"duration": 16,
+				"percentage": 15
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Bamboozle"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 5: A Lullaby for the Dark",
-		"description": "A deep bond with The Entity unlocks potential in one's Aura-reading ability. After hooking a Survivor, all Survivors who are at least {range} metres away from that Hook have their Aura revealed to you for 5 seconds.",
+		"description": "After hooking a Survivor, the Auras of all Survivors at least {range} metres away from that Hook are revealed to you for 5 seconds.",
 		"iconPath": "/images/perks/barbecue-and-chilli.webp",
 		"id": "barbecue-and-chilli",
 		"name": "Barbecue & Chilli",
@@ -98,13 +157,23 @@
 		"ownerName": "The Cannibal",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "range": 60 }, { "range": 50 }, { "range": 40 }],
+		"tierValues": [
+			{
+				"range": 60
+			},
+			{
+				"range": 50
+			},
+			{
+				"range": 40
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Barbecue_%26_Chilli"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 30: Good Guy",
-		"description": "While within 16 metres of a completed Generator, you benefit from the following effect: Grants a +5 % Haste Status Effect. This effect lingers for {duration} second(s).",
+		"description": "While within 16 metres of a completed Generator, you gain a +5 % Haste Status Effect. The effect lingers for {duration} second(s).",
 		"iconPath": "/images/perks/batteries-included.webp",
 		"id": "batteries-included",
 		"name": "Batteries Included",
@@ -112,13 +181,23 @@
 		"ownerName": "The Good Guy",
 		"role": "killer",
 		"tags": ["Haste"],
-		"tierValues": [{ "duration": 1 }, { "duration": 3 }, { "duration": 5 }],
+		"tierValues": [
+			{
+				"duration": 1
+			},
+			{
+				"duration": 3
+			},
+			{
+				"duration": 5
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Batteries_Included"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 5: A Lullaby for the Dark",
-		"description": "Whenever you trigger the Bloodlust Status Effect, Beast of Prey activates for {duration} seconds: Grants the Undetectable Status Effect.",
+		"description": "Whenever you trigger the Bloodlust Status Effect, you gain the Undetectable Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/beast-of-prey.webp",
 		"id": "beast-of-prey",
 		"name": "Beast of Prey",
@@ -126,13 +205,23 @@
 		"ownerName": "The Huntress",
 		"role": "killer",
 		"tags": ["Undetectable"],
-		"tierValues": [{ "duration": 30 }, { "duration": 35 }, { "duration": 40 }],
+		"tierValues": [
+			{
+				"duration": 30
+			},
+			{
+				"duration": 35
+			},
+			{
+				"duration": 40
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Beast_of_Prey"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Unlocks potential in your Aura-reading ability. Whenever a Generator is completed, Bitter Murmur triggers its primary effect: The Auras of any Survivors within 16 metres of that Generator are revealed to you for 5 seconds. Once the last Generator is completed, Bitter Murmur triggers its secondary effect: The Auras of all Survivors are revealed to you for {duration} seconds.",
+		"description": "Whenever a Generator is completed, the Auras of Survivors within 16 metres of that Generator are revealed to you for 5 seconds. Once the last Generator is completed, the Auras of all Survivors are revealed to you for {duration} seconds.",
 		"iconPath": "/images/perks/bitter-murmur.webp",
 		"id": "bitter-murmur",
 		"name": "Bitter Murmur",
@@ -140,13 +229,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 5 }, { "duration": 7 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 5
+			},
+			{
+				"duration": 7
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Bitter_Murmur"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 14: Cursed Legacy",
-		"description": "Whenever you hook a Survivor, Blood Echo triggers its effect: Causes all Survivors in the Injured State to suffer from the Exhausted and Haemorrhage Status Effects for {duration} seconds.",
+		"description": "Whenever you hook a Survivor, all injured Survivors suffer from the Exhausted and Haemorrhage Status Effects for {duration} seconds.",
 		"iconPath": "/images/perks/blood-echo.webp",
 		"id": "blood-echo",
 		"name": "Blood Echo",
@@ -154,13 +253,23 @@
 		"ownerName": "The Oni",
 		"role": "killer",
 		"tags": ["Exhaustion"],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Blood_Echo"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 6: A Nightmare on Elm Street",
-		"description": "As soon as at least one Exit Gate is opened, Blood Warden activates: The Auras of Survivors are revealed to you, whenever they are inside the Exit Gate. Once per Trial, hooking a Survivor while Blood Warden is active calls upon The Entity to trigger the following effect: Blocks all opened Exit Gates for {duration} seconds, preventing any remaining Survivor from leaving the Trial through them.",
+		"description": "As soon as at least one Exit Gate is opened, the Auras of Survivors inside an Exit Gate are revealed to you. Once per Trial, hooking a Survivor while active blocks all opened Exit Gates for {duration} seconds, preventing any remaining Survivor from leaving through them.",
 		"iconPath": "/images/perks/blood-warden.webp",
 		"id": "blood-warden",
 		"name": "Blood Warden",
@@ -168,13 +277,23 @@
 		"ownerName": "The Nightmare",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Blood_Warden"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Bloodhound causes the following effects: Pools of Blood left by injured Survivors appear in bright red. Extends their lifetime by {duration} seconds.",
+		"description": "Pools of Blood left by injured Survivors appear in bright red. Their lifetime is extended by {duration} seconds.",
 		"iconPath": "/images/perks/bloodhound.webp",
 		"id": "bloodhound",
 		"name": "Bloodhound",
@@ -182,13 +301,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 2 }, { "duration": 3 }, { "duration": 4 }],
+		"tierValues": [
+			{
+				"duration": 2
+			},
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Bloodhound"
 	},
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "While performing the Break or Damage action on Breakable Walls, Pallets, or Generators, Brutal Strength triggers its effect: Increases the Action speed by {percentage}%.",
+		"description": "While performing the Break or Damage action on Breakable Walls, Pallets, or Generators, the Action speed is increased by {percentage}%.",
 		"iconPath": "/images/perks/brutal-strength.webp",
 		"id": "brutal-strength",
 		"name": "Brutal Strength",
@@ -196,13 +325,23 @@
 		"ownerName": "The Trapper",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 10 }, { "percentage": 15 }, { "percentage": 20 }],
+		"tierValues": [
+			{
+				"percentage": 10
+			},
+			{
+				"percentage": 15
+			},
+			{
+				"percentage": 20
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Brutal_Strength"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 23: Sadako Rising",
-		"description": "After performing the Damage Generator action on a Generator, Call of Brine applies its effects to it for 70 seconds: Increases its Regression speed to {percentage}% of the default value. Highlights its Aura to you in yellow. Triggers a Loud Noise Notification whenever a Survivor succeeds a Good Skill Check while repairing it.",
+		"description": "After damaging a Generator, for 70 seconds its Regression speed is increased to {percentage}% of the default value, its Aura is highlighted to you in yellow, and it triggers a Loud Noise Notification whenever a Survivor succeeds a Good Skill Check while repairing it.",
 		"iconPath": "/images/perks/call-of-brine.webp",
 		"id": "call-of-brine",
 		"name": "Call of Brine",
@@ -210,13 +349,23 @@
 		"ownerName": "The Onryo",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "percentage": 130 }, { "percentage": 140 }, { "percentage": 150 }],
+		"tierValues": [
+			{
+				"percentage": 130
+			},
+			{
+				"percentage": 140
+			},
+			{
+				"percentage": 150
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Call_of_Brine"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 11: Demise of the Faithful",
-		"description": "Your prayers invoke a dark power that meddles with the Survivors' chances of survival. At the start of the Trial, the 3 Generators located farthest from you are blocked by The Entity for {duration} seconds. Corrupt Intervention deactivates prematurely once the first Survivor is put into the Dying State.",
+		"description": "At the start of the Trial, the 3 Generators farthest from you are blocked for {duration} seconds. Deactivates prematurely once the first Survivor is put into the Dying State.",
 		"iconPath": "/images/perks/corrupt-intervention.webp",
 		"id": "corrupt-intervention",
 		"name": "Corrupt Intervention",
@@ -224,13 +373,23 @@
 		"ownerName": "The Plague",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 80 }, { "duration": 100 }, { "duration": 120 }],
+		"tierValues": [
+			{
+				"duration": 80
+			},
+			{
+				"duration": 100
+			},
+			{
+				"duration": 120
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Corrupt_Intervention"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 8: Curtain Call",
-		"description": "Survivors inside your Terror Radius suffer from the following effects: Reduces all Healing speeds by {percentage}%. Increases the Pointer-Rotation speed of Healing Skill Checks by +50 %.",
+		"description": "Survivors inside your Terror Radius have their Healing speeds reduced by {percentage}% and the Pointer-Rotation speed of their Healing Skill Checks increased by +50 %.",
 		"iconPath": "/images/perks/coulrophobia.webp",
 		"id": "coulrophobia",
 		"name": "Coulrophobia",
@@ -238,13 +397,23 @@
 		"ownerName": "The Clown",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 30 }, { "percentage": 40 }, { "percentage": 50 }],
+		"tierValues": [
+			{
+				"percentage": 30
+			},
+			{
+				"percentage": 40
+			},
+			{
+				"percentage": 50
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Coulrophobia"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 18: A Binding of Kin",
-		"description": "As the end nears, you go in for the kill. Whenever a Generator is completed, Coup de Grâce gains +2 Tokens, up to a maximum of 10 Tokens per Trial: Increases the range of your next Lunge Attack by {percentage}%, while consuming -1 Token. Coup de Grâce can only hold a maximum of 5 Tokens at a time.",
+		"description": "Whenever a Generator is completed, Coup de Grâce gains +2 Tokens, up to a maximum of 10 Tokens per Trial. Your next Lunge Attack range is increased by {percentage}% while consuming -1 Token. Can only hold a maximum of 5 Tokens at a time.",
 		"iconPath": "/images/perks/coup-de-grace.webp",
 		"id": "coup-de-grace",
 		"name": "Coup de Grace",
@@ -252,13 +421,23 @@
 		"ownerName": "The Twins",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 70 }, { "percentage": 75 }, { "percentage": 80 }],
+		"tierValues": [
+			{
+				"percentage": 70
+			},
+			{
+				"percentage": 75
+			},
+			{
+				"percentage": 80
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Coup_de_Gr%C3%A2ce"
 	},
 	{
 		"aliases": ["Claustrophobia"],
 		"chapter": "CHAPTER 13: Stranger Things",
-		"description": "Whenever a Generator is completed, Cruel Limits triggers its effect for {duration} seconds: Blocks all Windows for all Survivors. The Auras of the Blocked Windows are revealed to you and highlighted in yellow.",
+		"description": "Whenever a Generator is completed, all Windows are blocked for all Survivors for {duration} seconds. The Auras of the blocked Windows are highlighted to you in yellow.",
 		"iconPath": "/images/perks/cruel-limits.webp",
 		"id": "cruel-limits",
 		"name": "Cruel Limits",
@@ -266,13 +445,23 @@
 		"ownerName": "The Demogorgon",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Cruel_Limits"
 	},
 	{
 		"aliases": ["Dying Light"],
 		"chapter": null,
-		"description": "Each time you hook a Survivor other than your Obsession, you gain +1 Token: For as long as the Obsession is alive, all other Survivors suffer from a stack-able {percentage}% per Token Action Speed penalty to Repairing, Healing, and Sabotaging, up to a maximum of {percentage2}% or 11 Tokens. The Obsession is unaffected by this penalty and instead granted a permanent +33 % Action Speed bonus to Unhooking and Healing other Survivors. You can only be obsessed with one Survivor at a time.",
+		"description": "Each time you hook a Survivor other than the Obsession, you gain +1 Token. While the Obsession is alive, all other Survivors suffer a stack-able {percentage}% per Token Action Speed penalty to Repairing, Healing, and Sabotaging, up to a maximum of {percentage2}% or 11 Tokens. The Obsession is unaffected by this penalty and instead gains a permanent +33 % Action Speed bonus to Unhooking and Healing other Survivors. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/cull-the-weak.webp",
 		"id": "cull-the-weak",
 		"name": "Cull the Weak",
@@ -281,16 +470,25 @@
 		"role": "killer",
 		"tags": ["Obsession"],
 		"tierValues": [
-			{ "percentage": 2, "percentage2": 22 },
-			{ "percentage": 2.5, "percentage2": 27.5 },
-			{ "percentage": 3, "percentage2": 33 }
+			{
+				"percentage": 2,
+				"percentage2": 22
+			},
+			{
+				"percentage": 2.5,
+				"percentage2": 27.5
+			},
+			{
+				"percentage": 3,
+				"percentage2": 33
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Cull_the_Weak"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 32: Dungeons & Dragons",
-		"description": "Whenever you are vaulting a Window, you benefit from the following effect: Increases the Vaulting speed by {percentage}%. Whenever you are stunned with a Pallet or blinded by any means, you suffer from the following effects: Reduces the Recovery speed from Pallet Stuns by -15 %. Increases the duration of Killer Blinds by +15 %.",
+		"description": "Your Vaulting speed is increased by {percentage}%. Whenever you are stunned with a Pallet or blinded by any means, your Recovery speed from Pallet Stuns is reduced by -15 % and the duration of Killer Blinds is increased by +15 %.",
 		"iconPath": "/images/perks/dark-arrogance.webp",
 		"id": "dark-arrogance",
 		"name": "Dark Arrogance",
@@ -298,13 +496,23 @@
 		"ownerName": "The Lich",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 15 }, { "percentage": 20 }, { "percentage": 25 }],
+		"tierValues": [
+			{
+				"percentage": 15
+			},
+			{
+				"percentage": 20
+			},
+			{
+				"percentage": 25
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Dark_Arrogance"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 11: Demise of the Faithful",
-		"description": "Whenever the Obsession becomes injured by any means, Dark Devotion activates for {duration} seconds: Transfers your Terror Radius to the Obsession. This Terror Radius is set to 40 metres. Grants the Undetectable Status Effect. You can only be obsessed with one Survivor at a time.",
+		"description": "Whenever the Obsession becomes injured, for {duration} seconds your Terror Radius transfers to the Obsession and is set to 40 metres, and you gain the Undetectable Status Effect. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/dark-devotion.webp",
 		"id": "dark-devotion",
 		"name": "Dark Devotion",
@@ -312,13 +520,23 @@
 		"ownerName": "The Plague",
 		"role": "killer",
 		"tags": ["Obsession", "Undetectable"],
-		"tierValues": [{ "duration": 35 }, { "duration": 40 }, { "duration": 45 }],
+		"tierValues": [
+			{
+				"duration": 35
+			},
+			{
+				"duration": 40
+			},
+			{
+				"duration": 45
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Dark_Devotion"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 24: Roots of Dread",
-		"description": "Searching a Locker has the following effect: The Auras of Survivors within 8 metres of any Locker are revealed to you for {duration} seconds. Darkness Revealed has a cool-down of 30 seconds.",
+		"description": "Searching a Locker reveals the Auras of Survivors within 8 metres of any Locker to you for {duration} seconds. Has a cool-down of 30 seconds.",
 		"iconPath": "/images/perks/darkness-revealed.webp",
 		"id": "darkness-revealed",
 		"name": "Darkness Revealed",
@@ -326,13 +544,23 @@
 		"ownerName": "The Dredge",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 6 }, { "duration": 7 }, { "duration": 8 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 7
+			},
+			{
+				"duration": 8
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Darkness_Revealed"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 15: Chains of Hate",
-		"description": "After hooking a Survivor, Dead Man's Switch triggers its effect: Blocks the first Generator any Survivor stops repairing for {duration} seconds. The Blocked Generator is highlighted to you in white. Dead Man's Switch cannot activate if its effect is still active from a previous activation.",
+		"description": "After hooking a Survivor, the first Generator any Survivor stops repairing is blocked for {duration} seconds. The blocked Generator is highlighted to you in white. Cannot activate while its effect is still active from a previous activation.",
 		"iconPath": "/images/perks/dead-mans-switch.webp",
 		"id": "dead-mans-switch",
 		"name": "Dead Man's Switch",
@@ -340,13 +568,23 @@
 		"ownerName": "The Deathslinger",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 25 }, { "duration": 30 }, { "duration": 35 }],
+		"tierValues": [
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			},
+			{
+				"duration": 35
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Dead_Man%27s_Switch"
 	},
 	{
 		"aliases": ["Deadlock"],
 		"chapter": null,
-		"description": "Each time a Generator is completed, No Holds Barred calls upon The Entity for the following effects: Blocks the Generator with the most Progression for {duration} seconds. The Aura of the Blocked Generator is highlighted to you in white.",
+		"description": "Each time a Generator is completed, the Generator with the most Progression is blocked for {duration} seconds. Its Aura is highlighted to you in white.",
 		"iconPath": "/images/perks/no-holds-barred.webp",
 		"id": "no-holds-barred",
 		"name": "No Holds Barred",
@@ -354,13 +592,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 15 }, { "duration": 20 }, { "duration": 25 }],
+		"tierValues": [
+			{
+				"duration": 15
+			},
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Deadlock"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 16: Silent Hill",
-		"description": "Whenever a Survivor finishes healing another Survivor for the equivalent of 1 Health State, Deathbound activates: Causes the Healer to scream and reveal their location. Causes the Healer to suffer from the Oblivious Status Effect whenever they are farther than {range} metres from the other Survivor. The Healer sees the Aura of the Healed Survivor while Deathbound is active. Deathbound deactivates after the Healer loses a Health State.",
+		"description": "Whenever a Survivor finishes healing another Survivor for 1 Health State, the Healer screams and reveals their location. The Healer suffers from the Oblivious Status Effect whenever they are farther than {range} metres from the other Survivor, and sees the Aura of the Healed Survivor while active. Deactivates after the Healer loses a Health State.",
 		"iconPath": "/images/perks/deathbound.webp",
 		"id": "deathbound",
 		"name": "Deathbound",
@@ -368,13 +616,23 @@
 		"ownerName": "The Executioner",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "range": 12 }, { "range": 8 }, { "range": 4 }],
+		"tierValues": [
+			{
+				"range": 12
+			},
+			{
+				"range": 8
+			},
+			{
+				"range": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Deathbound"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Unlocks potential in your Aura-reading ability. Whenever a Survivor reads your Aura, Deerstalker activates for the same duration as their Aura-reading action: The Aura of that Survivor is revealed to you. Furthermore, the following effect triggers automatically every {duration} seconds: Your Aura is revealed for 3 seconds to the Survivor with currently the lowest cumulative Chase time.",
+		"description": "Whenever a Survivor reads your Aura, their Aura is revealed to you for the same duration as their Aura-reading action. Every {duration} seconds, your Aura is revealed for 3 seconds to the Survivor with the lowest cumulative Chase time.",
 		"iconPath": "/images/perks/deerstalker.webp",
 		"id": "deerstalker",
 		"name": "Deerstalker",
@@ -382,13 +640,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 40 }, { "duration": 35 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 35
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Deerstalker"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 10: Darkness Among Us",
-		"description": "Any Generator within a range of {range} metres that is being repaired by 2 or more Survivors is marked by a yellow Aura. When the Generator is first highlighted, Discordance triggers a Loud Noise Notification on the Generator. After the Generator is no longer within range or is being repaired by just 1 Survivor, the highlighted Aura will linger for another 4 seconds.",
+		"description": "Any Generator within {range} metres being repaired by 2 or more Survivors is marked by a yellow Aura and triggers a Loud Noise Notification when first highlighted. The Aura lingers for another 4 seconds after the Generator leaves range or is being repaired by only 1 Survivor.",
 		"iconPath": "/images/perks/discordance.webp",
 		"id": "discordance",
 		"name": "Discordance",
@@ -396,13 +664,23 @@
 		"ownerName": "The Legion",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "range": 64 }, { "range": 96 }, { "range": 128 }],
+		"tierValues": [
+			{
+				"range": 64
+			},
+			{
+				"range": 96
+			},
+			{
+				"range": 128
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Discordance"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 24: Roots of Dread",
-		"description": "After 3 seconds of injuring a Survivor by any means, Dissolution activates for {duration} seconds: Instantly breaks the next Pallet that Survivor performs a Fast Vault across while inside your Terror Radius.",
+		"description": "3 seconds after injuring a Survivor, for {duration} seconds the next Pallet that Survivor performs a Fast Vault across while inside your Terror Radius is instantly broken.",
 		"iconPath": "/images/perks/dissolution.webp",
 		"id": "dissolution",
 		"name": "Dissolution",
@@ -410,13 +688,23 @@
 		"ownerName": "The Dredge",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 12 }, { "duration": 16 }, { "duration": 20 }],
+		"tierValues": [
+			{
+				"duration": 12
+			},
+			{
+				"duration": 16
+			},
+			{
+				"duration": 20
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Dissolution"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "You benefit from the following permanent effect: Increases your Terror Radius by {percentage}%.",
+		"description": "Your Terror Radius is increased by {percentage}%.",
 		"iconPath": "/images/perks/distressing.webp",
 		"id": "distressing",
 		"name": "Distressing",
@@ -424,13 +712,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 20 }, { "percentage": 25 }, { "percentage": 30 }],
+		"tierValues": [
+			{
+				"percentage": 20
+			},
+			{
+				"percentage": 25
+			},
+			{
+				"percentage": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Distressing"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 33: Castlevania",
-		"description": "The power you wield over the land strikes terror in the hearts of all who cross your path. The first time each Chest and each Totem are interacted with by a Survivor, Dominance triggers its effect: Calls upon The Entity to block it for {duration} seconds. The Aura of the blocked Prop is revealed to you in white.",
+		"description": "The first time each Chest and each Totem is interacted with by a Survivor, it is blocked for {duration} seconds. The Aura of the blocked Prop is revealed to you in white.",
 		"iconPath": "/images/perks/dominance.webp",
 		"id": "dominance",
 		"name": "Dominance",
@@ -438,13 +736,23 @@
 		"ownerName": "The Dark Lord",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 8 }, { "duration": 12 }, { "duration": 16 }],
+		"tierValues": [
+			{
+				"duration": 8
+			},
+			{
+				"duration": 12
+			},
+			{
+				"duration": 16
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Dominance"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 17: Descend Beyond",
-		"description": "After performing the Damage Generator action on a Generator, Dragon's Grip activates for 30 seconds. While active, the first Survivor interacting with that Generator suffers from the following effects: Causes them to scream and reveal their location for 4 seconds. Inflicts the Exposed Status Effect for 60 seconds. Dragon's Grip has a cool-down of {duration} seconds.",
+		"description": "After damaging a Generator, for 30 seconds the first Survivor to interact with it screams and reveals their location for 4 seconds, and suffers from the Exposed Status Effect for 60 seconds. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/dragons-grip.webp",
 		"id": "dragons-grip",
 		"name": "Dragon's Grip",
@@ -452,13 +760,23 @@
 		"ownerName": "The Blight",
 		"role": "killer",
 		"tags": ["Exposed"],
-		"tierValues": [{ "duration": 60 }, { "duration": 45 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 60
+			},
+			{
+				"duration": 45
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Dragon%27s_Grip"
 	},
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "You benefit from the following effect: Reduces the duration of Pallet Stuns by {percentage}%. This effect does not apply when stunned while carrying a Survivor.",
+		"description": "The duration of Pallet Stuns is reduced by {percentage}%. Does not apply while carrying a Survivor.",
 		"iconPath": "/images/perks/enduring.webp",
 		"id": "enduring",
 		"name": "Enduring",
@@ -466,13 +784,23 @@
 		"ownerName": "The Hillbilly",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 40 }, { "percentage": 45 }, { "percentage": 50 }],
+		"tierValues": [
+			{
+				"percentage": 40
+			},
+			{
+				"percentage": 45
+			},
+			{
+				"percentage": 50
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Enduring"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 20: Resident Evil",
-		"description": "Performing the Damage Generator action on Generators highlights their Auras in yellow. Whenever a Survivor enters the Dying State by any means, Eruption triggers the following effects on all highlighted Generators: Causes them to explode, damaging them. Instantly regresses them by -10 % of their total Progression. Causes them to start regressing afterwards. Causes all Survivors currently repairing them to suffer from the following effects: Causes them to scream. Their Auras are revealed to you for {duration} seconds. Eruption has a cool-down of 30 seconds after triggering its effects, which also resets the highlighted Auras.",
+		"description": "Damaging a Generator highlights its Aura in yellow. Whenever a Survivor enters the Dying State, all highlighted Generators explode, instantly regress by -10 % of their total Progression, and start regressing. Survivors currently repairing them scream and their Auras are revealed to you for {duration} seconds. Has a cool-down of 30 seconds, which also resets the highlighted Auras.",
 		"iconPath": "/images/perks/eruption.webp",
 		"id": "eruption",
 		"name": "Eruption",
@@ -480,13 +808,23 @@
 		"ownerName": "The Nemesis",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 8 }, { "duration": 10 }, { "duration": 12 }],
+		"tierValues": [
+			{
+				"duration": 8
+			},
+			{
+				"duration": 10
+			},
+			{
+				"duration": 12
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Eruption"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 6: A Nightmare on Elm Street",
-		"description": "The increased pressure of losing your preys fills you with anger and gives you unsuspected motivation. For each completed Generator, Fire Up gains +1 Token, up to a maximum of 5 Tokens: Increases the Action speeds for the following interactions by a stack-able {percentage}% per Token, up to a maximum of {percentage2}%: Picking up and dropping Survivors. Breaking Breakable Walls and dropped Pallets. Damaging Generators. Vaulting Windows.",
+		"description": "For each completed Generator, Fire Up gains +1 Token, up to a maximum of 5 Tokens. The Action speeds for Picking up and dropping Survivors, Breaking Breakable Walls and dropped Pallets, Damaging Generators, and Vaulting Windows are increased by a stack-able {percentage}% per Token, up to a maximum of {percentage2}%.",
 		"iconPath": "/images/perks/fire-up.webp",
 		"id": "fire-up",
 		"name": "Fire Up",
@@ -495,16 +833,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "percentage": 4, "percentage2": 20 },
-			{ "percentage": 5, "percentage2": 25 },
-			{ "percentage": 6, "percentage2": 30 }
+			{
+				"percentage": 4,
+				"percentage2": 20
+			},
+			{
+				"percentage": 5,
+				"percentage2": 25
+			},
+			{
+				"percentage": 6,
+				"percentage2": 30
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Fire_Up"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 28: End Transmission",
-		"description": "Whenever a Survivor is put into the Dying State by any means, Forced Hesitation triggers its effect: Causes all other Survivors within 16 metres of them suffer from a -20 % Hindered Status Effect for 10 seconds. Forced Hesitation has a cool-down of {duration} seconds.",
+		"description": "Whenever a Survivor is put into the Dying State, all other Survivors within 16 metres of them suffer from a -20 % Hindered Status Effect for 10 seconds. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/forced-hesitation.webp",
 		"id": "forced-hesitation",
 		"name": "Forced Hesitation",
@@ -512,13 +859,23 @@
 		"ownerName": "The Singularity",
 		"role": "killer",
 		"tags": ["Hindered"],
-		"tierValues": [{ "duration": 40 }, { "duration": 35 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 35
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Forced_Hesitation"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 16: Silent Hill",
-		"description": "Whenever a Survivor triggers a Protection Hit, they suffer from the following effect: Inflicts the Broken Status Effect for {duration} seconds.",
+		"description": "Whenever a Survivor triggers a Protection Hit, they suffer from the Broken Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/forced-penance.webp",
 		"id": "forced-penance",
 		"name": "Forced Penance",
@@ -526,13 +883,23 @@
 		"ownerName": "The Executioner",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 60 }, { "duration": 70 }, { "duration": 80 }],
+		"tierValues": [
+			{
+				"duration": 60
+			},
+			{
+				"duration": 70
+			},
+			{
+				"duration": 80
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Forced_Penance"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 35: Grave of Gluttony",
-		"description": "Whenever a Survivors takes damage, Forever Entwined gains +1 Token, up to a maximum of {tokens} Tokens: Increases the Action speeds for Dropping, Hooking, and Picking up a Survivor by a stack-able +4 % per Token, up to a maximum of {percentage}%.",
+		"description": "Whenever a Survivor takes damage, Forever Entwined gains +1 Token, up to a maximum of {tokens} Tokens. The Action speeds for Dropping, Hooking, and Picking up a Survivor are increased by a stack-able +4 % per Token, up to a maximum of {percentage}%.",
 		"iconPath": "/images/perks/forever-entwined.webp",
 		"id": "forever-entwined",
 		"name": "Forever Entwined",
@@ -541,16 +908,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "percentage": 24, "tokens": 6 },
-			{ "percentage": 28, "tokens": 7 },
-			{ "percentage": 32, "tokens": 8 }
+			{
+				"percentage": 24,
+				"tokens": 6
+			},
+			{
+				"percentage": 28,
+				"tokens": 7
+			},
+			{
+				"percentage": 32,
+				"tokens": 8
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Forever_Entwined"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 5: A Lullaby for the Dark",
-		"description": "Survivors hit with your vicious Basic Attack drop any equipped Item on impact: The Auras of lost Items are revealed to within {range} metres.",
+		"description": "Survivors hit with your Basic Attack drop any equipped Item on impact. The Auras of lost Items are revealed to you within {range} metres.",
 		"iconPath": "/images/perks/franklins-demise.webp",
 		"id": "franklins-demise",
 		"name": "Franklin's Demise",
@@ -558,13 +934,23 @@
 		"ownerName": "The Cannibal",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "range": 32 }, { "range": 48 }, { "range": 64 }],
+		"tierValues": [
+			{
+				"range": 32
+			},
+			{
+				"range": 48
+			},
+			{
+				"range": 64
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Franklin%27s_Demise"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 30: Good Guy",
-		"description": "When you hook any Survivors that is not the Obsession, the following effects apply to the Obsession: Their Aura is revealed for {duration} seconds. They suffer from the Exposed Status Effect for 20 seconds. When you hook the Obsession, the following effects apply to a random Survivor: Causes the Survivor to scream and reveal their location to the Killer. They become the new Obsession. You can only be obsessed with one Survivor at a time.",
+		"description": "When you hook a Survivor other than the Obsession, the Obsession's Aura is revealed for {duration} seconds and they suffer from the Exposed Status Effect for 20 seconds. When you hook the Obsession, a random Survivor screams and reveals their location to you, and becomes the new Obsession. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/friends-til-the-end.webp",
 		"id": "friends-til-the-end",
 		"name": "Friends 'til the End",
@@ -572,13 +958,23 @@
 		"ownerName": "The Good Guy",
 		"role": "killer",
 		"tags": ["Aura Reading", "Exposed", "Obsession"],
-		"tierValues": [{ "duration": 6 }, { "duration": 8 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 8
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Friends_%27til_the_End"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 12: Ghost Face",
-		"description": "After hooking the Obsession, you benefit from the following effects for {duration} seconds: Grants the Undetectable Status Effect. Grants a +10 % Haste Status Effect. Whenever the Obsession is unhooked by another Survivor, the Obsession Status transfers to their Rescuer. You can only be obsessed with one Survivor at a time.",
+		"description": "After hooking the Obsession, for {duration} seconds you gain the Undetectable Status Effect and a +10 % Haste Status Effect. Whenever the Obsession is unhooked by another Survivor, the Obsession Status transfers to their Rescuer. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/furtive-chase.webp",
 		"id": "furtive-chase",
 		"name": "Furtive Chase",
@@ -586,13 +982,23 @@
 		"ownerName": "The Ghost Face",
 		"role": "killer",
 		"tags": ["Haste", "Obsession", "Undetectable"],
-		"tierValues": [{ "duration": 14 }, { "duration": 16 }, { "duration": 18 }],
+		"tierValues": [
+			{
+				"duration": 14
+			},
+			{
+				"duration": 16
+			},
+			{
+				"duration": 18
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Furtive_Chase"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 27: Tools of Torment",
-		"description": "Whenever you hit the Survivor with currently the highest cumulative Chase time with a Basic Attack, Game Afoot triggers its primary effect: Causes the Obsession Status to transfer to that Survivor. While chasing the Obsession, performing the Break or Damage action causes Game Afoot to trigger its secondary effect: Grants a +7 % Haste Status Effect for {duration} seconds. You can only be obsessed with one Survivor at a time.",
+		"description": "Whenever you hit the Survivor with the highest cumulative Chase time with a Basic Attack, the Obsession Status transfers to that Survivor. While chasing the Obsession, performing the Break or Damage action grants a +7 % Haste Status Effect for {duration} seconds. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/game-afoot.webp",
 		"id": "game-afoot",
 		"name": "Game Afoot",
@@ -600,13 +1006,23 @@
 		"ownerName": "The Skull Merchant",
 		"role": "killer",
 		"tags": ["Haste", "Obsession"],
-		"tierValues": [{ "duration": 8 }, { "duration": 9 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 8
+			},
+			{
+				"duration": 9
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Game_Afoot"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 15: Chains of Hate",
-		"description": "After a Survivor loses a Health State, Gearhead activates for 30 seconds: While Gearhead is active, a Survivor succeeding a Good Skill Check while repairing reveals their Aura to you for {duration} seconds.",
+		"description": "After a Survivor loses a Health State, for 30 seconds any Survivor succeeding a Good Skill Check while repairing reveals their Aura to you for {duration} seconds.",
 		"iconPath": "/images/perks/gearhead.webp",
 		"id": "gearhead",
 		"name": "Gearhead",
@@ -614,13 +1030,23 @@
 		"ownerName": "The Deathslinger",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 6 }, { "duration": 7 }, { "duration": 8 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 7
+			},
+			{
+				"duration": 8
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Gearhead"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 28: End Transmission",
-		"description": "Whenever a Survivor loses a Health State by any means, Genetic Limits triggers its effect: Causes them to suffer from the Exhausted Status Effect for {duration} seconds.",
+		"description": "Whenever a Survivor loses a Health State, they suffer from the Exhausted Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/genetic-limits.webp",
 		"id": "genetic-limits",
 		"name": "Genetic Limits",
@@ -628,13 +1054,23 @@
 		"ownerName": "The Singularity",
 		"role": "killer",
 		"tags": ["Exhaustion"],
-		"tierValues": [{ "duration": 6 }, { "duration": 7 }, { "duration": 8 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 7
+			},
+			{
+				"duration": 8
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Genetic_Limits"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 22: Portrait of a Murder",
-		"description": "Your act of servitude to The Entity has not gone unnoticed. Each time a Survivor is hooked for the first time, Grim Embrace gains +1 Token and activates once you are at least 16 metres away from the Hook: 1-3 Tokens: Blocks all Generators for {duration} seconds. 4 Tokens: Blocks all Generators for 40 seconds and the Aura of the Obsession is revealed to you for 6 seconds.",
+		"description": "Each time a Survivor is hooked for the first time, Grim Embrace gains +1 Token and activates once you are at least 16 metres from the Hook. 1–3 Tokens: blocks all Generators for {duration} seconds. 4 Tokens: blocks all Generators for 40 seconds and reveals the Obsession's Aura to you for 6 seconds.",
 		"iconPath": "/images/perks/grim-embrace.webp",
 		"id": "grim-embrace",
 		"name": "Grim Embrace",
@@ -642,13 +1078,23 @@
 		"ownerName": "The Artist",
 		"role": "killer",
 		"tags": ["Aura Reading", "Obsession"],
-		"tierValues": [{ "duration": 6 }, { "duration": 8 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 8
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Grim_Embrace"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 34.5: Five Nights at Freddy's",
-		"description": "Whenever a Survivor stops opening an Exit Gate after accumulating at least 80 % Progression towards being opened, Haywire causes it to regress: Regresses at a rate of {percentage}% of the normal Gate-Opening speed. Causes Survivors to see the lights atop the switch flickering randomly while it regresses.",
+		"description": "Whenever a Survivor stops opening an Exit Gate after accumulating at least 80 % Progression, it regresses at {percentage}% of the normal Gate-Opening speed. Survivors see the lights atop the switch flickering randomly while it regresses.",
 		"iconPath": "/images/perks/haywire.webp",
 		"id": "haywire",
 		"name": "Haywire",
@@ -656,13 +1102,23 @@
 		"ownerName": "The Animatronic",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 80 }, { "percentage": 90 }, { "percentage": 100 }],
+		"tierValues": [
+			{
+				"percentage": 80
+			},
+			{
+				"percentage": 90
+			},
+			{
+				"percentage": 100
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Haywire"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 34.5: Five Nights at Freddy's",
-		"description": "After performing the Damage Generator action, Help Wanted activates: Causes that Generator to become a Compromised Generator. Once the Compromised Generator is completed, you benefit from the following effect for {duration} seconds: Increases the Recovery speed of successful Basic Attacks by +25 %.",
+		"description": "After damaging a Generator, it becomes a Compromised Generator. Once the Compromised Generator is completed, for {duration} seconds the Recovery speed of successful Basic Attacks is increased by +25 %.",
 		"iconPath": "/images/perks/help-wanted.webp",
 		"id": "help-wanted",
 		"name": "Help Wanted",
@@ -670,13 +1126,23 @@
 		"ownerName": "The Animatronic",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Help_Wanted"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 17: Descend Beyond",
-		"description": "Hex: Blood Favour lights a Hex Totem at the start of the Trial, cursing Survivors with its Hex Effects. Whenever a Survivor loses a Health State by any means, Hex: Blood Favour triggers its effect for 15 seconds: Blocks all upright Pallets within {range} metres of that Survivor. Blocked Pallets cannot be dropped by any Survivor. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Lights a Hex Totem at the start of the Trial. Whenever a Survivor loses a Health State, all upright Pallets within {range} metres of that Survivor are blocked for 15 seconds and cannot be dropped by any Survivor. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-blood-favour.webp",
 		"id": "hex-blood-favour",
 		"name": "Hex: Blood Favour",
@@ -684,27 +1150,47 @@
 		"ownerName": "The Blight",
 		"role": "killer",
 		"tags": ["Hex"],
-		"tierValues": [{ "range": 24 }, { "range": 28 }, { "range": 32 }],
+		"tierValues": [
+			{
+				"range": 24
+			},
+			{
+				"range": 28
+			},
+			{
+				"range": 32
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Blood_Favour"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 19: All-Kill",
-		"description": "Whenever a Survivors performs a Rushed Vault action at a Window, Hex: Crowd Control activates on a random Totem and triggers its effect: Blocks that Window for all Survivors. Increases basic-vault speed of blocked Windows by 15 % Reveals auras of blocked Windows within 24 metres Hex: Crowd Control has a limit of {value} Windows it can affect at a time. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Whenever a Survivor performs a Rushed Vault action at a Window, it is blocked for all Survivors. Basic-vault speed of blocked Windows is increased by 15 %, and their Auras are revealed within 24 metres. Can affect up to {value} Windows at a time. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-crowd-control.webp",
 		"id": "hex-crowd-control",
 		"name": "Hex: Crowd Control",
 		"owner": "trickster",
 		"ownerName": "The Trickster",
 		"role": "killer",
-		"tags": ["Hex"],
-		"tierValues": [{ "value": 4 }, { "value": 5 }, { "value": 6 }],
+		"tags": ["Aura Reading", "Hex"],
+		"tierValues": [
+			{
+				"value": 4
+			},
+			{
+				"value": 5
+			},
+			{
+				"value": 6
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Crowd_Control"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 3: Of Flesh and Mud",
-		"description": "Hex: Devour Hope lights a Hex Totem at the start of the Trial, cursing Survivors with its Hex Effects. Whenever a Survivor is unhooked at least 24 metres from your location, Hex: Devour Hope gains +1 Token, up to a maximum of 5 Tokens: At 2 Tokens: 10 seconds after hooking a Survivor, you are granted a {percentage}% Haste Status Effect for 10 seconds. At 3 Tokens: Afflicts all Survivors with the Exposed Status Effect. At 5 Tokens: Unlocks the Kill ability, allowing you to kill dying Survivors by your own hands. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Lights a Hex Totem at the start of the Trial. Whenever a Survivor is unhooked at least 24 metres from your location, Hex: Devour Hope gains +1 Token, up to a maximum of 5 Tokens. 2 Tokens: 10 seconds after hooking a Survivor, you gain a {percentage}% Haste Status Effect for 10 seconds. 3 Tokens: all Survivors suffer from the Exposed Status Effect. 5 Tokens: unlocks the Kill ability, allowing you to kill dying Survivors by your own hands. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-devour-hope.webp",
 		"id": "hex-devour-hope",
 		"name": "Hex: Devour Hope",
@@ -712,13 +1198,23 @@
 		"ownerName": "The Hag",
 		"role": "killer",
 		"tags": ["Exposed", "Haste", "Hex"],
-		"tierValues": [{ "percentage": 3 }, { "percentage": 4 }, { "percentage": 5 }],
+		"tierValues": [
+			{
+				"percentage": 3
+			},
+			{
+				"percentage": 4
+			},
+			{
+				"percentage": 5
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Devour_Hope"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 26: Forged in Fog",
-		"description": "If there is still a Dull Totem in the environment, Hex: Face the Darkness lights a Hex Totem after injuring a Survivor by any means, cursing them with its Hex Effects. While cursed, the following effects trigger once every {duration} seconds on all other Survivors outside of the Terror Radius: Causes them to scream. Their Auras are revealed to you for 2 seconds. Hex: Face the Darkness is deactivated once the Cursed Survivor either returns to Healthy or enters the Dying State by any means, extinguishing the Hex Totem. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "If a Dull Totem remains in the environment, lights a Hex Totem after injuring a Survivor, cursing them. While cursed, once every {duration} seconds all other Survivors outside the Terror Radius scream and their Auras are revealed to you for 2 seconds. Deactivates once the cursed Survivor returns to Healthy or enters the Dying State, extinguishing the Hex Totem. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-face-the-darkness.webp",
 		"id": "hex-face-the-darkness",
 		"name": "Hex: Face the Darkness",
@@ -726,13 +1222,23 @@
 		"ownerName": "The Knight",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
-		"tierValues": [{ "duration": 35 }, { "duration": 30 }, { "duration": 25 }],
+		"tierValues": [
+			{
+				"duration": 35
+			},
+			{
+				"duration": 30
+			},
+			{
+				"duration": 25
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Face_the_Darkness"
 	},
 	{
 		"aliases": ["Hex: Plaything"],
 		"chapter": null,
-		"description": "If there is still a Dull Totem in the environment, Hex: Fortune's Fool lights a Hex Totem whenever you hook a Survivor for the first time, cursing them with its Hex Effects. Inflicts the Oblivious Status Effect. Blocks the Hex Totem for all other Survivors for 90 seconds. Blocked Hex Totems cannot be cleansed or blessed by Survivors. This does not affect the Cursed Survivor. The Aura of the Hex Totem is revealed to the Cursed Survivor within {range} metres. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "If a Dull Totem remains in the environment, lights a Hex Totem whenever you hook a Survivor for the first time, cursing them with the Oblivious Status Effect. The Hex Totem is blocked for all other Survivors for 90 seconds and cannot be cleansed or blessed (the cursed Survivor is unaffected). The Aura of the Hex Totem is revealed to the cursed Survivor within {range} metres. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-fortunes-fool.webp",
 		"id": "hex-fortunes-fool",
 		"name": "Hex: Fortune's Fool",
@@ -740,13 +1246,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
-		"tierValues": [{ "range": 24 }, { "range": 20 }, { "range": 16 }],
+		"tierValues": [
+			{
+				"range": 24
+			},
+			{
+				"range": 20
+			},
+			{
+				"range": 16
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Fortune%27s_Fool"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 9: Shattered Bloodline",
-		"description": "Hex: Haunted Ground lights 2 Hex Totems at the start of the Trial, laying a trap for Survivors. Blessing or cleansing either Hex Totem trips the trap and triggers the following effect: Causes all Survivors to suffer from the Exposed Status Effect for {duration} seconds. Hex: Haunted Ground extinguishes the second Hex Totem after tripping its trap. Hex: Haunted Ground is disabled for the remainder of the Trial after triggering its effect.",
+		"description": "Lights 2 Hex Totems at the start of the Trial. Blessing or cleansing either Hex Totem causes all Survivors to suffer from the Exposed Status Effect for {duration} seconds, and extinguishes the second Hex Totem. Disabled for the remainder of the Trial after triggering its effect.",
 		"iconPath": "/images/perks/hex-haunted-ground.webp",
 		"id": "hex-haunted-ground",
 		"name": "Hex: Haunted Ground",
@@ -754,13 +1270,23 @@
 		"ownerName": "The Spirit",
 		"role": "killer",
 		"tags": ["Exposed", "Hex"],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Haunted_Ground"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 38: Stranger Things Chapter 2",
-		"description": "The first time you hook any Survivor, a random Dull Totem becomes a Hex Totem, provided that a Dull Totem remains in the Trial Grounds. Generators are highlighted; the intensity of the generator's Auras reveals their repair progress. As soon as a total of 4 generators have been completed in the Trial: All remaining generators explode, lose {percentage}% progess, and start regressing. The associated Hex Totem becomes dull, and this perk becomes disabled for the remainder of the trial. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "The first time you hook any Survivor, a random Dull Totem becomes a Hex Totem (if one remains). Generators are highlighted, with Aura intensity reflecting repair progress. Once 4 Generators have been completed, all remaining Generators explode, lose {percentage}% progress, and start regressing; the Hex Totem becomes dull and the perk is disabled for the remainder of the Trial. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-hive-mind.webp",
 		"id": "hex-hive-mind",
 		"name": "Hex: Hive Mind",
@@ -768,13 +1294,23 @@
 		"ownerName": "The First",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
-		"tierValues": [{ "percentage": 6 }, { "percentage": 8 }, { "percentage": 10 }],
+		"tierValues": [
+			{
+				"percentage": 6
+			},
+			{
+				"percentage": 8
+			},
+			{
+				"percentage": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Hive_Mind"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 5: A Lullaby for the Dark",
-		"description": "Survivors performing Healing or Repairing actions suffer from the following effect: Increases the Progression penalty for Failed Skill Checks by {percentage}%. Each time a Survivor is hooked, Hex: Huntress Lullaby grows in power and gains +1 Token, up to a maximum of 5 Tokens. Survivors performing Healing or Repairing actions suffer from the following additional effect: Reduces the time between the audio cue announcing an imminent Skill Check and it appearing, depending on the number of accumulated Tokens: 1 Token: -14 % 2 Tokens: -28 % 3 Tokens: -42 % 4 Tokens: -56 % 5 Tokens: Suppresses the audio cue altogether. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Survivors performing Healing or Repairing actions suffer a {percentage}% increased Progression penalty for Failed Skill Checks. Each time a Survivor is hooked, Hex: Huntress Lullaby gains +1 Token, up to a maximum of 5 Tokens, which reduces the time between the audio cue announcing an imminent Skill Check and it appearing: 1 Token: -14 %, 2 Tokens: -28 %, 3 Tokens: -42 %, 4 Tokens: -56 %, 5 Tokens: suppresses the audio cue altogether. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-huntress-lullaby.webp",
 		"id": "hex-huntress-lullaby",
 		"name": "Hex: Huntress Lullaby",
@@ -782,13 +1318,23 @@
 		"ownerName": "The Huntress",
 		"role": "killer",
 		"tags": ["Hex"],
-		"tierValues": [{ "percentage": 2 }, { "percentage": 4 }, { "percentage": 6 }],
+		"tierValues": [
+			{
+				"percentage": 2
+			},
+			{
+				"percentage": 4
+			},
+			{
+				"percentage": 6
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Huntress_Lullaby"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Once the Exit Gates are powered, if there is still a Dull Totem remaining in the environment, Hex: No One Escapes Death activates and lights it: Grants a {percentage}% Haste Status Effect. Causes all Survivors to suffer from the Exposed Status Effect. Once the Status Effect is revealed to Survivors, Hex: No One Escapes Death triggers the following effect: The Aura of its Hex Totem is revealed to all Survivors within 4 metres. This range gradually expands to 24 metres over the course of 30 seconds. Hex: No One Escapes Death remains inactive if no Dull Totems are available. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Once the Exit Gates are powered, if a Dull Totem remains it is lit as a Hex Totem: you gain a {percentage}% Haste Status Effect and all Survivors suffer from the Exposed Status Effect. Once the Status Effect is revealed to Survivors, the Aura of the Hex Totem is revealed to Survivors within 4 metres, expanding to 24 metres over 30 seconds. Inactive if no Dull Totems are available. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-no-one-escapes-death.webp",
 		"id": "hex-no-one-escapes-death",
 		"name": "Hex: No One Escapes Death",
@@ -796,13 +1342,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading", "Exposed", "Haste", "Hex"],
-		"tierValues": [{ "percentage": 2 }, { "percentage": 3 }, { "percentage": 4 }],
+		"tierValues": [
+			{
+				"percentage": 2
+			},
+			{
+				"percentage": 3
+			},
+			{
+				"percentage": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_No_One_Escapes_Death"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "After damaging Survivors a total of 8 times with Basic Attacks, a random Dull Totem becomes a Hex Totem, cursing all Survivors: Survivors damaged by a Basic Attack suffer from a -5 % Hindered Status Effect for {duration} seconds. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "After damaging Survivors 8 times with Basic Attacks, a random Dull Totem becomes a Hex Totem. Survivors damaged by a Basic Attack suffer from a -5 % Hindered Status Effect for {duration} seconds. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-nothing-but-misery.webp",
 		"id": "hex-nothing-but-misery",
 		"name": "Hex: Nothing but Misery",
@@ -810,13 +1366,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Hex", "Hindered"],
-		"tierValues": [{ "duration": 10 }, { "duration": 12.5 }, { "duration": 15 }],
+		"tierValues": [
+			{
+				"duration": 10
+			},
+			{
+				"duration": 12.5
+			},
+			{
+				"duration": 15
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Nothing_but_Misery"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 37: Sinister Grace",
-		"description": "Creates a Hex Totem that curses the farthest Generator from its location: The Aura of the Cursed Generator is highlighted in yellow. When a Survivor repairs the Cursed Generator for at least 5 seconds, Hex: Overture of Doom triggers the following effects for {duration} seconds: Transfers your Terror Radius to the Cursed Generator. This Terror Radius is set to 32 metres. Grants the Undetectable Status Effect. Once the Cursed Generator is repaired, the next farthest Generator becomes cursed. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Creates a Hex Totem that curses the farthest Generator from its location, highlighting its Aura in yellow. When a Survivor repairs the cursed Generator for at least 5 seconds, for {duration} seconds your Terror Radius transfers to that Generator (set to 32 metres) and you gain the Undetectable Status Effect. Once the cursed Generator is repaired, the next farthest Generator becomes cursed. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-overture-of-doom.webp",
 		"id": "hex-overture-of-doom",
 		"name": "Hex: Overture of Doom",
@@ -824,13 +1390,23 @@
 		"ownerName": "The Krasue",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex", "Undetectable"],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Overture_of_Doom"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 22: Portrait of a Murder",
-		"description": "Unlocks potential in your Aura-reading ability: The Auras of cleansed Totems are revealed to you in white. Press the Interaction button over the remains of a cleansed Totem to resurrect it as a Rekindled Totem. For each Rekindled Totem, Hex: Pentimento gains +1 Token, up to a maximum of 5 Tokens: 1 Token: Reduces the Action speeds for Healing and Repairing by -20 %. 2 to 5 Tokens: Increase the strength of the Action Speed penalty by a stackable {percentage}% per Token, up to a maximum of {percentage2}%. Survivors cursed by Hex: Pentimento see the Auras of Rekindled Totems within 16 metres. Once Hex: Pentimento has reached its limit of 5 Tokens, it calls upon The Entity for the following effect: Blocks all Rekindled Totems for the remainder of the Trial. Totems may only be rekindled once per Trial, with The Entity consuming the remains of Rekindled Totems once they are cleansed. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "The Auras of cleansed Totems are revealed to you in white. Press the Interaction button over the remains of a cleansed Totem to resurrect it as a Rekindled Totem. For each Rekindled Totem, Hex: Pentimento gains +1 Token, up to a maximum of 5 Tokens. 1 Token: reduces the Action speeds for Healing and Repairing by -20 %. 2–5 Tokens: increases the penalty by a stackable {percentage}% per Token, up to a maximum of {percentage2}%. Cursed Survivors see the Auras of Rekindled Totems within 16 metres. At 5 Tokens, all Rekindled Totems are blocked for the remainder of the Trial. Totems may only be rekindled once per Trial; the remains are consumed once cleansed. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-pentimento.webp",
 		"id": "hex-pentimento",
 		"name": "Hex: Pentimento",
@@ -839,16 +1415,25 @@
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
 		"tierValues": [
-			{ "percentage": 1, "percentage2": 24 },
-			{ "percentage": 2, "percentage2": 28 },
-			{ "percentage": 3, "percentage2": 32 }
+			{
+				"percentage": 1,
+				"percentage2": 24
+			},
+			{
+				"percentage": 2,
+				"percentage2": 28
+			},
+			{
+				"percentage": 3,
+				"percentage2": 32
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Pentimento"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 17: Descend Beyond",
-		"description": "Whenever a Survivor blesses or cleanses a Totem, Hex: Retribution triggers its primary effect: Causes that Survivor to suffer from the Oblivious Status Effect for {duration} seconds. Whenever a Hex Totem is removed by any means, including its own, Hex: Retribution triggers its secondary effect: The Auras of all Survivors are revealed to you for 20 seconds. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Whenever a Survivor blesses or cleanses a Totem, they suffer from the Oblivious Status Effect for {duration} seconds. Whenever a Hex Totem is removed by any means, including its own, the Auras of all Survivors are revealed to you for 20 seconds. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-retribution.webp",
 		"id": "hex-retribution",
 		"name": "Hex: Retribution",
@@ -856,13 +1441,23 @@
 		"ownerName": "The Blight",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Retribution"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 3: Of Flesh and Mud",
-		"description": "All Generators not currently being repaired experience the following effect: Causes them to automatically regress at {percentage}% of the default Regression rate. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "All Generators not currently being repaired automatically regress at {percentage}% of the default Regression rate. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-ruin.webp",
 		"id": "hex-ruin",
 		"name": "Hex: Ruin",
@@ -870,13 +1465,23 @@
 		"ownerName": "The Hag",
 		"role": "killer",
 		"tags": ["Hex"],
-		"tierValues": [{ "percentage": 100 }, { "percentage": 125 }, { "percentage": 150 }],
+		"tierValues": [
+			{
+				"percentage": 100
+			},
+			{
+				"percentage": 125
+			},
+			{
+				"percentage": 150
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Ruin"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 3: Of Flesh and Mud",
-		"description": "The last {value} Survivors you hit with a Basic or Special Attack suffer permanently from the Blindness Status Effect. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "The last {value} Survivors you hit with a Basic or Special Attack suffer permanently from the Blindness Status Effect. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-the-third-seal.webp",
 		"id": "hex-the-third-seal",
 		"name": "Hex: The Third Seal",
@@ -884,13 +1489,23 @@
 		"ownerName": "The Hag",
 		"role": "killer",
 		"tags": ["Hex"],
-		"tierValues": [{ "value": 2 }, { "value": 3 }, { "value": 4 }],
+		"tierValues": [
+			{
+				"value": 2
+			},
+			{
+				"value": 3
+			},
+			{
+				"value": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_The_Third_Seal"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Start the Trial with 5 Tokens, one for each Totem located in the environment: Reduces the Action speeds for Blessing and Cleansing by a stack-able {percentage}% per Token, up to a maximum of {percentage2}%. Hex: Thrill of the Hunt loses -1 Token whenever a Totem is cleansed. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Start the Trial with 5 Tokens, one for each Totem. The Action speeds for Blessing and Cleansing are reduced by a stack-able {percentage}% per Token, up to a maximum of {percentage2}%. Loses -1 Token whenever a Totem is cleansed. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-thrill-of-the-hunt.webp",
 		"id": "hex-thrill-of-the-hunt",
 		"name": "Hex: Thrill of the Hunt",
@@ -899,16 +1514,25 @@
 		"role": "killer",
 		"tags": ["Hex"],
 		"tierValues": [
-			{ "percentage": 8, "percentage2": 40 },
-			{ "percentage": 10, "percentage2": 50 },
-			{ "percentage": 12, "percentage2": 60 }
+			{
+				"percentage": 8,
+				"percentage2": 40
+			},
+			{
+				"percentage": 10,
+				"percentage2": 50
+			},
+			{
+				"percentage": 12,
+				"percentage2": 60
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Thrill_of_the_Hunt"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 30: Good Guy",
-		"description": "Anytime you are stunned or blinded by any Survivor a total of {value} times, and if there is not yet a Hex Totem already associated with Hex: Two Can Play and there is at least one Dull Totem remaining in the Trial Grounds, Hex: Two Can Play activates on a random Totem: Blinds all Survivors who stun or blind you for 1.5 seconds. This does not affect carried Survivors. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "After being stunned or blinded by Survivors a total of {value} times, if no Hex Totem is yet associated with this perk and at least one Dull Totem remains, activates on a random Totem: blinds all Survivors who stun or blind you for 1.5 seconds (does not affect carried Survivors). The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-two-can-play.webp",
 		"id": "hex-two-can-play",
 		"name": "Hex: Two Can Play",
@@ -916,13 +1540,23 @@
 		"ownerName": "The Good Guy",
 		"role": "killer",
 		"tags": ["Hex"],
-		"tierValues": [{ "value": 4 }, { "value": 3 }, { "value": 2 }],
+		"tierValues": [
+			{
+				"value": 4
+			},
+			{
+				"value": 3
+			},
+			{
+				"value": 2
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Two_Can_Play"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 17: Descend Beyond",
-		"description": "Whenever a Survivor is within {range} metres of a Dull Totem, Hex: Undying triggers its primary effect: Their Aura is revealed to you for as long as they remain in that range. Whenever a Hex Totem is cleansed, Hex: Undying triggers its secondary effect: Transfers the cleansed Hex to the Hex Totem associated with Hex: Undying instead, replacing it. The Hex Effects persist until the Hex Totem is either blessed or cleansed by a Survivor, disabling it for the remainder of the Trial.",
+		"description": "Whenever a Survivor is within {range} metres of a Dull Totem, their Aura is revealed to you for as long as they remain in range. Whenever a Hex Totem is cleansed, the cleansed Hex transfers to the Hex Totem associated with Hex: Undying instead, replacing it. The Hex Effects persist until the Hex Totem is blessed or cleansed, disabling it for the remainder of the Trial.",
 		"iconPath": "/images/perks/hex-undying.webp",
 		"id": "hex-undying",
 		"name": "Hex: Undying",
@@ -930,13 +1564,23 @@
 		"ownerName": "The Blight",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
-		"tierValues": [{ "range": 2 }, { "range": 3 }, { "range": 4 }],
+		"tierValues": [
+			{
+				"range": 2
+			},
+			{
+				"range": 3
+			},
+			{
+				"range": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Undying"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 33: Castlevania",
-		"description": "You see your victim from afar and resolve to prolong their suffering. After a Generator is completed, Hex: Wretched Fate activates and lights a random Dull Totem, cursing the Obsession: Reduces their Repair speed by {percentage}%. The Aura of the Hex Totem is revealed to them within 12 metres.",
+		"description": "After a Generator is completed, lights a random Dull Totem, cursing the Obsession: reduces their Repair speed by {percentage}%. The Aura of the Hex Totem is revealed to them within 12 metres.",
 		"iconPath": "/images/perks/hex-wretched-fate.webp",
 		"id": "hex-wretched-fate",
 		"name": "Hex: Wretched Fate",
@@ -944,13 +1588,23 @@
 		"ownerName": "The Dark Lord",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex", "Obsession"],
-		"tierValues": [{ "percentage": 27 }, { "percentage": 30 }, { "percentage": 33 }],
+		"tierValues": [
+			{
+				"percentage": 27
+			},
+			{
+				"percentage": 30
+			},
+			{
+				"percentage": 33
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hex:_Wretched_Fate"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 18: A Binding of Kin",
-		"description": "You protect what little you have and are perceptive to those rummaging through your stockpiles. Hoarder triggers a Loud Noise Notification for 4 seconds, whenever a Survivor performs any of the following actions within {range} metres of your location: Unlocks a Chest. Picks up any Item. Hoarder spawns 2 additional Chests in the Trial.",
+		"description": "Triggers a Loud Noise Notification for 4 seconds whenever a Survivor unlocks a Chest or picks up any Item within {range} metres of your location. Spawns 2 additional Chests in the Trial.",
 		"iconPath": "/images/perks/hoarder.webp",
 		"id": "hoarder",
 		"name": "Hoarder",
@@ -958,13 +1612,23 @@
 		"ownerName": "The Twins",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "range": 32 }, { "range": 48 }, { "range": 64 }],
+		"tierValues": [
+			{
+				"range": 32
+			},
+			{
+				"range": 48
+			},
+			{
+				"range": 64
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hoarder"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 27: Tools of Torment",
-		"description": "Whenever a Survivor stuns you by any means, Hubris triggers its effect: Causes them to suffer from the Exposed Status Effect for {duration} seconds. Hubris has a cool-down of 20 seconds.",
+		"description": "Whenever a Survivor stuns you, they suffer from the Exposed Status Effect for {duration} seconds. Has a cool-down of 20 seconds.",
 		"iconPath": "/images/perks/hubris.webp",
 		"id": "hubris",
 		"name": "Hubris",
@@ -972,13 +1636,23 @@
 		"ownerName": "The Skull Merchant",
 		"role": "killer",
 		"tags": ["Exposed"],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hubris"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 32: Dungeons & Dragons",
-		"description": "One can always rely on the avarice of the living and use it to one's advantage. Grants the ability to kick opened Chests and close them. The Auras of unopened Chests are revealed to you at all times. The Auras of Survivors coming within 8 metres of unopened or closed Chests are revealed to you for {duration} seconds. Human Greed has a cool-down of 10 seconds on the ability to kick Chests.",
+		"description": "Grants the ability to kick opened Chests, closing them. The Auras of unopened Chests are revealed to you at all times. The Auras of Survivors coming within 8 metres of unopened or closed Chests are revealed to you for {duration} seconds. The kick-Chest ability has a cool-down of 10 seconds.",
 		"iconPath": "/images/perks/human-greed.webp",
 		"id": "human-greed",
 		"name": "Human Greed",
@@ -986,13 +1660,23 @@
 		"ownerName": "The Lich",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 3 }, { "duration": 4 }, { "duration": 5 }],
+		"tierValues": [
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Human_Greed"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 14: Cursed Legacy",
-		"description": "Whenever you injure a healthy Survivor, Hysteria triggers its effect: Causes all Survivors currently in the Injured State to suffer from the Oblivious Status Effect for {duration} seconds. This effect also applies the Survivor triggering it. Hysteria has a cool-down of 20 seconds.",
+		"description": "Whenever you injure a healthy Survivor, all currently injured Survivors (including the Survivor triggering it) suffer from the Oblivious Status Effect for {duration} seconds. Has a cool-down of 20 seconds.",
 		"iconPath": "/images/perks/hysteria.webp",
 		"id": "hysteria",
 		"name": "Hysteria",
@@ -1000,13 +1684,23 @@
 		"ownerName": "The Oni",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 30 }, { "duration": 35 }, { "duration": 40 }],
+		"tierValues": [
+			{
+				"duration": 30
+			},
+			{
+				"duration": 35
+			},
+			{
+				"duration": 40
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Hysteria"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 12: Ghost Face",
-		"description": "Whenever a Survivor performs a Rushed Vault action within 48 metres of your location, you benefit from the following effect: The Aura of the Survivor is revealed to you for 8 seconds. I'm All Ears has a cool-down of {duration} seconds.",
+		"description": "Whenever a Survivor performs a Rushed Vault action within 48 metres of your location, their Aura is revealed to you for 8 seconds. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/im-all-ears.webp",
 		"id": "im-all-ears",
 		"name": "I'm All Ears",
@@ -1014,13 +1708,23 @@
 		"ownerName": "The Ghost Face",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 60 }, { "duration": 45 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 60
+			},
+			{
+				"duration": 45
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/I%27m_All_Ears"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 11: Demise of the Faithful",
-		"description": "Whenever a Survivor is put into the Dying State by any means, all other Survivors within your Terror Radius will scream and reveal their current location to you for {duration} seconds.",
+		"description": "Whenever a Survivor is put into the Dying State, all other Survivors within your Terror Radius scream and reveal their current location to you for {duration} seconds.",
 		"iconPath": "/images/perks/infectious-fright.webp",
 		"id": "infectious-fright",
 		"name": "Infectious Fright",
@@ -1028,13 +1732,23 @@
 		"ownerName": "The Plague",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 4 }, { "duration": 5 }, { "duration": 6 }],
+		"tierValues": [
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			},
+			{
+				"duration": 6
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Infectious_Fright"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Unlocks the stealth ability. After standing still for {duration} second(s), Insidious activates for as long as you remain stationary: Grants the Undetectable Status Effect. Insidious deactivates once you start moving again.",
+		"description": "After standing still for {duration} second(s), you gain the Undetectable Status Effect for as long as you remain stationary. Deactivates once you start moving again.",
 		"iconPath": "/images/perks/insidious.webp",
 		"id": "insidious",
 		"name": "Insidious",
@@ -1042,13 +1756,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Undetectable"],
-		"tierValues": [{ "duration": 3 }, { "duration": 2 }, { "duration": 1 }],
+		"tierValues": [
+			{
+				"duration": 3
+			},
+			{
+				"duration": 2
+			},
+			{
+				"duration": 1
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Insidious"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "While carrying a Survivor, they suffer from the following effects: Reduces the strength of the Involuntary Strafing caused by their wiggling by -75 %. Increases the time required to break free from your grasp by {percentage}%.",
+		"description": "While carrying a Survivor, the strength of their Involuntary Strafing is reduced by -75 % and the time required to break free from your grasp is increased by {percentage}%.",
 		"iconPath": "/images/perks/iron-grasp.webp",
 		"id": "iron-grasp",
 		"name": "Iron Grasp",
@@ -1056,13 +1780,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 4 }, { "percentage": 8 }, { "percentage": 12 }],
+		"tierValues": [
+			{
+				"percentage": 4
+			},
+			{
+				"percentage": 8
+			},
+			{
+				"percentage": 12
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Iron_Grasp"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 10: Darkness Among Us",
-		"description": "While interacting with an empty Locker, Iron Maiden applies its primary effect: Increases your Search speed by {percentage}%. Whenever a Survivor exits a Locker, Iron Maiden triggers its secondary effects: Causes them to scream and trigger a Loud Noise Notification at their current location. This effect lingers for 4 seconds. Causes them to suffer from the Exposed Status Effect for 30 seconds.",
+		"description": "While interacting with an empty Locker, your Search speed is increased by {percentage}%. Whenever a Survivor exits a Locker, they scream and trigger a Loud Noise Notification at their current location (lingers for 4 seconds), and suffer from the Exposed Status Effect for 30 seconds.",
 		"iconPath": "/images/perks/iron-maiden.webp",
 		"id": "iron-maiden",
 		"name": "Iron Maiden",
@@ -1070,13 +1804,23 @@
 		"ownerName": "The Legion",
 		"role": "killer",
 		"tags": ["Exposed"],
-		"tierValues": [{ "percentage": 30 }, { "percentage": 40 }, { "percentage": 50 }],
+		"tierValues": [
+			{
+				"percentage": 30
+			},
+			{
+				"percentage": 40
+			},
+			{
+				"percentage": 50
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Iron_Maiden"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 7: The SAW Chapter",
-		"description": "Whenever a Survivor moves farther than 6 metres from a Pallet within 6 seconds of dropping it, Knock Out triggers its effect: Causes them to suffer from a -5 % Hindered Status Effect for {duration} seconds.",
+		"description": "Whenever a Survivor moves farther than 6 metres from a Pallet within 6 seconds of dropping it, they suffer from a -5 % Hindered Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/knock-out.webp",
 		"id": "knock-out",
 		"name": "Knock Out",
@@ -1084,13 +1828,23 @@
 		"ownerName": "The Pig",
 		"role": "killer",
 		"tags": ["Hindered"],
-		"tierValues": [{ "duration": 3 }, { "duration": 4 }, { "duration": 5 }],
+		"tierValues": [
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Knock_Out"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 32: Dungeons & Dragons",
-		"description": "When a Survivor scares off a Crow within 36 metres of your location, Languid Touch activates: Causes that Survivor to suffer from the Exhausted Status Effect for {duration} seconds. Languid Touch has a cool-down of 5 seconds.",
+		"description": "When a Survivor scares off a Crow within 36 metres of your location, they suffer from the Exhausted Status Effect for {duration} seconds. Has a cool-down of 5 seconds.",
 		"iconPath": "/images/perks/languid-touch.webp",
 		"id": "languid-touch",
 		"name": "Languid Touch",
@@ -1098,13 +1852,23 @@
 		"ownerName": "The Lich",
 		"role": "killer",
 		"tags": ["Exhaustion"],
-		"tierValues": [{ "duration": 6 }, { "duration": 8 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 8
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Languid_Touch"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 20: Resident Evil",
-		"description": "At the start of the Trial, the Auras of all Survivors are revealed to you for {duration} seconds. Extends the duration of all instances of a Survivor Aura being revealed to you by +2 seconds. Lethal Pursuer benefits from its own effect.",
+		"description": "At the start of the Trial, the Auras of all Survivors are revealed to you for {duration} seconds. Extends the duration of every Survivor Aura reveal to you by +2 seconds. Benefits from its own effect.",
 		"iconPath": "/images/perks/lethal-pursuer.webp",
 		"id": "lethal-pursuer",
 		"name": "Lethal Pursuer",
@@ -1112,13 +1876,23 @@
 		"ownerName": "The Nemesis",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 7 }, { "duration": 8 }, { "duration": 9 }],
+		"tierValues": [
+			{
+				"duration": 7
+			},
+			{
+				"duration": 8
+			},
+			{
+				"duration": 9
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Lethal_Pursuer"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 26: Forged in Fog",
-		"description": "Whenever a Survivor performs an Unhook action, they suffer from the following effect for 60 seconds: Reduces their Healing speeds by {percentage}%.",
+		"description": "Whenever a Survivor performs an Unhook action, their Healing speeds are reduced by {percentage}% for 60 seconds.",
 		"iconPath": "/images/perks/leverage.webp",
 		"id": "leverage",
 		"name": "Leverage",
@@ -1126,13 +1900,23 @@
 		"ownerName": "The Knight",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 20 }, { "percentage": 25 }, { "percentage": 30 }],
+		"tierValues": [
+			{
+				"percentage": 20
+			},
+			{
+				"percentage": 25
+			},
+			{
+				"percentage": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Leverage"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Unlike other beasts of The Fog, you have adapted to light. The Auras of Survivors attempting to blind you by any means are revealed to you for {duration} seconds. Grants immunity from being blinded from Flashlights, Firecrackers, Flash Grenades, and Blast Mine.",
+		"description": "The Auras of Survivors attempting to blind you are revealed to you for {duration} seconds. Grants immunity to blinding from Flashlights, Firecrackers, Flash Grenades, and Blast Mine.",
 		"iconPath": "/images/perks/lightborn.webp",
 		"id": "lightborn",
 		"name": "Lightborn",
@@ -1140,13 +1924,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 6 }, { "duration": 8 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 8
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Lightborn"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 27: Tools of Torment",
-		"description": "After performing the Damage Generator action, Machine Learning activates: Causes that Generator to become a Compromised Generator. Damaging another Generator transfers the state to it instead. The Aura of the Compromised Generator is highlighted to you in yellow until it is completed. Once the Compromised Generator is completed, you benefit from the following effects for {duration} seconds: Undetectable Status Effect +8 % Haste Status Effect Machine Learning deactivates after use.",
+		"description": "After damaging a Generator, it becomes a Compromised Generator. Damaging another Generator transfers the state to it instead. The Aura of the Compromised Generator is highlighted to you in yellow until completed. Once completed, for {duration} seconds you gain the Undetectable Status Effect and a +8 % Haste Status Effect. Deactivates after use.",
 		"iconPath": "/images/perks/machine-learning.webp",
 		"id": "machine-learning",
 		"name": "Machine Learning",
@@ -1154,13 +1948,23 @@
 		"ownerName": "The Skull Merchant",
 		"role": "killer",
 		"tags": ["Aura Reading", "Haste", "Undetectable"],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Machine_Learning"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 10: Darkness Among Us",
-		"description": "Whenever you are carrying a Survivor, Mad Grit activates: Removes the Cool-down of missed Basic Attacks. Pauses the Wiggle Progression of the carried Survivor for {duration} seconds each time you successfully hit another Survivor.",
+		"description": "While carrying a Survivor, the Cool-down of missed Basic Attacks is removed. Each time you successfully hit another Survivor, the Wiggle Progression of the carried Survivor is paused for {duration} seconds.",
 		"iconPath": "/images/perks/mad-grit.webp",
 		"id": "mad-grit",
 		"name": "Mad Grit",
@@ -1168,13 +1972,23 @@
 		"ownerName": "The Legion",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 2 }, { "duration": 3 }, { "duration": 4 }],
+		"tierValues": [
+			{
+				"duration": 2
+			},
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Mad_Grit"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 7: The SAW Chapter",
-		"description": "Whenever a Survivor is rescued from a Hook, while you are farther than 32 metres away, Make Your Choice activates: Causes the unhooking Survivor to scream and reveal their location to you. Causes them to suffer from the Exposed Status Effect for {duration} seconds. Make Your Choice has a cooldown of {duration2} seconds.",
+		"description": "Whenever a Survivor is rescued from a Hook while you are farther than 32 metres away, the unhooking Survivor screams and reveals their location to you, and suffers from the Exposed Status Effect for {duration} seconds. Has a cool-down of {duration2} seconds.",
 		"iconPath": "/images/perks/make-your-choice.webp",
 		"id": "make-your-choice",
 		"name": "Make Your Choice",
@@ -1183,16 +1997,25 @@
 		"role": "killer",
 		"tags": ["Exposed"],
 		"tierValues": [
-			{ "duration": 40, "duration2": 40 },
-			{ "duration": 50, "duration2": 50 },
-			{ "duration": 60, "duration2": 60 }
+			{
+				"duration": 40,
+				"duration2": 40
+			},
+			{
+				"duration": 50,
+				"duration2": 50
+			},
+			{
+				"duration": 60,
+				"duration2": 60
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Make_Your_Choice"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 23: Sadako Rising",
-		"description": "Whenever a Generator reaches 90 % of Repair progression, Merciless Storm triggers its effect: All Survivors repairing that Generator are faced with a continuous stream of Skill Checks until the Generator is completed. If any contributing Survivor fails a Skill Check or interrupts the action by any means, The Entity blocks the Generator for {duration} seconds. Merciless Storm can only trigger once per Generator per Trial.",
+		"description": "Whenever a Generator reaches 90 % Repair progression, all Survivors repairing it face a continuous stream of Skill Checks until it is completed. If any contributing Survivor fails a Skill Check or interrupts the action, the Generator is blocked for {duration} seconds. Can only trigger once per Generator per Trial.",
 		"iconPath": "/images/perks/merciless-storm.webp",
 		"id": "merciless-storm",
 		"name": "Merciless Storm",
@@ -1200,13 +2023,23 @@
 		"ownerName": "The Onryo",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 16 }, { "duration": 18 }, { "duration": 20 }],
+		"tierValues": [
+			{
+				"duration": 16
+			},
+			{
+				"duration": 18
+			},
+			{
+				"duration": 20
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Merciless_Storm"
 	},
 	{
 		"aliases": ["Fearmonger"],
 		"chapter": "CHAPTER 13: Stranger Things",
-		"description": "While repairing a Generator, Survivors suffer from the following effects: Incurs the Blindness and Exhausted Status Effects. Both Status Effects linger for {duration} seconds after ending the interaction. Mindbreaker cannot be used to override an existing Exhausted Status Effect, but pauses its timer instead.",
+		"description": "While repairing a Generator, Survivors suffer from the Blindness and Exhausted Status Effects. Both linger for {duration} seconds after ending the interaction. Cannot override an existing Exhausted Status Effect, but pauses its timer instead.",
 		"iconPath": "/images/perks/mindbreaker.webp",
 		"id": "mindbreaker",
 		"name": "Mindbreaker",
@@ -1214,13 +2047,23 @@
 		"ownerName": "The Demogorgon",
 		"role": "killer",
 		"tags": ["Exhaustion"],
-		"tierValues": [{ "duration": 3 }, { "duration": 4 }, { "duration": 5 }],
+		"tierValues": [
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Mindbreaker"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 4: Spark of Madness",
-		"description": "While actively chasing a Survivor, Monitor & Abuse applies its primary effect: Increases your Terror Radius by {percentage}%. While not actively chasing a Survivor, Monitor & Abuse applies its secondary effect: Reduces your Terror Radius by {percentage2}%.",
+		"description": "While actively chasing a Survivor, your Terror Radius is increased by {percentage}%. Otherwise, your Terror Radius is reduced by {percentage2}%.",
 		"iconPath": "/images/perks/monitor-and-abuse.webp",
 		"id": "monitor-and-abuse",
 		"name": "Monitor & Abuse",
@@ -1229,16 +2072,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "percentage": 5, "percentage2": 15 },
-			{ "percentage": 10, "percentage2": 20 },
-			{ "percentage": 15, "percentage2": 25 }
+			{
+				"percentage": 5,
+				"percentage2": 15
+			},
+			{
+				"percentage": 10,
+				"percentage2": 20
+			},
+			{
+				"percentage": 15,
+				"percentage2": 25
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Monitor_%26_Abuse"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 36: Houndmaster's Call",
-		"description": "Whenever a Survivor healing themselves by any means reaches 75 % Healing Progress, No Quarter triggers its effect: The Survivor is faced with a continuous stream of Skill Checks until the Self-Heal is completed. If they fail a Skill Check or interrupt the action by any means, they suffer from the Broken Status Effect for {duration} seconds.",
+		"description": "Whenever a Survivor healing themselves reaches 75 % Healing Progress, they face a continuous stream of Skill Checks until the Self-Heal is completed. If they fail a Skill Check or interrupt the action, they suffer from the Broken Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/no-quarter.webp",
 		"id": "no-quarter",
 		"name": "No Quarter",
@@ -1246,13 +2098,23 @@
 		"ownerName": "The Houndmaster",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/No_Quarter"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 20: Resident Evil",
-		"description": "Whenever you hook a Survivor for the first time, No Way Out gains +1 Token. Once the Exit Gates are powered, No Way Out activates: Causes the first Survivor to interact with either Exit Gate Switch to trigger a Loud Noise Notification at their location. Upon triggering the Loud Noise Notification, No Way Out calls upon The Entity for the following effect: Blocks both Exit Gate Switches for 12 seconds. This time is extended by an additional {duration} seconds per accumulated Token, up to a combined maximum of {duration2} seconds.",
+		"description": "Whenever you hook a Survivor for the first time, No Way Out gains +1 Token. Once the Exit Gates are powered, the first Survivor to interact with either Exit Gate Switch triggers a Loud Noise Notification at their location, and both Exit Gate Switches are blocked for 12 seconds, extended by an additional {duration} seconds per Token, up to a combined maximum of {duration2} seconds.",
 		"iconPath": "/images/perks/no-way-out.webp",
 		"id": "no-way-out",
 		"name": "No Way Out",
@@ -1261,16 +2123,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "duration": 6, "duration2": 36 },
-			{ "duration": 9, "duration2": 48 },
-			{ "duration": 12, "duration2": 60 }
+			{
+				"duration": 6,
+				"duration2": 36
+			},
+			{
+				"duration": 9,
+				"duration2": 48
+			},
+			{
+				"duration": 12,
+				"duration2": 60
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/No_Way_Out"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 35: Grave of Gluttony",
-		"description": "Whenever you hook a Survivor for the first time, None Are Free gains +1 Token, up to a maximum of 4 Tokens. Once all Generators are completed, None Are Free calls upon The Entity to trigger the following effect: Blocks all Windows and upright Pallets for a stack-able {duration} seconds per Token, up to a maximum of {duration2} seconds.",
+		"description": "Whenever you hook a Survivor for the first time, None Are Free gains +1 Token, up to a maximum of 4 Tokens. Once all Generators are completed, all Windows and upright Pallets are blocked for a stack-able {duration} seconds per Token, up to a maximum of {duration2} seconds.",
 		"iconPath": "/images/perks/none-are-free.webp",
 		"id": "none-are-free",
 		"name": "None Are Free",
@@ -1279,16 +2150,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "duration": 12, "duration2": 48 },
-			{ "duration": 14, "duration2": 56 },
-			{ "duration": 16, "duration2": 64 }
+			{
+				"duration": 12,
+				"duration2": 48
+			},
+			{
+				"duration": 14,
+				"duration2": 56
+			},
+			{
+				"duration": 16,
+				"duration2": 64
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/None_Are_Free"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 25: Resident Evil: PROJECT W",
-		"description": "Performing the Damage Generator action on a Generator triggers Nowhere to Hide: The Auras of all Survivors within 24 metres of your location are revealed to you for {duration} seconds.",
+		"description": "After damaging a Generator, the Auras of all Survivors within 24 metres of your location are revealed to you for {duration} seconds.",
 		"iconPath": "/images/perks/nowhere-to-hide.webp",
 		"id": "nowhere-to-hide",
 		"name": "Nowhere to Hide",
@@ -1296,13 +2176,23 @@
 		"ownerName": "The Mastermind",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 3 }, { "duration": 4 }, { "duration": 5 }],
+		"tierValues": [
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Nowhere_to_Hide"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 4: Spark of Madness",
-		"description": "Whenever a Survivor starts using an Item within 32 metres of your location, Overwhelming Presence triggers its primary effect: Inflicts the Exhausted Status Effect for 15 seconds. Whenever a Survivor within 32 metres of your location becomes Exhausted by any means, Overwhelming Presence triggers its secondary effect: The Aura of whichever Exhausted Survivor is closest to your location is revealed to you for {duration} seconds. Overwhelming Presence has a cool-down of 25 seconds.",
+		"description": "Whenever a Survivor starts using an Item within 32 metres of your location, they suffer from the Exhausted Status Effect for 15 seconds. Whenever a Survivor within 32 metres becomes Exhausted, the Aura of the closest Exhausted Survivor is revealed to you for {duration} seconds. Has a cool-down of 25 seconds.",
 		"iconPath": "/images/perks/oppression.webp",
 		"id": "oppression",
 		"name": "Oppression",
@@ -1310,13 +2200,23 @@
 		"ownerName": "The Doctor",
 		"role": "killer",
 		"tags": ["Aura Reading", "Exhaustion"],
-		"tierValues": [{ "duration": 2 }, { "duration": 3 }, { "duration": 4 }],
+		"tierValues": [
+			{
+				"duration": 2
+			},
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Overwhelming_Presence"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 4: Spark of Madness",
-		"description": "Performing the Damage Generator action on a Generator applies Overcharge: The next Survivor interacting with that Generator is faced with a difficult Skill Check. Instantly regresses that Generator by {percentage}% of its maximum possible Progression in addition to the default Progression penalty. After Overcharge is applied to a Generator, the following effect also applies: Increases the Regression speed from 85 % to 130 % of its default value over the next 30 seconds.",
+		"description": "After damaging a Generator, the next Survivor interacting with it faces a difficult Skill Check. The Generator is instantly regressed by {percentage}% of its maximum Progression in addition to the default Progression penalty. For the next 30 seconds, its Regression speed increases from 85 % to 130 % of its default value.",
 		"iconPath": "/images/perks/overcharge.webp",
 		"id": "overcharge",
 		"name": "Overcharge",
@@ -1324,13 +2224,23 @@
 		"ownerName": "The Doctor",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 2 }, { "percentage": 3 }, { "percentage": 4 }],
+		"tierValues": [
+			{
+				"percentage": 2
+			},
+			{
+				"percentage": 3
+			},
+			{
+				"percentage": 4
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Overcharge"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 34.5: Five Nights at Freddy's",
-		"description": "Whenever a Survivor within your Terror Radius looks at you, they suffer from the following effects: Causes them to scream and reveal their Aura to you for 2 seconds. Phantom Fear has a cool-down of {duration} seconds.",
+		"description": "Whenever a Survivor within your Terror Radius looks at you, they scream and their Aura is revealed to you for 2 seconds. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/phantom-fear.webp",
 		"id": "phantom-fear",
 		"name": "Phantom Fear",
@@ -1338,13 +2248,23 @@
 		"ownerName": "The Animatronic",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 80 }, { "duration": 70 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 80
+			},
+			{
+				"duration": 70
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Phantom_Fear"
 	},
 	{
 		"aliases": ["Play with Your Food"],
 		"chapter": null,
-		"description": "Losing your Obsession in a chase causes See How They Run to gain +1 Token, up to a maximum of 3 Tokens, and performing a Basic or Special Attack with the potential to damage a Survivor causes it to lose -1 Token. While having at least 1 Token, you benefit from the following effect: Grants a stack-able {percentage}% Haste Status Effect per Token, up to a maximum of {percentage2}%. See How They Run has a cool-down of 10 seconds between gaining additional Tokens. You can only be obsessed with one Survivor at a time.",
+		"description": "Losing your Obsession in a chase grants +1 Token (max 3 Tokens); performing a Basic or Special Attack with the potential to damage a Survivor consumes -1 Token. While having at least 1 Token, you gain a stack-able {percentage}% Haste Status Effect per Token, up to a maximum of {percentage2}%. Has a cool-down of 10 seconds between gaining additional Tokens. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/see-how-they-run.webp",
 		"id": "see-how-they-run",
 		"name": "See How They Run",
@@ -1353,16 +2273,25 @@
 		"role": "killer",
 		"tags": ["Haste", "Obsession"],
 		"tierValues": [
-			{ "percentage": 3, "percentage2": 9 },
-			{ "percentage": 4, "percentage2": 12 },
-			{ "percentage": 5, "percentage2": 15 }
+			{
+				"percentage": 3,
+				"percentage2": 9
+			},
+			{
+				"percentage": 4,
+				"percentage2": 12
+			},
+			{
+				"percentage": 5,
+				"percentage2": 15
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Play_with_Your_Food"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 8: Curtain Call",
-		"description": "After hooking a Survivor, Pop Goes the Weasel activates for {duration} seconds. While active, manually damaging a Generator triggers the following effect: Increases the regression amount by +15 % resulting in 20 % regression. Pop Goes the Weasel deactivates after use or once its timer elapses.",
+		"description": "After hooking a Survivor, for {duration} seconds the next manual damage to a Generator is increased by +15 % for a total of 20 % regression. Deactivates after use or once the timer elapses.",
 		"iconPath": "/images/perks/pop-goes-the-weasel.webp",
 		"id": "pop-goes-the-weasel",
 		"name": "Pop Goes the Weasel",
@@ -1370,13 +2299,23 @@
 		"ownerName": "The Clown",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 35 }, { "duration": 40 }, { "duration": 45 }],
+		"tierValues": [
+			{
+				"duration": 35
+			},
+			{
+				"duration": 40
+			},
+			{
+				"duration": 45
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Pop_Goes_the_Weasel"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Whenever you lose a Survivor in a Chase, Predator triggers its effect: Their Aura is revealed to you for 4 seconds. Predator has a cool-down of {duration} seconds.",
+		"description": "Whenever you lose a Survivor in a Chase, their Aura is revealed to you for 4 seconds. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/predator.webp",
 		"id": "predator",
 		"name": "Predator",
@@ -1384,13 +2323,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 60 }, { "duration": 50 }, { "duration": 40 }],
+		"tierValues": [
+			{
+				"duration": 60
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 40
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Predator"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 9: Shattered Bloodline",
-		"description": "Whenever a Generator is completed, Rancor triggers its primary effects: Causes all Survivors to scream and trigger a Loud Noise Notification at their current location. This effect lingers for 3 seconds. Your Aura is revealed to the Obsession for {duration} seconds. Once the Exit Gates are powered, Rancor additionally triggers its secondary effects on the Obsession: Inflicts the Exposed Status Effect for the remainder of the Trial. Grants the ability to kill them when in close proximity. You can only be obsessed with one Survivor at a time.",
+		"description": "Whenever a Generator is completed, all Survivors scream and trigger a Loud Noise Notification at their current location (lingers for 3 seconds), and your Aura is revealed to the Obsession for {duration} seconds. Once the Exit Gates are powered, the Obsession suffers from the Exposed Status Effect for the remainder of the Trial, and you can kill them when in close proximity. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/rancor.webp",
 		"id": "rancor",
 		"name": "Rancor",
@@ -1398,13 +2347,23 @@
 		"ownerName": "The Spirit",
 		"role": "killer",
 		"tags": ["Aura Reading", "Exposed", "Obsession"],
-		"tierValues": [{ "duration": 5 }, { "duration": 4 }, { "duration": 3 }],
+		"tierValues": [
+			{
+				"duration": 5
+			},
+			{
+				"duration": 4
+			},
+			{
+				"duration": 3
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Rancor"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 29: Alien",
-		"description": "You move with a speed and fury that makes blood run cold. You can no longer gain the Bloodlust Status Effect. Successfully hitting a Survivor with a Basic Attack grants you a +5 % Haste Status Effect for {duration} seconds.",
+		"description": "You can no longer gain the Bloodlust Status Effect. Successfully hitting a Survivor with a Basic Attack grants a +5 % Haste Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/rapid-brutality.webp",
 		"id": "rapid-brutality",
 		"name": "Rapid Brutality",
@@ -1412,13 +2371,23 @@
 		"ownerName": "The Xenomorph",
 		"role": "killer",
 		"tags": ["Haste"],
-		"tierValues": [{ "duration": 8 }, { "duration": 9 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 8
+			},
+			{
+				"duration": 9
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Rapid_Brutality"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 37: Sinister Grace",
-		"description": "Whenever you hook a Survivor for the first time, Ravenous gains +1 Token, up to a maximum of 4 Tokens. Once you accumulate 4 Tokens, all Survivors suffer from the following effects: Causes them to scream. Inflicts the Exposed Status Effect for {duration} seconds.",
+		"description": "Whenever you hook a Survivor for the first time, Ravenous gains +1 Token, up to a maximum of 4 Tokens. At 4 Tokens, all Survivors scream and suffer from the Exposed Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/ravenous.webp",
 		"id": "ravenous",
 		"name": "Ravenous",
@@ -1426,13 +2395,23 @@
 		"ownerName": "The Krasue",
 		"role": "killer",
 		"tags": ["Exposed"],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Ravenous"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 6: A Nightmare on Elm Street",
-		"description": "Whenever the Obsession loses a Health State by any means, Remember Me gains +1 Token, up to a maximum of {tokens} Tokens: Increases the Opening time of both Exit Gates by a stack-able 6 seconds per Token, up to a maximum additional Opening time of {duration} seconds. This results in a maximum possible Opening time of {duration2} seconds for both Exit Gates. Remember Me does not apply its penalty to the Obsession, allowing them to open both Exit Gates in the default time of 20 seconds. You can only be obsessed with one Survivor at a time.",
+		"description": "Whenever the Obsession loses a Health State, Remember Me gains +1 Token, up to a maximum of {tokens} Tokens. The Opening time of both Exit Gates is increased by a stack-able 6 seconds per Token, up to a maximum additional {duration} seconds (a total of {duration2} seconds). Does not apply to the Obsession, who opens both Exit Gates in the default 20 seconds. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/remember-me.webp",
 		"id": "remember-me",
 		"name": "Remember Me",
@@ -1441,16 +2420,28 @@
 		"role": "killer",
 		"tags": ["Obsession"],
 		"tierValues": [
-			{ "duration": 18, "duration2": 38, "tokens": 3 },
-			{ "duration": 24, "duration2": 44, "tokens": 4 },
-			{ "duration": 30, "duration2": 50, "tokens": 5 }
+			{
+				"duration": 18,
+				"duration2": 38,
+				"tokens": 3
+			},
+			{
+				"duration": 24,
+				"duration2": 44,
+				"tokens": 4
+			},
+			{
+				"duration": 30,
+				"duration2": 50,
+				"tokens": 5
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Remember_Me"
 	},
 	{
 		"aliases": ["Save the Best for Last"],
 		"chapter": null,
-		"description": "Damaging any Survivor other than the Obsession with a Basic Attack causes Keep Them Waiting to gain +1 Token, up to a maximum of {tokens} Tokens. Damaging the Obsession with either a Basic or Special Attack causes Keep Them Waiting to lose -2 Tokens: Grants a stack-able -4 % per Token Cool-down time reduction on successful Basic Attacks, up to a maximum of {percentage}%. Keep Them Waiting freezes its current Token Count once the Obsession is sacrificed or killed. You can only be obsessed with one Survivor at a time.",
+		"description": "Damaging any Survivor other than the Obsession with a Basic Attack grants +1 Token, up to a maximum of {tokens} Tokens. Damaging the Obsession with a Basic or Special Attack consumes -2 Tokens. Successful Basic Attack Cool-down is reduced by a stack-able -4 % per Token, up to a maximum of {percentage}%. The current Token count freezes once the Obsession is sacrificed or killed. You can only be obsessed with one Survivor at a time.",
 		"iconPath": "/images/perks/keep-them-waiting.webp",
 		"id": "keep-them-waiting",
 		"name": "Keep Them Waiting",
@@ -1459,16 +2450,25 @@
 		"role": "killer",
 		"tags": ["Obsession"],
 		"tierValues": [
-			{ "percentage": 24, "tokens": 6 },
-			{ "percentage": 28, "tokens": 7 },
-			{ "percentage": 32, "tokens": 8 }
+			{
+				"percentage": 24,
+				"tokens": 6
+			},
+			{
+				"percentage": 28,
+				"tokens": 7
+			},
+			{
+				"percentage": 32,
+				"tokens": 8
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Save_the_Best_for_Last"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 23: Sadako Rising",
-		"description": "At the start of the Trial, 4 Hooks in the environment are changed into Scourge Hooks: The Auras of these Scourge Hooks are highlighted in white. Each time a Survivor is unhooked from a Scourge Hook, the following effects apply: The Auras of all other Survivors are revealed for {duration} seconds.",
+		"description": "At the start of the Trial, 4 Hooks become Scourge Hooks with Auras highlighted in white. Each time a Survivor is unhooked from a Scourge Hook, the Auras of all other Survivors are revealed for {duration} seconds.",
 		"iconPath": "/images/perks/scourge-hook-floods-of-rage.webp",
 		"id": "scourge-hook-floods-of-rage",
 		"name": "Scourge Hook: Floods of Rage",
@@ -1476,13 +2476,23 @@
 		"ownerName": "The Onryo",
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
-		"tierValues": [{ "duration": 5 }, { "duration": 6 }, { "duration": 7 }],
+		"tierValues": [
+			{
+				"duration": 5
+			},
+			{
+				"duration": 6
+			},
+			{
+				"duration": 7
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Scourge_Hook:_Floods_of_Rage"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 22: Portrait of a Murder",
-		"description": "At the start of the Trial, 4 Hooks in the environment are changed into Scourge Hooks: The Auras of these Scourge Hooks are highlighted in white. Each time a Survivor is unhooked from a Scourge Hook, the following effects apply: Causes that Survivor to suffer from the Haemorrhage Status Effect for 90 seconds. After the first time that Survivor is healed back to full health, they suffer from the following effect until they are injured again by any means: Reduces their Action speeds for Healing and Repairing by {percentage}%.",
+		"description": "At the start of the Trial, 4 Hooks become Scourge Hooks with Auras highlighted in white. Each time a Survivor is unhooked from a Scourge Hook, they suffer from the Haemorrhage Status Effect for 90 seconds. After the first time they are healed back to full health, their Healing and Repairing Action speeds are reduced by {percentage}% until they are injured again.",
 		"iconPath": "/images/perks/scourge-hook-gift-of-pain.webp",
 		"id": "scourge-hook-gift-of-pain",
 		"name": "Scourge Hook: Gift of Pain",
@@ -1490,13 +2500,23 @@
 		"ownerName": "The Artist",
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
-		"tierValues": [{ "percentage": 10 }, { "percentage": 13 }, { "percentage": 16 }],
+		"tierValues": [
+			{
+				"percentage": 10
+			},
+			{
+				"percentage": 13
+			},
+			{
+				"percentage": 16
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Scourge_Hook:_Gift_of_Pain"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "At the start of the Trial, 4 Hooks in the environment are changed into Scourge Hooks: The Auras of these Scourge Hooks are highlighted in white. While carrying a Survivor, Scourge Hook: Hangman's Trick triggers its primary effect: The Auras of all Survivors within {range} metres of a Scourge Hook are revealed to you. Whenever a Survivor starts the Sabotage action on any Hook, Scourge Hook: Hangman's Trick triggers its secondary effect: Triggers a Loud Noise Notification at the location of that Hook.",
+		"description": "At the start of the Trial, 4 Hooks become Scourge Hooks with Auras highlighted in white. While carrying a Survivor, the Auras of all Survivors within {range} metres of a Scourge Hook are revealed to you. Whenever a Survivor starts the Sabotage action on any Hook, a Loud Noise Notification triggers at its location.",
 		"iconPath": "/images/perks/scourge-hook-hangmans-trick.webp",
 		"id": "scourge-hook-hangmans-trick",
 		"name": "Scourge Hook: Hangman's Trick",
@@ -1504,13 +2524,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
-		"tierValues": [{ "range": 12 }, { "range": 14 }, { "range": 16 }],
+		"tierValues": [
+			{
+				"range": 12
+			},
+			{
+				"range": 14
+			},
+			{
+				"range": 16
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Scourge_Hook:_Hangman%27s_Trick"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 34: Doomed Course",
-		"description": "At the start of the Trial, 4 Hooks in the environment are changed into Scourge Hooks: The Auras of these Scourge Hooks are highlighted in white. Whenever a Survivor is unhooked from a normal Hook, the following effect applies: The Hook is converted into a Scourge Hook. Whenever you hook a Survivor onto a Scourge Hook, the following effect applies: The Aura of the Generator with the most progression is highlighted in yellow for {duration} seconds.",
+		"description": "At the start of the Trial, 4 Hooks become Scourge Hooks with Auras highlighted in white. Whenever a Survivor is unhooked from a normal Hook, that Hook is converted into a Scourge Hook. Whenever you hook a Survivor onto a Scourge Hook, the Aura of the Generator with the most progression is highlighted in yellow for {duration} seconds.",
 		"iconPath": "/images/perks/scourge-hook-jagged-compass.webp",
 		"id": "scourge-hook-jagged-compass",
 		"name": "Scourge Hook: Jagged Compass",
@@ -1518,13 +2548,23 @@
 		"ownerName": "The Houndmaster",
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
-		"tierValues": [{ "duration": 6 }, { "duration": 8 }, { "duration": 10 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 8
+			},
+			{
+				"duration": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Scourge_Hook:_Jagged_Compass"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "At the start of the Trial, the 4 Hooks located inside the Basement and an additional 4 Hooks located throughout the Trial Grounds are all changed into Scourge Hooks: The Auras of Scourge Hooks are highlighted to you in white. Whenever you are farther than 24 metres from a Survivor hooked onto a Scourge Hook, the following effect applies: Accelerates their Sacrifice Process by {percentage}%.",
+		"description": "At the start of the Trial, the 4 Basement Hooks and 4 additional Hooks throughout the Trial Grounds become Scourge Hooks with Auras highlighted to you in white. Whenever you are farther than 24 metres from a Survivor hooked onto a Scourge Hook, their Sacrifice Process is accelerated by {percentage}%.",
 		"iconPath": "/images/perks/scourge-hook-monstrous-shrine.webp",
 		"id": "scourge-hook-monstrous-shrine",
 		"name": "Scourge Hook: Monstrous Shrine",
@@ -1532,13 +2572,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
-		"tierValues": [{ "percentage": 10 }, { "percentage": 15 }, { "percentage": 20 }],
+		"tierValues": [
+			{
+				"percentage": 10
+			},
+			{
+				"percentage": 15
+			},
+			{
+				"percentage": 20
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Scourge_Hook:_Monstrous_Shrine"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 22: Portrait of a Murder",
-		"description": "Overwhelming pain reverberates outwards. At the start of the Trial, 4 Hooks in the environment are changed into Scourge Hooks: The Auras of these Scourge Hooks are highlighted in white. Start the Trial with 4 Token. Whenever a Survivor is hooked onto a Scourge Hook for the first time, Scourge Hook: Pain Resonance consumes -1 Token and applies the following effects: Causes the Generator with the most progression to explode, damaging it. Instantly regresses the Damaged Generator by {percentage}% of its total Progression. Causes the Damaged Generator to start regressing afterwards. Causes all Survivors repairing the Damaged Generator to scream. This does not trigger a Loud Noise Notification. Scourge Hook: Pain Resonance is disabled for the remainder of the Trial once all Tokens are consumed.",
+		"description": "At the start of the Trial, 4 Hooks become Scourge Hooks with Auras highlighted in white, and Pain Resonance starts with 4 Tokens. Whenever a Survivor is hooked onto a Scourge Hook for the first time, Pain Resonance consumes -1 Token: the Generator with the most progression explodes, is instantly regressed by {percentage}% of its total Progression, and starts regressing afterwards. All Survivors repairing that Generator scream (this does not trigger a Loud Noise Notification). Disabled for the remainder of the Trial once all Tokens are consumed.",
 		"iconPath": "/images/perks/scourge-hook-pain-resonance.webp",
 		"id": "scourge-hook-pain-resonance",
 		"name": "Scourge Hook: Pain Resonance",
@@ -1546,13 +2596,23 @@
 		"ownerName": "The Artist",
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
-		"tierValues": [{ "percentage": 10 }, { "percentage": 15 }, { "percentage": 20 }],
+		"tierValues": [
+			{
+				"percentage": 10
+			},
+			{
+				"percentage": 15
+			},
+			{
+				"percentage": 20
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Scourge_Hook:_Pain_Resonance"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 35: Grave of Gluttony",
-		"description": "At the start of the Trial, 4 Hooks in the environment are changed into Scourge Hooks: The Auras of these Scourge Hooks are highlighted in white. Each time a Survivor is unhooked from a Scourge Hook, the following effects apply: Causes that Survivor to suffer from the Haemorrhage Status Effect for 90 seconds. After the first time that Survivor is healed back to full health, they suffer from the following effect until they are injured again by any means: Reduces their Action speeds for Healing and Repairing by {percentage}%.",
+		"description": "At the start of the Trial, 4 Hooks become Scourge Hooks with Auras highlighted in white. Each time a Survivor is unhooked from a Scourge Hook, they suffer from the Haemorrhage Status Effect for 90 seconds. After the first time they are healed back to full health, their Healing and Repairing Action speeds are reduced by {percentage}% until they are injured again.",
 		"iconPath": "/images/perks/scourge-hook-weeping-wounds.webp",
 		"id": "scourge-hook-weeping-wounds",
 		"name": "Scourge Hook: Weeping Wounds",
@@ -1560,13 +2620,23 @@
 		"ownerName": "The Ghoul",
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
-		"tierValues": [{ "percentage": 10 }, { "percentage": 13 }, { "percentage": 16 }],
+		"tierValues": [
+			{
+				"percentage": 10
+			},
+			{
+				"percentage": 13
+			},
+			{
+				"percentage": 16
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Scourge_Hook:_Weeping_Wounds"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 38: Stranger Things Chapter 2",
-		"description": "Whenever a Totem is blessed or cleansed, a random unblocked generator becomes blocked for {duration} seconds. Whenever any number of Generators become blocked, you gain Undetectable Status Effect for 30 seconds.",
+		"description": "Whenever a Totem is blessed or cleansed, a random unblocked Generator is blocked for {duration} seconds. Whenever any number of Generators become blocked, you gain the Undetectable Status Effect for 30 seconds.",
 		"iconPath": "/images/perks/secret-project.webp",
 		"id": "secret-project",
 		"name": "Secret Project",
@@ -1574,13 +2644,23 @@
 		"ownerName": "The First",
 		"role": "killer",
 		"tags": ["Undetectable"],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Secret_Project"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 24: Roots of Dread",
-		"description": "Whenever a Survivor performs a Healing action while inside the Terror Radius, they suffer from the following effects: Inflicts the Blindness and Exhausted Status Effects. These effects linger for {duration} seconds after the Healing action is interrupted by any means.",
+		"description": "Whenever a Survivor performs a Healing action while inside your Terror Radius, they suffer from the Blindness and Exhausted Status Effects. These linger for {duration} seconds after the Healing action is interrupted.",
 		"iconPath": "/images/perks/septic-touch.webp",
 		"id": "septic-touch",
 		"name": "Septic Touch",
@@ -1588,13 +2668,23 @@
 		"ownerName": "The Dredge",
 		"role": "killer",
 		"tags": ["Exhaustion"],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Septic_Touch"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Whenever you are blinded by any means, Shadowborn triggers its effect: Grants a {percentage}% Haste Status Effect for 10 seconds.",
+		"description": "Whenever you are blinded by any means, you gain a {percentage}% Haste Status Effect for 10 seconds.",
 		"iconPath": "/images/perks/shadowborn.webp",
 		"id": "shadowborn",
 		"name": "Shadowborn",
@@ -1602,13 +2692,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Haste"],
-		"tierValues": [{ "percentage": 6 }, { "percentage": 8 }, { "percentage": 10 }],
+		"tierValues": [
+			{
+				"percentage": 6
+			},
+			{
+				"percentage": 8
+			},
+			{
+				"percentage": 10
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Shadowborn"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 24: Roots of Dread",
-		"description": "To capture your prey, you must first extinguish their hope. Instead of snuffing Boon Totems you destroy them. Destroying a Boon Totem this way reveals the Auras of all Survivors that were within its range at that moment for {duration} seconds.",
+		"description": "Instead of snuffing Boon Totems, you destroy them. Destroying a Boon Totem reveals the Auras of all Survivors that were within its range at that moment for {duration} seconds.",
 		"iconPath": "/images/perks/shattered-hope.webp",
 		"id": "shattered-hope",
 		"name": "Shattered Hope",
@@ -1616,13 +2716,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 6 }, { "duration": 7 }, { "duration": 8 }],
+		"tierValues": [
+			{
+				"duration": 6
+			},
+			{
+				"duration": 7
+			},
+			{
+				"duration": 8
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Shattered_Hope"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Survivors hit with your vicious Basic Attack suffer from the following effects for {duration} seconds: Inflicts the Haemorrhage and Mangled Status Effects. Modifies the potency of Haemorrhage: Increases the Spawn frequency of Pools of Blood by {percentage}%. Increases the Regression rate of partial Healing progression by +25 %.",
+		"description": "Survivors hit with your Basic Attack suffer from the Haemorrhage and Mangled Status Effects for {duration} seconds. The potency of Haemorrhage is modified: the Spawn frequency of Pools of Blood is increased by {percentage}% and the Regression rate of partial Healing progression is increased by +25 %.",
 		"iconPath": "/images/perks/sloppy-butcher.webp",
 		"id": "sloppy-butcher",
 		"name": "Sloppy Butcher",
@@ -1631,16 +2741,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "duration": 70, "percentage": 50 },
-			{ "duration": 80, "percentage": 75 },
-			{ "duration": 90, "percentage": 100 }
+			{
+				"duration": 70,
+				"percentage": 50
+			},
+			{
+				"duration": 80,
+				"percentage": 75
+			},
+			{
+				"duration": 90,
+				"percentage": 100
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Sloppy_Butcher"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Whenever a Survivor startles a Crow within {range} metres of your location, Spies from the Shadows triggers its effect: Alerts you with a unique Loud Noise Notification in the shape of a Crow. Spies from the Shadows has a cool-down of 5 seconds between alerts.",
+		"description": "Whenever a Survivor startles a Crow within {range} metres of your location, you are alerted with a unique Loud Noise Notification in the shape of a Crow. Has a cool-down of 5 seconds between alerts.",
 		"iconPath": "/images/perks/spies-from-the-shadows.webp",
 		"id": "spies-from-the-shadows",
 		"name": "Spies from the Shadows",
@@ -1648,13 +2767,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "range": 20 }, { "range": 28 }, { "range": 36 }],
+		"tierValues": [
+			{
+				"range": 20
+			},
+			{
+				"range": 28
+			},
+			{
+				"range": 36
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Spies_from_the_Shadows"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 9: Shattered Bloodline",
-		"description": "After manually breaking a total of {value} dropped Pallets by any means, Spirit Fury activates: Instantly breaks the next Pallet used by a Survivor to stun you. Spirit Fury deactivates after use and does not affect the duration of the Pallet Stun.",
+		"description": "After manually breaking {value} dropped Pallets, the next Pallet used by a Survivor to stun you is instantly broken. Deactivates after use and does not affect the duration of the Pallet Stun.",
 		"iconPath": "/images/perks/spirit-fury.webp",
 		"id": "spirit-fury",
 		"name": "Spirit Fury",
@@ -1662,13 +2791,23 @@
 		"ownerName": "The Spirit",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "value": 4 }, { "value": 3 }, { "value": 2 }],
+		"tierValues": [
+			{
+				"value": 4
+			},
+			{
+				"value": 3
+			},
+			{
+				"value": 2
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Spirit_Fury"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 19: All-Kill",
-		"description": "Whenever you are carrying a Survivor, Starstruck activates: Causes all other Survivors in your Terror Radius to suffer from the Exposed Status Effect. This effect lingers for {duration} seconds after affected Survivors leave the Terror Radius or Starstruck deactivates. Starstruck deactivates after hooking or dropping the carried Survivor and has a cool-down of 60 seconds.",
+		"description": "While carrying a Survivor, all other Survivors in your Terror Radius suffer from the Exposed Status Effect. The effect lingers for {duration} seconds after affected Survivors leave the Terror Radius or Starstruck deactivates. Deactivates after hooking or dropping the carried Survivor and has a cool-down of 60 seconds.",
 		"iconPath": "/images/perks/starstruck.webp",
 		"id": "starstruck",
 		"name": "Starstruck",
@@ -1676,13 +2815,23 @@
 		"ownerName": "The Trickster",
 		"role": "killer",
 		"tags": ["Exposed"],
-		"tierValues": [{ "duration": 26 }, { "duration": 28 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 26
+			},
+			{
+				"duration": 28
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Starstruck"
 	},
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "You are acutely sensitive to the breathing of your prey. Increases the volume of Grunts of Pain of injured Survivors by {percentage}%. Increases the volume of regular breathing of Survivors by {percentage2}%.",
+		"description": "The volume of Grunts of Pain of injured Survivors is increased by {percentage}% and the volume of regular breathing of Survivors is increased by {percentage2}%.",
 		"iconPath": "/images/perks/stridor.webp",
 		"id": "stridor",
 		"name": "Stridor",
@@ -1691,16 +2840,25 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "percentage": 30, "percentage2": 15 },
-			{ "percentage": 40, "percentage2": 20 },
-			{ "percentage": 50, "percentage2": 25 }
+			{
+				"percentage": 30,
+				"percentage2": 15
+			},
+			{
+				"percentage": 40,
+				"percentage2": 20
+			},
+			{
+				"percentage": 50,
+				"percentage2": 25
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Stridor"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 25: Resident Evil: PROJECT W",
-		"description": "Whenever a Survivor performs a Rush Vault action within 12 metres of your location, Superior Anatomy activates: Increases your Vaulting speed by {percentage}%. Superior Anatomy deactivates after vaulting. Superior Anatomy has a cool-down of 25 seconds.",
+		"description": "Whenever a Survivor performs a Rush Vault action within 12 metres of your location, your Vaulting speed is increased by {percentage}%. Deactivates after vaulting. Has a cool-down of 25 seconds.",
 		"iconPath": "/images/perks/superior-anatomy.webp",
 		"id": "superior-anatomy",
 		"name": "Superior Anatomy",
@@ -1708,13 +2866,23 @@
 		"ownerName": "The Mastermind",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 30 }, { "percentage": 35 }, { "percentage": 40 }],
+		"tierValues": [
+			{
+				"percentage": 30
+			},
+			{
+				"percentage": 35
+			},
+			{
+				"percentage": 40
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Superior_Anatomy"
 	},
 	{
 		"aliases": ["Jolt"],
 		"chapter": "CHAPTER 13: Stranger Things",
-		"description": "Whenever you put a Survivor into the Dying State with your Basic Attack, Surge triggers its effect: Causes all Generators within 32 metres of your location to instantly explode and start regressing. Instantly regresses all affected Generators by {percentage}%.",
+		"description": "Whenever you put a Survivor into the Dying State with your Basic Attack, all Generators within 32 metres instantly explode and start regressing, and are instantly regressed by {percentage}%.",
 		"iconPath": "/images/perks/surge.webp",
 		"id": "surge",
 		"name": "Surge",
@@ -1722,13 +2890,23 @@
 		"ownerName": "The Demogorgon",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 6 }, { "percentage": 7 }, { "percentage": 8 }],
+		"tierValues": [
+			{
+				"percentage": 6
+			},
+			{
+				"percentage": 7
+			},
+			{
+				"percentage": 8
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Surge"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 7: The SAW Chapter",
-		"description": "Unlocks potential in your Aura-reading ability: The Auras of damaged Generators are highlighted based on their current state: White Aura: The Generator is currently regressing. Yellow Aura: The Generator stopped regressing due to Survivor-intervention. This effect lasts for {duration} seconds, after which the Generator Aura returns to its default colour. While Survivors are repairing Generators, they suffer from the following effect: Increases the audible range of all noises related to the Repair interaction by +8 metres.",
+		"description": "The Auras of damaged Generators are highlighted based on their state: white if currently regressing, yellow if regression stopped due to Survivor intervention. The highlight lasts for {duration} seconds before returning to its default colour. While Survivors are repairing Generators, the audible range of all noises related to the Repair interaction is increased by +8 metres.",
 		"iconPath": "/images/perks/surveillance.webp",
 		"id": "surveillance",
 		"name": "Surveillance",
@@ -1736,13 +2914,23 @@
 		"ownerName": "The Pig",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 8 }, { "duration": 12 }, { "duration": 16 }],
+		"tierValues": [
+			{
+				"duration": 8
+			},
+			{
+				"duration": 12
+			},
+			{
+				"duration": 16
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Surveillance"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 19: All-Kill",
-		"description": "Start the Trial with 3 Tokens. Whenever you break a Breakable Wall or a dropped Pallet, THWACK! consumes -1 Token and applies the following effect: Causes all Survivors within 36 metres of your location to scream and reveal their Aura for {duration} seconds. Whenever you hook a Survivor, THWACK! is granted +1 Token.",
+		"description": "Start the Trial with 3 Tokens. Whenever you break a Breakable Wall or a dropped Pallet, THWACK! consumes -1 Token: all Survivors within 36 metres of your location scream and their Auras are revealed for {duration} seconds. Whenever you hook a Survivor, THWACK! gains +1 Token.",
 		"iconPath": "/images/perks/starstruck.webp",
 		"id": "thwack",
 		"name": "THWACK!",
@@ -1750,13 +2938,23 @@
 		"ownerName": "The Trickster",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 4 }, { "duration": 5 }, { "duration": 6 }],
+		"tierValues": [
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			},
+			{
+				"duration": 6
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/THWACK!"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 20: Resident Evil",
-		"description": "Once the Exit Gates are powered, Terminus activates: Causes all injured, dying, or hooked Survivors to suffer from the Broken Status Effect. This effect last until one of the Exit Gates is opened, after which it lingers for another {duration} seconds.",
+		"description": "Once the Exit Gates are powered, all injured, dying, or hooked Survivors suffer from the Broken Status Effect. Lasts until an Exit Gate is opened, then lingers for another {duration} seconds.",
 		"iconPath": "/images/perks/terminus.webp",
 		"id": "terminus",
 		"name": "Terminus",
@@ -1764,13 +2962,23 @@
 		"ownerName": "The Nemesis",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 35 }, { "duration": 40 }, { "duration": 45 }],
+		"tierValues": [
+			{
+				"duration": 35
+			},
+			{
+				"duration": 40
+			},
+			{
+				"duration": 45
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Terminus"
 	},
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "Unlocks potential in your Aura-reading ability. Whenever a Survivor enters the Basement while you are farther than 24 metres from its entrance, Territorial Imperative activates: The Aura of that Survivor is revealed to you for {duration} seconds. Territorial Imperative has a cool-down of 45 seconds.",
+		"description": "Whenever a Survivor enters the Basement while you are farther than 24 metres from its entrance, their Aura is revealed to you for {duration} seconds. Has a cool-down of 45 seconds.",
 		"iconPath": "/images/perks/territorial-imperative.webp",
 		"id": "territorial-imperative",
 		"name": "Territorial Imperative",
@@ -1778,13 +2986,23 @@
 		"ownerName": "The Huntress",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 4 }, { "duration": 5 }, { "duration": 6 }],
+		"tierValues": [
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			},
+			{
+				"duration": 6
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Territorial_Imperative"
 	},
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "Whenever at least one Survivor is either injured, dying, or hooked, Thanatophobia activates. While active, all Survivors suffer from the following primary effect: Incurs a stack-able {percentage}% Action-Speed penalty per injured, dying, or hooked Survivor for Cleansing, Repairing, and Sabotaging, up to a maximum of {percentage2}%. If all four Survivors are either injured, dying, or hooked, they suffer from the following secondary effect: Increases the penalty by an additional +12 % to a total of {percentage3}%.",
+		"description": "Whenever at least one Survivor is injured, dying, or hooked, all Survivors suffer a stack-able {percentage}% Action-Speed penalty per injured, dying, or hooked Survivor for Cleansing, Repairing, and Sabotaging, up to a maximum of {percentage2}%. If all four Survivors are injured, dying, or hooked, the penalty increases by an additional +12 % to a total of {percentage3}%.",
 		"iconPath": "/images/perks/thanatophobia.webp",
 		"id": "thanatophobia",
 		"name": "Thanatophobia",
@@ -1793,16 +3011,28 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "percentage": 1, "percentage2": 4, "percentage3": 16 },
-			{ "percentage": 1.5, "percentage2": 6, "percentage3": 18 },
-			{ "percentage": 2, "percentage2": 8, "percentage3": 20 }
+			{
+				"percentage": 1,
+				"percentage2": 4,
+				"percentage3": 16
+			},
+			{
+				"percentage": 1.5,
+				"percentage2": 6,
+				"percentage3": 18
+			},
+			{
+				"percentage": 2,
+				"percentage2": 8,
+				"percentage3": 20
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Thanatophobia"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 12: Ghost Face",
-		"description": "After picking up a Survivor, Thrilling Tremors triggers its effects: Blocks all Generators not currently being repaired by any Survivors for 16 seconds. The Auras of Blocked Generators are highlighted to you in white. Thrilling Tremors has a cool-down of {duration} seconds.",
+		"description": "After picking up a Survivor, all Generators not currently being repaired are blocked for 16 seconds. The Auras of blocked Generators are highlighted to you in white. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/thrilling-tremors.webp",
 		"id": "thrilling-tremors",
 		"name": "Thrilling Tremors",
@@ -1810,13 +3040,23 @@
 		"ownerName": "The Ghost Face",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 40 }, { "duration": 35 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 35
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Thrilling_Tremors"
 	},
 	{
 		"aliases": [],
 		"chapter": "Base Game",
-		"description": "Whenever a Generator is repaired to 70 %, you benefit from the following effects: Triggers a Loud Noise Notification for that Generator, revealing its location. Grants the Undetectable Status Effect for the next {duration} seconds. Tinkerer can only trigger once per Generator per Trial.",
+		"description": "Whenever a Generator reaches 70 % repair, a Loud Noise Notification triggers at that Generator revealing its location, and you gain the Undetectable Status Effect for the next {duration} seconds. Can only trigger once per Generator per Trial.",
 		"iconPath": "/images/perks/tinkerer.webp",
 		"id": "tinkerer",
 		"name": "Tinkerer",
@@ -1824,13 +3064,23 @@
 		"ownerName": "The Hillbilly",
 		"role": "killer",
 		"tags": ["Undetectable"],
-		"tierValues": [{ "duration": 12 }, { "duration": 14 }, { "duration": 16 }],
+		"tierValues": [
+			{
+				"duration": 12
+			},
+			{
+				"duration": 14
+			},
+			{
+				"duration": 16
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Tinkerer"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 16: Silent Hill",
-		"description": "Performing the Damage Generator action on a Generator activates Trail of Torment: Grants the Undetectable Status Effect. The Aura of the Damaged Generator is revealed to all Survivors and highlighted in yellow. Trail of Torment deactivates after the Damaged Generator stops regressing by any means and has a cool-down of {duration} seconds between activations.",
+		"description": "After damaging a Generator, you gain the Undetectable Status Effect. The Aura of the damaged Generator is revealed to all Survivors and highlighted in yellow. Deactivates after the Generator stops regressing, and has a cool-down of {duration} seconds between activations.",
 		"iconPath": "/images/perks/trail-of-torment.webp",
 		"id": "trail-of-torment",
 		"name": "Trail of Torment",
@@ -1838,13 +3088,23 @@
 		"ownerName": "The Executioner",
 		"role": "killer",
 		"tags": ["Aura Reading", "Undetectable"],
-		"tierValues": [{ "duration": 60 }, { "duration": 45 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 60
+			},
+			{
+				"duration": 45
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Trail_of_Torment"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 38: Stranger Things Chapter 2",
-		"description": "After hooking a Survivor, for {duration} seconds, press the Active Ability button to make a target generator within 20 meters explode, lose -10 % progress, and start regressing.",
+		"description": "After hooking a Survivor, for {duration} seconds press the Active Ability button to make a target Generator within 20 metres explode, lose -10 % progress, and start regressing.",
 		"iconPath": "/images/perks/turn-back-the-clock.webp",
 		"id": "turn-back-the-clock",
 		"name": "Turn Back the Clock",
@@ -1852,13 +3112,23 @@
 		"ownerName": "The First",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 40 }, { "duration": 50 }, { "duration": 60 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Turn_Back_the_Clock"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 31: All Things Wicked",
-		"description": "Whenever you search a Locker, Ultimate Weapon triggers its effects on all Survivors within 40 metres of its location: Causes them to scream and reveal their location to you. Inflicts the Blindness Status Effect for 30 seconds. Ultimate Weapon has a cool-down of {duration} seconds.",
+		"description": "Whenever you search a Locker, all Survivors within 40 metres scream, reveal their location to you, and suffer from the Blindness Status Effect for 30 seconds. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/ultimate-weapon.webp",
 		"id": "ultimate-weapon",
 		"name": "Ultimate Weapon",
@@ -1866,13 +3136,23 @@
 		"ownerName": "The Unknown",
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "duration": 55 }, { "duration": 50 }, { "duration": 45 }],
+		"tierValues": [
+			{
+				"duration": 55
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 45
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Ultimate_Weapon"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 31: All Things Wicked",
-		"description": "When a Survivor becomes injured by any means, Unbound activates for {duration} seconds: Vaulting a Window while Unbound is active grants a +7 % Haste Status Effect for 10 seconds. This effect cannot stack with itself.",
+		"description": "When a Survivor becomes injured, for {duration} seconds vaulting a Window grants a +7 % Haste Status Effect for 10 seconds. Cannot stack with itself.",
 		"iconPath": "/images/perks/unbound.webp",
 		"id": "unbound",
 		"name": "Unbound",
@@ -1880,13 +3160,23 @@
 		"ownerName": "The Unknown",
 		"role": "killer",
 		"tags": ["Haste"],
-		"tierValues": [{ "duration": 24 }, { "duration": 27 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 24
+			},
+			{
+				"duration": 27
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Unbound"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 34: Doomed Course",
-		"description": "For every Repair or Healing Skill Check failed by a Survivor, Undone gains +3 Tokens, up to a maximum of {tokens} Tokens. Performing the Damage Generator action on a Generator consumes all accumulated Tokens and applies the following effects: Instantly regresses the Damaged Generator by a stack-able -1 % of its total Progression per Token, up to a maximum of {percentage}%. Blocks the Damaged Generator for 1 second per Token, up to a maximum of {duration} seconds. Causes the Damaged Generator to start regressing once it becomes unblocked. Undone has a cool-down of 60 seconds.",
+		"description": "For every Repair or Healing Skill Check failed by a Survivor, Undone gains +3 Tokens, up to a maximum of {tokens} Tokens. Damaging a Generator consumes all accumulated Tokens: it is instantly regressed by a stack-able -1 % per Token, up to a maximum of {percentage}%, and blocked for 1 second per Token, up to a maximum of {duration} seconds. The Generator starts regressing once it becomes unblocked. Has a cool-down of 60 seconds.",
 		"iconPath": "/images/perks/undone.webp",
 		"id": "undone",
 		"name": "Undone",
@@ -1895,16 +3185,28 @@
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
-			{ "duration": 18, "percentage": 18, "tokens": 18 },
-			{ "duration": 24, "percentage": 24, "tokens": 24 },
-			{ "duration": 30, "percentage": 30, "tokens": 30 }
+			{
+				"duration": 18,
+				"percentage": 18,
+				"tokens": 18
+			},
+			{
+				"duration": 24,
+				"percentage": 24,
+				"tokens": 24
+			},
+			{
+				"duration": 30,
+				"percentage": 30,
+				"tokens": 30
+			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Undone"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 25: Resident Evil: PROJECT W",
-		"description": "After performing the Damage Generator action on a Generator, you benefit from the following effects for {duration} seconds: Transfers your Terror Radius to the damaged Generator. This Terror Radius is set to 32 metres. Grants the Undetectable Status Effect. Unforeseen has a cool-down of 30 seconds.",
+		"description": "After damaging a Generator, for {duration} seconds your Terror Radius transfers to that Generator (set to 32 metres) and you gain the Undetectable Status Effect. Has a cool-down of 30 seconds.",
 		"iconPath": "/images/perks/unforeseen.webp",
 		"id": "unforeseen",
 		"name": "Unforeseen",
@@ -1912,13 +3214,23 @@
 		"ownerName": "The Mastermind",
 		"role": "killer",
 		"tags": ["Undetectable"],
-		"tierValues": [{ "duration": 22 }, { "duration": 26 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 22
+			},
+			{
+				"duration": 26
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Unforeseen"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "While inside your Terror Radius, Survivors performing Repairing or Healing actions suffer from the following effects: Increases the chances of triggering a Skill Check by +10 %. Reduces the Success zone of those Skill Checks by {percentage}%.",
+		"description": "While inside your Terror Radius, Survivors performing Repairing or Healing actions have a +10 % increased chance of triggering a Skill Check, and the Success zone of those Skill Checks is reduced by {percentage}%.",
 		"iconPath": "/images/perks/unnerving-presence.webp",
 		"id": "unnerving-presence",
 		"name": "Unnerving Presence",
@@ -1926,13 +3238,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 40 }, { "percentage": 50 }, { "percentage": 60 }],
+		"tierValues": [
+			{
+				"percentage": 40
+			},
+			{
+				"percentage": 50
+			},
+			{
+				"percentage": 60
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Unnerving_Presence"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Basic Attacks benefit from the following effect: Reduces the Cool-down time of missed attacks by {percentage}%.",
+		"description": "The Cool-down time of missed Basic Attacks is reduced by {percentage}%.",
 		"iconPath": "/images/perks/unrelenting.webp",
 		"id": "unrelenting",
 		"name": "Unrelenting",
@@ -1940,13 +3262,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "percentage": 20 }, { "percentage": 25 }, { "percentage": 30 }],
+		"tierValues": [
+			{
+				"percentage": 20
+			},
+			{
+				"percentage": 25
+			},
+			{
+				"percentage": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Unrelenting"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 37: Sinister Grace",
-		"description": "Whenever you start chasing a Survivor, Wandering Eye triggers the following effect: The Auras of all other injured Survivors within 20 metres of your location are revealed to you for 5 seconds. Wandering Eye has a cool-down of {duration} seconds.",
+		"description": "Whenever you start chasing a Survivor, the Auras of all other injured Survivors within 20 metres of your location are revealed to you for 5 seconds. Has a cool-down of {duration} seconds.",
 		"iconPath": "/images/perks/wandering-eye.webp",
 		"id": "wandering-eye",
 		"name": "Wandering Eye",
@@ -1954,13 +3286,23 @@
 		"ownerName": "The Krasue",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 40 }, { "duration": 35 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 35
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Wandering_Eye"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 33: Castlevania",
-		"description": "Whenever an Item is depleted for the first time, it is automatically dropped: The Auras of dropped Survivor Items are revealed to you, as well as the Auras of any Survivors within 12 metres of them. Affected Survivors see the Aura of that Item as well. Causes Survivors picking up a Survivor Item to suffer from the Oblivious Status Effect for {duration} seconds.",
+		"description": "Whenever an Item is depleted for the first time, it is automatically dropped. The Auras of dropped Survivor Items are revealed to you, along with the Auras of any Survivors within 12 metres of them. Affected Survivors also see the Aura of that Item. Survivors picking up a Survivor Item suffer from the Oblivious Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/weave-attunement.webp",
 		"id": "weave-attunement",
 		"name": "Weave Attunement",
@@ -1968,13 +3310,23 @@
 		"ownerName": "The Dark Lord",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 20 }, { "duration": 25 }, { "duration": 30 }],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Weave_Attunement"
 	},
 	{
 		"aliases": [],
 		"chapter": null,
-		"description": "Whenever any Survivor is within {range} metres of your location, Whispers triggers its effect: Causes you to hear the sporadic whispers of The Entity, indicating a Survivor's presence.",
+		"description": "Whenever any Survivor is within {range} metres of your location, you hear sporadic whispers of The Entity, indicating a Survivor's presence.",
 		"iconPath": "/images/perks/whispers.webp",
 		"id": "whispers",
 		"name": "Whispers",
@@ -1982,13 +3334,23 @@
 		"ownerName": null,
 		"role": "killer",
 		"tags": [],
-		"tierValues": [{ "range": 48 }, { "range": 40 }, { "range": 32 }],
+		"tierValues": [
+			{
+				"range": 48
+			},
+			{
+				"range": 40
+			},
+			{
+				"range": 32
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Whispers"
 	},
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 9: Shattered Bloodline",
-		"description": "Unlocks potential in your Aura-reading ability: The Auras of Pallets and Windows are revealed to you within 32 metres. Whenever a Survivor drops a Pallet, Zanshin Tactics triggers the following effect: Their Aura is revealed to you for {duration} seconds.",
+		"description": "The Auras of Pallets and Windows are revealed to you within 32 metres. Whenever a Survivor drops a Pallet, their Aura is revealed to you for {duration} seconds.",
 		"iconPath": "/images/perks/zanshin-tactics.webp",
 		"id": "zanshin-tactics",
 		"name": "Zanshin Tactics",
@@ -1996,7 +3358,17 @@
 		"ownerName": "The Oni",
 		"role": "killer",
 		"tags": ["Aura Reading"],
-		"tierValues": [{ "duration": 3 }, { "duration": 4 }, { "duration": 5 }],
+		"tierValues": [
+			{
+				"duration": 3
+			},
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			}
+		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Zanshin_Tactics"
 	}
 ]
