@@ -150,8 +150,8 @@
 		"iconPath": "/images/perks/apocalyptic-ingenuity.webp",
 		"id": "apocalyptic-ingenuity",
 		"name": "Apocalyptic Ingenuity",
-		"owner": "ellen-ripley",
-		"ownerName": "Ellen Ripley",
+		"owner": "rick-grimes",
+		"ownerName": "Rick Grimes",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -246,8 +246,8 @@
 		"iconPath": "/images/perks/background-player.webp",
 		"id": "background-player",
 		"name": "Background Player",
-		"owner": "gabriel-soma",
-		"ownerName": "Gabriel Soma",
+		"owner": "renato-lyra",
+		"ownerName": "Renato Lyra",
 		"role": "survivor",
 		"tags": ["Exhaustion", "Haste"],
 		"tierValues": [
@@ -336,6 +336,30 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Bardic_Inspiration"
 	},
 	{
+		"aliases": [],
+		"chapter": "CHAPTER 26: Forged in Fog",
+		"description": "Completing a Healing action on another Survivor increases their Action speeds for Blessing, Cleansing, Healing, and Unlocking by {percentage}% until they receive damage again.",
+		"iconPath": "/images/perks/better-than-new.webp",
+		"id": "better-than-new",
+		"name": "Better than New",
+		"owner": "rebecca-chambers",
+		"ownerName": "Rebecca Chambers",
+		"role": "survivor",
+		"tags": [],
+		"tierValues": [
+			{
+				"percentage": 12
+			},
+			{
+				"percentage": 14
+			},
+			{
+				"percentage": 16
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Better_than_New"
+	},
+	{
 		"aliases": ["Situational Awareness"],
 		"chapter": "CHAPTER 13: Stranger Things",
 		"description": "While repairing any Generator, its Aura is revealed to all Survivors and highlighted in yellow. Whenever the Killer downs another Survivor while you are repairing, the Auras of all Survivors are revealed to you for {duration} seconds.",
@@ -358,30 +382,6 @@
 			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Better_Together"
-	},
-	{
-		"aliases": [],
-		"chapter": "CHAPTER 26: Forged in Fog",
-		"description": "Completing a Healing action on another Survivor increases their Action speeds for Blessing, Cleansing, Healing, and Unlocking by {percentage}% until they receive damage again.",
-		"iconPath": "/images/perks/better-than-new.webp",
-		"id": "better-than-new",
-		"name": "Better than New",
-		"owner": "vittorio-toscano",
-		"ownerName": "Vittorio Toscano",
-		"role": "survivor",
-		"tags": [],
-		"tierValues": [
-			{
-				"percentage": 12
-			},
-			{
-				"percentage": 14
-			},
-			{
-				"percentage": 16
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Better_than_New"
 	},
 	{
 		"aliases": [],
@@ -462,8 +462,8 @@
 		"iconPath": "/images/perks/blood-rush.webp",
 		"id": "blood-rush",
 		"name": "Blood Rush",
-		"owner": "rebecca-chambers",
-		"ownerName": "Rebecca Chambers",
+		"owner": "renato-lyra",
+		"ownerName": "Renato Lyra",
 		"role": "survivor",
 		"tags": ["Exhaustion"],
 		"tierValues": [
@@ -705,8 +705,8 @@
 		"iconPath": "/images/perks/bound-by-obsession.webp",
 		"id": "bound-by-obsession",
 		"name": "Bound by Obsession",
-		"owner": null,
-		"ownerName": null,
+		"owner": "laurie-strode",
+		"ownerName": "Laurie Strode",
 		"role": "survivor",
 		"tags": ["Aura Reading", "Obsession"],
 		"tierValues": [
@@ -753,8 +753,8 @@
 		"iconPath": "/images/perks/breakout.webp",
 		"id": "breakout",
 		"name": "Breakout",
-		"owner": "jane-romero",
-		"ownerName": "Jane Romero",
+		"owner": "yui-kimura",
+		"ownerName": "Yui Kimura",
 		"role": "survivor",
 		"tags": ["Haste"],
 		"tierValues": [
@@ -801,8 +801,8 @@
 		"iconPath": "/images/perks/built-to-last.webp",
 		"id": "built-to-last",
 		"name": "Built to Last",
-		"owner": "elodie-rakoto",
-		"ownerName": "Elodie Rakoto",
+		"owner": "felix-richter",
+		"ownerName": "Felix Richter",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -921,8 +921,8 @@
 		"iconPath": "/images/perks/chemical-trap.webp",
 		"id": "chemical-trap",
 		"name": "Chemical Trap",
-		"owner": "jill-valentine",
-		"ownerName": "Jill Valentine",
+		"owner": "ellen-ripley",
+		"ownerName": "Ellen Ripley",
 		"role": "survivor",
 		"tags": ["Aura Reading", "Hindered"],
 		"tierValues": [
@@ -1185,8 +1185,8 @@
 		"iconPath": "/images/perks/deadline.webp",
 		"id": "deadline",
 		"name": "Deadline",
-		"owner": "gabriel-soma",
-		"ownerName": "Gabriel Soma",
+		"owner": "alan-wake",
+		"ownerName": "Alan Wake",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -1225,30 +1225,6 @@
 			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Deception"
-	},
-	{
-		"aliases": ["Decisive Strike"],
-		"chapter": null,
-		"description": "After being unhooked or unhooking yourself, Will to Live activates for {duration} seconds. When grabbed or picked up by the Killer, succeed a Skill Check to stab the Killer and escape their grasp, stunning the Killer for 4 seconds. You become the next Obsession. Deactivates once the Exit Gates are powered. Disabled for the remainder of the Trial after use. Deactivates prematurely when performing a Conspicuous Action. Increases your chance of becoming the initial Obsession by +100 %. The Killer can only be obsessed with one Survivor at a time.",
-		"iconPath": "/images/perks/will-to-live.webp",
-		"id": "will-to-live",
-		"name": "Will to Live",
-		"owner": null,
-		"ownerName": null,
-		"role": "survivor",
-		"tags": ["Obsession"],
-		"tierValues": [
-			{
-				"duration": 40
-			},
-			{
-				"duration": 50
-			},
-			{
-				"duration": 60
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Decisive_Strike"
 	},
 	{
 		"aliases": [],
@@ -1425,6 +1401,33 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Do_No_Harm"
 	},
 	{
+		"aliases": ["Sole Survivor"],
+		"chapter": null,
+		"description": "Each time a Survivor other than yourself is killed or sacrificed, Down to the Last gains +1 Token, up to a maximum of 3 Tokens: grants a stack-able radius of {range} metres per Token around you, up to a maximum of {range2} metres, within which you are immune to the Killer's Aura-reading abilities. When you are the Last Survivor Standing, your Repair speed is increased by +75 % and your Gate and Hatch Opening speeds are increased by +50 %. Increases your chance of becoming the initial Obsession by +100 %. The Killer can only be obsessed with one Survivor at a time.",
+		"iconPath": "/images/perks/down-to-the-last.webp",
+		"id": "down-to-the-last",
+		"name": "Down to the Last",
+		"owner": "laurie-strode",
+		"ownerName": "Laurie Strode",
+		"role": "survivor",
+		"tags": ["Obsession"],
+		"tierValues": [
+			{
+				"range": 20,
+				"range2": 60
+			},
+			{
+				"range": 22,
+				"range2": 66
+			},
+			{
+				"range": 24,
+				"range2": 72
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Sole_Survivor"
+	},
+	{
 		"aliases": [],
 		"chapter": "CHAPTER 28.5: Nicolas Cage",
 		"description": "Whenever you are at full health, Dramaturgy activates. While active, press the Active Ability button while running to run with knees high for 0.5 seconds, then gain a +25 % Haste Status Effect for 2 seconds (primary effect). Afterwards, one of the following secondary effects triggers (never the same one twice in a row): a second instance of the primary Haste; the Exposed Status Effect for 12 seconds; you scream; or you receive a random Rare Item with random Add-ons (dropping any previously held Item). Cannot be used while Exhausted. Causes the Exhausted Status Effect for {duration} seconds.",
@@ -1455,8 +1458,8 @@
 		"iconPath": "/images/perks/duty-of-care.webp",
 		"id": "duty-of-care",
 		"name": "Duty of Care",
-		"owner": "taurie-cain",
-		"ownerName": "Taurie Cain",
+		"owner": "orela-rose",
+		"ownerName": "Orela Rose",
 		"role": "survivor",
 		"tags": ["Haste"],
 		"tierValues": [
@@ -1473,41 +1476,14 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Duty_of_Care"
 	},
 	{
-		"aliases": ["Sole Survivor"],
-		"chapter": null,
-		"description": "Each time a Survivor other than yourself is killed or sacrificed, Down to the Last gains +1 Token, up to a maximum of 3 Tokens: grants a stack-able radius of {range} metres per Token around you, up to a maximum of {range2} metres, within which you are immune to the Killer's Aura-reading abilities. When you are the Last Survivor Standing, your Repair speed is increased by +75 % and your Gate and Hatch Opening speeds are increased by +50 %. Increases your chance of becoming the initial Obsession by +100 %. The Killer can only be obsessed with one Survivor at a time.",
-		"iconPath": "/images/perks/down-to-the-last.webp",
-		"id": "down-to-the-last",
-		"name": "Down to the Last",
-		"owner": null,
-		"ownerName": null,
-		"role": "survivor",
-		"tags": ["Obsession"],
-		"tierValues": [
-			{
-				"range": 20,
-				"range2": 60
-			},
-			{
-				"range": 22,
-				"range2": 66
-			},
-			{
-				"range": 24,
-				"range2": 72
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Sole_Survivor"
-	},
-	{
 		"aliases": [],
 		"chapter": "CHAPTER 24: Roots of Dread",
 		"description": "Your Altruistic Healing speed is increased by {percentage}%. Whenever any other Survivor is injured, your Aura is revealed to them as a potential Healer.",
 		"iconPath": "/images/perks/empathic-connection.webp",
 		"id": "empathic-connection",
 		"name": "Empathic Connection",
-		"owner": "haddie-kaur",
-		"ownerName": "Haddie Kaur",
+		"owner": "yoichi-asakawa",
+		"ownerName": "Yoichi Asakawa",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -1546,6 +1522,54 @@
 			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Empathy"
+	},
+	{
+		"aliases": [],
+		"chapter": "CHAPTER 38: Stranger Things Chapter 2",
+		"description": "Activates when crouched for 4 seconds. While active, gain the Elusive and Oblivious Status Effects, and the Auras of Survivors, the Killer, Chests, Exit Gates, Generators, the Hatch, Items, Pallets, Totems, and Windows are revealed in an expanding 44-metre radius. Lasts up to 11 seconds. Cooldown: {duration} seconds.",
+		"iconPath": "/images/perks/extrasensory-perception.webp",
+		"id": "extrasensory-perception",
+		"name": "Extrasensory Perception",
+		"owner": "eleven",
+		"ownerName": "Eleven",
+		"role": "survivor",
+		"tags": ["Aura Reading", "Oblivious"],
+		"tierValues": [
+			{
+				"duration": 60
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 40
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Extrasensory_Perception"
+	},
+	{
+		"aliases": [],
+		"chapter": "CHAPTER 33: Castlevania",
+		"description": "While holding an Item, stunning the Killer by dropping a Pallet recharges the Item by +75 % and upgrades its Rarity to the next available Tier. Cool-down: {duration} seconds.",
+		"iconPath": "/images/perks/exultation.webp",
+		"id": "exultation",
+		"name": "Exultation",
+		"owner": "trevor-belmont",
+		"ownerName": "Trevor Belmont",
+		"role": "survivor",
+		"tags": [],
+		"tierValues": [
+			{
+				"duration": 30
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 20
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Exultation"
 	},
 	{
 		"aliases": [],
@@ -1602,8 +1626,8 @@
 		"iconPath": "/images/perks/finesse.webp",
 		"id": "finesse",
 		"name": "Finesse",
-		"owner": "ellen-ripley",
-		"ownerName": "Ellen Ripley",
+		"owner": "lara-croft",
+		"ownerName": "Lara Croft",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -1722,8 +1746,8 @@
 		"iconPath": "/images/perks/flow-state.webp",
 		"id": "flow-state",
 		"name": "Flow State",
-		"owner": "vittorio-toscano",
-		"ownerName": "Vittorio Toscano",
+		"owner": "kwon-tae-young",
+		"ownerName": "Kwon Tae-young",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -1752,8 +1776,8 @@
 		"iconPath": "/images/perks/fogwise.webp",
 		"id": "fogwise",
 		"name": "Fogwise",
-		"owner": "ada-wong",
-		"ownerName": "Ada Wong",
+		"owner": "vittorio-toscano",
+		"ownerName": "Vittorio Toscano",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -1848,8 +1872,8 @@
 		"iconPath": "/images/perks/hardened.webp",
 		"id": "hardened",
 		"name": "Hardened",
-		"owner": "haddie-kaur",
-		"ownerName": "Haddie Kaur",
+		"owner": "lara-croft",
+		"ownerName": "Lara Croft",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -1920,8 +1944,8 @@
 		"iconPath": "/images/perks/hyperfocus.webp",
 		"id": "hyperfocus",
 		"name": "Hyperfocus",
-		"owner": "ada-wong",
-		"ownerName": "Ada Wong",
+		"owner": "rebecca-chambers",
+		"ownerName": "Rebecca Chambers",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -1947,8 +1971,8 @@
 		"iconPath": "/images/perks/inner-focus.webp",
 		"id": "inner-focus",
 		"name": "Inner Focus",
-		"owner": "jonah-vasquez",
-		"ownerName": "Jonah Vasquez",
+		"owner": "haddie-kaur",
+		"ownerName": "Haddie Kaur",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -1995,8 +2019,8 @@
 		"iconPath": "/images/perks/invocation-treacherous-crows.webp",
 		"id": "invocation-treacherous-crows",
 		"name": "Invocation: Treacherous Crows",
-		"owner": "sable-ward",
-		"ownerName": "Sable Ward",
+		"owner": "taurie-cain",
+		"ownerName": "Taurie Cain",
 		"role": "survivor",
 		"tags": ["Aura Reading", "Invocation"],
 		"tierValues": [
@@ -2019,8 +2043,8 @@
 		"iconPath": "/images/perks/invocation-weaving-spiders.webp",
 		"id": "invocation-weaving-spiders",
 		"name": "Invocation: Weaving Spiders",
-		"owner": "vittorio-toscano",
-		"ownerName": "Vittorio Toscano",
+		"owner": "sable-ward",
+		"ownerName": "Sable Ward",
 		"role": "survivor",
 		"tags": ["Aura Reading", "Invocation"],
 		"tierValues": [
@@ -2163,8 +2187,8 @@
 		"iconPath": "/images/perks/light-footed.webp",
 		"id": "light-footed",
 		"name": "Light-Footed",
-		"owner": "lee-yun-jin",
-		"ownerName": "Lee Yun-Jin",
+		"owner": "ellen-ripley",
+		"ownerName": "Ellen Ripley",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -2283,8 +2307,8 @@
 		"iconPath": "/images/perks/lucky-star.webp",
 		"id": "lucky-star",
 		"name": "Lucky Star",
-		"owner": "nicolas-cage",
-		"ownerName": "Nicolas Cage",
+		"owner": "ellen-ripley",
+		"ownerName": "Ellen Ripley",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -2307,8 +2331,8 @@
 		"iconPath": "/images/perks/made-for-this.webp",
 		"id": "made-for-this",
 		"name": "Made for This",
-		"owner": "renato-lyra",
-		"ownerName": "Renato Lyra",
+		"owner": "gabriel-soma",
+		"ownerName": "Gabriel Soma",
 		"role": "survivor",
 		"tags": ["Haste"],
 		"tierValues": [
@@ -2358,8 +2382,8 @@
 		"iconPath": "/images/perks/mirrored-illusion.webp",
 		"id": "mirrored-illusion",
 		"name": "Mirrored Illusion",
-		"owner": "haddie-kaur",
-		"ownerName": "Haddie Kaur",
+		"owner": "aestri-yazar-baermar-uraz",
+		"ownerName": "Aestri Yazar & Baermar Uraz",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -2382,8 +2406,8 @@
 		"iconPath": "/images/perks/moment-of-glory.webp",
 		"id": "moment-of-glory",
 		"name": "Moment of Glory",
-		"owner": "nicolas-cage",
-		"ownerName": "Nicolas Cage",
+		"owner": "trevor-belmont",
+		"ownerName": "Trevor Belmont",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -2550,8 +2574,8 @@
 		"iconPath": "/images/perks/overzealous.webp",
 		"id": "overzealous",
 		"name": "Overzealous",
-		"owner": "yoichi-asakawa",
-		"ownerName": "Yoichi Asakawa",
+		"owner": "haddie-kaur",
+		"ownerName": "Haddie Kaur",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -2697,8 +2721,8 @@
 		"iconPath": "/images/perks/potential-energy.webp",
 		"id": "potential-energy",
 		"name": "Potential Energy",
-		"owner": "lee-yun-jin",
-		"ownerName": "Lee Yun-Jin",
+		"owner": "vittorio-toscano",
+		"ownerName": "Vittorio Toscano",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -2820,8 +2844,8 @@
 		"iconPath": "/images/perks/quick-gambit.webp",
 		"id": "quick-gambit",
 		"name": "Quick Gambit",
-		"owner": "renato-lyra",
-		"ownerName": "Renato Lyra",
+		"owner": "vittorio-toscano",
+		"ownerName": "Vittorio Toscano",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -2868,8 +2892,8 @@
 		"iconPath": "/images/perks/reactive-healing.webp",
 		"id": "reactive-healing",
 		"name": "Reactive Healing",
-		"owner": "rebecca-chambers",
-		"ownerName": "Rebecca Chambers",
+		"owner": "ada-wong",
+		"ownerName": "Ada Wong",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -2916,8 +2940,8 @@
 		"iconPath": "/images/perks/red-herring.webp",
 		"id": "red-herring",
 		"name": "Red Herring",
-		"owner": "felix-richter",
-		"ownerName": "Felix Richter",
+		"owner": "zarina-kassir",
+		"ownerName": "Zarina Kassir",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -2956,6 +2980,30 @@
 			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Repressed_Alliance"
+	},
+	{
+		"aliases": [],
+		"chapter": "CHAPTER 24: Roots of Dread",
+		"description": "Unlocks the ability to rummage through an opened Chest once per Trial. Guarantees a basic Flashlight. After a successful Blind, the Killer suffers from the Blindness Status Effect for {duration} seconds.",
+		"iconPath": "/images/perks/residual-manifest.webp",
+		"id": "residual-manifest",
+		"name": "Residual Manifest",
+		"owner": "haddie-kaur",
+		"ownerName": "Haddie Kaur",
+		"role": "survivor",
+		"tags": ["Blindness"],
+		"tierValues": [
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			},
+			{
+				"duration": 30
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Residual_Manifest"
 	},
 	{
 		"aliases": [],
@@ -3036,8 +3084,8 @@
 		"iconPath": "/images/perks/rookie-spirit.webp",
 		"id": "rookie-spirit",
 		"name": "Rookie Spirit",
-		"owner": "yoichi-asakawa",
-		"ownerName": "Yoichi Asakawa",
+		"owner": "leon-scott-kennedy",
+		"ownerName": "Leon Scott Kennedy",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -3180,8 +3228,8 @@
 		"iconPath": "/images/perks/self-preservation.webp",
 		"id": "self-preservation",
 		"name": "Self-Preservation",
-		"owner": "ellen-ripley",
-		"ownerName": "Ellen Ripley",
+		"owner": "lee-yun-jin",
+		"ownerName": "Lee Yun-Jin",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -3303,8 +3351,8 @@
 		"iconPath": "/images/perks/solidarity.webp",
 		"id": "solidarity",
 		"name": "Solidarity",
-		"owner": "cheryl-mason",
-		"ownerName": "Cheryl Mason",
+		"owner": "jane-romero",
+		"ownerName": "Jane Romero",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -3351,8 +3399,8 @@
 		"iconPath": "/images/perks/specialist.webp",
 		"id": "specialist",
 		"name": "Specialist",
-		"owner": "orela-rose",
-		"ownerName": "Orela Rose",
+		"owner": "lara-croft",
+		"ownerName": "Lara Croft",
 		"role": "survivor",
 		"tags": [],
 		"tierValues": [
@@ -3450,8 +3498,8 @@
 		"iconPath": "/images/perks/still-sight.webp",
 		"id": "still-sight",
 		"name": "Still Sight",
-		"owner": "alan-wake",
-		"ownerName": "Alan Wake",
+		"owner": "aestri-yazar-baermar-uraz",
+		"ownerName": "Aestri Yazar & Baermar Uraz",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -3522,8 +3570,8 @@
 		"iconPath": "/images/perks/teamwork-collective-stealth.webp",
 		"id": "teamwork-collective-stealth",
 		"name": "Teamwork: Collective Stealth",
-		"owner": "thalita-lyra",
-		"ownerName": "Thalita Lyra",
+		"owner": "renato-lyra",
+		"ownerName": "Renato Lyra",
 		"role": "survivor",
 		"tags": ["Teamwork"],
 		"tierValues": [
@@ -3546,8 +3594,8 @@
 		"iconPath": "/images/perks/teamwork-full-circuit.webp",
 		"id": "teamwork-full-circuit",
 		"name": "Teamwork: Full Circuit",
-		"owner": "eleven",
-		"ownerName": "Eleven",
+		"owner": "dustin-henderson",
+		"ownerName": "Dustin Henderson",
 		"role": "survivor",
 		"tags": ["Teamwork"],
 		"tierValues": [
@@ -3570,8 +3618,8 @@
 		"iconPath": "/images/perks/teamwork-power-of-two.webp",
 		"id": "teamwork-power-of-two",
 		"name": "Teamwork: Power of Two",
-		"owner": "renato-lyra",
-		"ownerName": "Renato Lyra",
+		"owner": "thalita-lyra",
+		"ownerName": "Thalita Lyra",
 		"role": "survivor",
 		"tags": ["Haste", "Teamwork"],
 		"tierValues": [
@@ -3594,8 +3642,8 @@
 		"iconPath": "/images/perks/teamwork-soft-spoken.webp",
 		"id": "teamwork-soft-spoken",
 		"name": "Teamwork: Soft-Spoken",
-		"owner": "rick-grimes",
-		"ownerName": "Rick Grimes",
+		"owner": "eleven",
+		"ownerName": "Eleven",
 		"role": "survivor",
 		"tags": ["Teamwork"],
 		"tierValues": [
@@ -3618,8 +3666,8 @@
 		"iconPath": "/images/perks/teamwork-throw-down.webp",
 		"id": "teamwork-throw-down",
 		"name": "Teamwork: Throw Down",
-		"owner": "trevor-belmont",
-		"ownerName": "Trevor Belmont",
+		"owner": "michonne-grimes",
+		"ownerName": "Michonne Grimes",
 		"role": "survivor",
 		"tags": ["Teamwork"],
 		"tierValues": [
@@ -3642,8 +3690,8 @@
 		"iconPath": "/images/perks/teamwork-toughen-up.webp",
 		"id": "teamwork-toughen-up",
 		"name": "Teamwork: Toughen Up",
-		"owner": "michonne-grimes",
-		"ownerName": "Michonne Grimes",
+		"owner": "rick-grimes",
+		"ownerName": "Rick Grimes",
 		"role": "survivor",
 		"tags": ["Teamwork"],
 		"tierValues": [
@@ -3690,8 +3738,8 @@
 		"iconPath": "/images/perks/tenacity.webp",
 		"id": "tenacity",
 		"name": "Tenacity",
-		"owner": "david-king",
-		"ownerName": "David King",
+		"owner": "david-tapp",
+		"ownerName": "David Tapp",
 		"role": "survivor",
 		"tags": ["Haste"],
 		"tierValues": [
@@ -3738,8 +3786,8 @@
 		"iconPath": "/images/perks/troubleshooter.webp",
 		"id": "troubleshooter",
 		"name": "Troubleshooter",
-		"owner": "lara-croft",
-		"ownerName": "Lara Croft",
+		"owner": "gabriel-soma",
+		"ownerName": "Gabriel Soma",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -3910,6 +3958,30 @@
 	},
 	{
 		"aliases": [],
+		"chapter": "CHAPTER 38: Stranger Things Chapter 2",
+		"description": "Gain +1 Token when the Killer reveals your Aura. When you have 4 Tokens, they are all consumed and the Killer's Aura is revealed to you and all other Survivors for {duration} seconds. Has a 10-second cool-down for gaining Tokens.",
+		"iconPath": "/images/perks/we-see-you.webp",
+		"id": "we-see-you",
+		"name": "We See You",
+		"owner": "eleven",
+		"ownerName": "Eleven",
+		"role": "survivor",
+		"tags": ["Aura Reading"],
+		"tierValues": [
+			{
+				"duration": 10
+			},
+			{
+				"duration": 12.5
+			},
+			{
+				"duration": 15
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/We_See_You"
+	},
+	{
+		"aliases": [],
 		"chapter": null,
 		"description": "After unhooking another Survivor, your Altruistic Healing speed is increased by +100 % for {duration} seconds.",
 		"iconPath": "/images/perks/well-make-it.webp",
@@ -3958,30 +4030,6 @@
 	},
 	{
 		"aliases": [],
-		"chapter": "CHAPTER 38: Stranger Things Chapter 2",
-		"description": "Gain +1 Token when the Killer reveals your Aura. When you have 4 Tokens, they are all consumed and the Killer's Aura is revealed to you and all other Survivors for {duration} seconds. Has a 10-second cool-down for gaining Tokens.",
-		"iconPath": "/images/perks/we-see-you.webp",
-		"id": "we-see-you",
-		"name": "We See You",
-		"owner": "eleven",
-		"ownerName": "Eleven",
-		"role": "survivor",
-		"tags": ["Aura Reading"],
-		"tierValues": [
-			{
-				"duration": 10
-			},
-			{
-				"duration": 12.5
-			},
-			{
-				"duration": 15
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/We_See_You"
-	},
-	{
-		"aliases": [],
 		"chapter": "CHAPTER 31: All Things Wicked",
 		"description": "After you are unhooked by any means, the Aura of the Killer is revealed to you for {duration} seconds. While hooked inside the Basement, Wicked potentially triggers the following: First Hook Stage: 100 % chance to succeed an attempted Self-Unhook. Second Hook Stage: does not trigger. Last Survivor Standing: does not trigger.",
 		"iconPath": "/images/perks/wicked.webp",
@@ -4005,14 +4053,38 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Wicked"
 	},
 	{
+		"aliases": ["Decisive Strike"],
+		"chapter": null,
+		"description": "After being unhooked or unhooking yourself, Will to Live activates for {duration} seconds. When grabbed or picked up by the Killer, succeed a Skill Check to stab the Killer and escape their grasp, stunning the Killer for 4 seconds. You become the next Obsession. Deactivates once the Exit Gates are powered. Disabled for the remainder of the Trial after use. Deactivates prematurely when performing a Conspicuous Action. Increases your chance of becoming the initial Obsession by +100 %. The Killer can only be obsessed with one Survivor at a time.",
+		"iconPath": "/images/perks/will-to-live.webp",
+		"id": "will-to-live",
+		"name": "Will to Live",
+		"owner": "laurie-strode",
+		"ownerName": "Laurie Strode",
+		"role": "survivor",
+		"tags": ["Obsession"],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Decisive_Strike"
+	},
+	{
 		"aliases": [],
 		"chapter": "CHAPTER 4: Spark of Madness",
 		"description": "The Auras of Breakable Walls, Pallets, and Windows are revealed to you within {range} metres.",
 		"iconPath": "/images/perks/windows-of-opportunity.webp",
 		"id": "windows-of-opportunity",
 		"name": "Windows of Opportunity",
-		"owner": "feng-min",
-		"ownerName": "Feng Min",
+		"owner": "kate-denson",
+		"ownerName": "Kate Denson",
 		"role": "survivor",
 		"tags": ["Aura Reading"],
 		"tierValues": [

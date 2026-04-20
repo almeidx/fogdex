@@ -297,8 +297,8 @@
 		"iconPath": "/images/perks/bloodhound.webp",
 		"id": "bloodhound",
 		"name": "Bloodhound",
-		"owner": null,
-		"ownerName": null,
+		"owner": "wraith",
+		"ownerName": "The Wraith",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -465,8 +465,8 @@
 		"iconPath": "/images/perks/cull-the-weak.webp",
 		"id": "cull-the-weak",
 		"name": "Cull the Weak",
-		"owner": null,
-		"ownerName": null,
+		"owner": "shape",
+		"ownerName": "The Shape",
 		"role": "killer",
 		"tags": ["Obsession"],
 		"tierValues": [
@@ -580,30 +580,6 @@
 			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Dead_Man%27s_Switch"
-	},
-	{
-		"aliases": ["Deadlock"],
-		"chapter": null,
-		"description": "Each time a Generator is completed, the Generator with the most Progression is blocked for {duration} seconds. Its Aura is highlighted to you in white.",
-		"iconPath": "/images/perks/no-holds-barred.webp",
-		"id": "no-holds-barred",
-		"name": "No Holds Barred",
-		"owner": null,
-		"ownerName": null,
-		"role": "killer",
-		"tags": ["Aura Reading"],
-		"tierValues": [
-			{
-				"duration": 15
-			},
-			{
-				"duration": 20
-			},
-			{
-				"duration": 25
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Deadlock"
 	},
 	{
 		"aliases": [],
@@ -1242,8 +1218,8 @@
 		"iconPath": "/images/perks/hex-fortunes-fool.webp",
 		"id": "hex-fortunes-fool",
 		"name": "Hex: Fortune's Fool",
-		"owner": null,
-		"ownerName": null,
+		"owner": "cenobite",
+		"ownerName": "The Cenobite",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
 		"tierValues": [
@@ -1362,8 +1338,8 @@
 		"iconPath": "/images/perks/hex-nothing-but-misery.webp",
 		"id": "hex-nothing-but-misery",
 		"name": "Hex: Nothing but Misery",
-		"owner": null,
-		"ownerName": null,
+		"owner": "ghoul",
+		"ownerName": "The Ghoul",
 		"role": "killer",
 		"tags": ["Hex", "Hindered"],
 		"tierValues": [
@@ -1437,8 +1413,8 @@
 		"iconPath": "/images/perks/hex-retribution.webp",
 		"id": "hex-retribution",
 		"name": "Hex: Retribution",
-		"owner": "blight",
-		"ownerName": "The Blight",
+		"owner": "deathslinger",
+		"ownerName": "The Deathslinger",
 		"role": "killer",
 		"tags": ["Aura Reading", "Hex"],
 		"tierValues": [
@@ -1632,8 +1608,8 @@
 		"iconPath": "/images/perks/hubris.webp",
 		"id": "hubris",
 		"name": "Hubris",
-		"owner": "skull-merchant",
-		"ownerName": "The Skull Merchant",
+		"owner": "knight",
+		"ownerName": "The Knight",
 		"role": "killer",
 		"tags": ["Exposed"],
 		"tierValues": [
@@ -1656,8 +1632,8 @@
 		"iconPath": "/images/perks/human-greed.webp",
 		"id": "human-greed",
 		"name": "Human Greed",
-		"owner": "lich",
-		"ownerName": "The Lich",
+		"owner": "dark-lord",
+		"ownerName": "The Dark Lord",
 		"role": "killer",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -1680,8 +1656,8 @@
 		"iconPath": "/images/perks/hysteria.webp",
 		"id": "hysteria",
 		"name": "Hysteria",
-		"owner": "oni",
-		"ownerName": "The Oni",
+		"owner": "nemesis",
+		"ownerName": "The Nemesis",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -1818,14 +1794,41 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Iron_Maiden"
 	},
 	{
+		"aliases": ["Save the Best for Last"],
+		"chapter": null,
+		"description": "Damaging any Survivor other than the Obsession with a Basic Attack grants +1 Token, up to a maximum of {tokens} Tokens. Damaging the Obsession with a Basic or Special Attack consumes -2 Tokens. Successful Basic Attack Cool-down is reduced by a stack-able -4 % per Token, up to a maximum of {percentage}%. The current Token count freezes once the Obsession is sacrificed or killed. You can only be obsessed with one Survivor at a time.",
+		"iconPath": "/images/perks/keep-them-waiting.webp",
+		"id": "keep-them-waiting",
+		"name": "Keep Them Waiting",
+		"owner": "shape",
+		"ownerName": "The Shape",
+		"role": "killer",
+		"tags": ["Obsession"],
+		"tierValues": [
+			{
+				"percentage": 24,
+				"tokens": 6
+			},
+			{
+				"percentage": 28,
+				"tokens": 7
+			},
+			{
+				"percentage": 32,
+				"tokens": 8
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Save_the_Best_for_Last"
+	},
+	{
 		"aliases": [],
 		"chapter": "CHAPTER 7: The SAW Chapter",
 		"description": "Whenever a Survivor moves farther than 6 metres from a Pallet within 6 seconds of dropping it, they suffer from a -5 % Hindered Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/knock-out.webp",
 		"id": "knock-out",
 		"name": "Knock Out",
-		"owner": "pig",
-		"ownerName": "The Pig",
+		"owner": "cannibal",
+		"ownerName": "The Cannibal",
 		"role": "killer",
 		"tags": ["Hindered"],
 		"tierValues": [
@@ -1896,8 +1899,8 @@
 		"iconPath": "/images/perks/leverage.webp",
 		"id": "leverage",
 		"name": "Leverage",
-		"owner": "knight",
-		"ownerName": "The Knight",
+		"owner": "skull-merchant",
+		"ownerName": "The Skull Merchant",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -1920,8 +1923,8 @@
 		"iconPath": "/images/perks/lightborn.webp",
 		"id": "lightborn",
 		"name": "Lightborn",
-		"owner": null,
-		"ownerName": null,
+		"owner": "hillbilly",
+		"ownerName": "The Hillbilly",
 		"role": "killer",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -1944,8 +1947,8 @@
 		"iconPath": "/images/perks/machine-learning.webp",
 		"id": "machine-learning",
 		"name": "Machine Learning",
-		"owner": "skull-merchant",
-		"ownerName": "The Skull Merchant",
+		"owner": "singularity",
+		"ownerName": "The Singularity",
 		"role": "killer",
 		"tags": ["Aura Reading", "Haste", "Undetectable"],
 		"tierValues": [
@@ -2089,6 +2092,54 @@
 	},
 	{
 		"aliases": [],
+		"chapter": "CHAPTER 14: Cursed Legacy",
+		"description": "Whenever a Survivor other than the Obsession blinds you or stuns you with a Pallet or a Locker, they become the Obsession. The new Obsession suffers from the Oblivious Status Effect for {duration} seconds and has their Aura revealed to you for 8 seconds. The Killer can only be obsessed with one Survivor at a time.",
+		"iconPath": "/images/perks/nemesis.webp",
+		"id": "nemesis-perk",
+		"name": "Nemesis",
+		"owner": "oni",
+		"ownerName": "The Oni",
+		"role": "killer",
+		"tags": ["Aura Reading", "Obsession", "Oblivious"],
+		"tierValues": [
+			{
+				"duration": 40
+			},
+			{
+				"duration": 50
+			},
+			{
+				"duration": 60
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Nemesis"
+	},
+	{
+		"aliases": ["Deadlock"],
+		"chapter": null,
+		"description": "Each time a Generator is completed, the Generator with the most Progression is blocked for {duration} seconds. Its Aura is highlighted to you in white.",
+		"iconPath": "/images/perks/no-holds-barred.webp",
+		"id": "no-holds-barred",
+		"name": "No Holds Barred",
+		"owner": "cenobite",
+		"ownerName": "The Cenobite",
+		"role": "killer",
+		"tags": ["Aura Reading"],
+		"tierValues": [
+			{
+				"duration": 15
+			},
+			{
+				"duration": 20
+			},
+			{
+				"duration": 25
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Deadlock"
+	},
+	{
+		"aliases": [],
 		"chapter": "CHAPTER 36: Houndmaster's Call",
 		"description": "Whenever a Survivor healing themselves reaches 75 % Healing Progress, they face a continuous stream of Skill Checks until the Self-Heal is completed. If they fail a Skill Check or interrupt the action, they suffer from the Broken Status Effect for {duration} seconds.",
 		"iconPath": "/images/perks/no-quarter.webp",
@@ -2118,8 +2169,8 @@
 		"iconPath": "/images/perks/no-way-out.webp",
 		"id": "no-way-out",
 		"name": "No Way Out",
-		"owner": "nemesis",
-		"ownerName": "The Nemesis",
+		"owner": "trickster",
+		"ownerName": "The Trickster",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -2172,8 +2223,8 @@
 		"iconPath": "/images/perks/nowhere-to-hide.webp",
 		"id": "nowhere-to-hide",
 		"name": "Nowhere to Hide",
-		"owner": "mastermind",
-		"ownerName": "The Mastermind",
+		"owner": "knight",
+		"ownerName": "The Knight",
 		"role": "killer",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -2212,6 +2263,30 @@
 			}
 		],
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Overwhelming_Presence"
+	},
+	{
+		"aliases": [],
+		"chapter": "CHAPTER 18: A Binding of Kin",
+		"description": "Whenever you perform the Damage Generator action, up to 4 other Generators are randomly selected and start regressing, and all Survivors currently repairing those Generators must succeed a difficult Skill Check or the Generator explodes and regresses. Has a cool-down of {duration} seconds.",
+		"iconPath": "/images/perks/oppression-twins.webp",
+		"id": "oppression-twins",
+		"name": "Oppression",
+		"owner": "twins",
+		"ownerName": "The Twins",
+		"role": "killer",
+		"tags": ["Generator Regression"],
+		"tierValues": [
+			{
+				"duration": 45
+			},
+			{
+				"duration": 40
+			},
+			{
+				"duration": 35
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Oppression"
 	},
 	{
 		"aliases": [],
@@ -2262,33 +2337,6 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Phantom_Fear"
 	},
 	{
-		"aliases": ["Play with Your Food"],
-		"chapter": null,
-		"description": "Losing your Obsession in a chase grants +1 Token (max 3 Tokens); performing a Basic or Special Attack with the potential to damage a Survivor consumes -1 Token. While having at least 1 Token, you gain a stack-able {percentage}% Haste Status Effect per Token, up to a maximum of {percentage2}%. Has a cool-down of 10 seconds between gaining additional Tokens. You can only be obsessed with one Survivor at a time.",
-		"iconPath": "/images/perks/see-how-they-run.webp",
-		"id": "see-how-they-run",
-		"name": "See How They Run",
-		"owner": null,
-		"ownerName": null,
-		"role": "killer",
-		"tags": ["Haste", "Obsession"],
-		"tierValues": [
-			{
-				"percentage": 3,
-				"percentage2": 9
-			},
-			{
-				"percentage": 4,
-				"percentage2": 12
-			},
-			{
-				"percentage": 5,
-				"percentage2": 15
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Play_with_Your_Food"
-	},
-	{
 		"aliases": [],
 		"chapter": "CHAPTER 8: Curtain Call",
 		"description": "After hooking a Survivor, for {duration} seconds the next manual damage to a Generator is increased by +15 % for a total of 20 % regression. Deactivates after use or once the timer elapses.",
@@ -2319,8 +2367,8 @@
 		"iconPath": "/images/perks/predator.webp",
 		"id": "predator",
 		"name": "Predator",
-		"owner": null,
-		"ownerName": null,
+		"owner": "wraith",
+		"ownerName": "The Wraith",
 		"role": "killer",
 		"tags": ["Aura Reading"],
 		"tierValues": [
@@ -2439,33 +2487,6 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Remember_Me"
 	},
 	{
-		"aliases": ["Save the Best for Last"],
-		"chapter": null,
-		"description": "Damaging any Survivor other than the Obsession with a Basic Attack grants +1 Token, up to a maximum of {tokens} Tokens. Damaging the Obsession with a Basic or Special Attack consumes -2 Tokens. Successful Basic Attack Cool-down is reduced by a stack-able -4 % per Token, up to a maximum of {percentage}%. The current Token count freezes once the Obsession is sacrificed or killed. You can only be obsessed with one Survivor at a time.",
-		"iconPath": "/images/perks/keep-them-waiting.webp",
-		"id": "keep-them-waiting",
-		"name": "Keep Them Waiting",
-		"owner": null,
-		"ownerName": null,
-		"role": "killer",
-		"tags": ["Obsession"],
-		"tierValues": [
-			{
-				"percentage": 24,
-				"tokens": 6
-			},
-			{
-				"percentage": 28,
-				"tokens": 7
-			},
-			{
-				"percentage": 32,
-				"tokens": 8
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Save_the_Best_for_Last"
-	},
-	{
 		"aliases": [],
 		"chapter": "CHAPTER 23: Sadako Rising",
 		"description": "At the start of the Trial, 4 Hooks become Scourge Hooks with Auras highlighted in white. Each time a Survivor is unhooked from a Scourge Hook, the Auras of all other Survivors are revealed for {duration} seconds.",
@@ -2496,8 +2517,8 @@
 		"iconPath": "/images/perks/scourge-hook-gift-of-pain.webp",
 		"id": "scourge-hook-gift-of-pain",
 		"name": "Scourge Hook: Gift of Pain",
-		"owner": "artist",
-		"ownerName": "The Artist",
+		"owner": null,
+		"ownerName": null,
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
 		"tierValues": [
@@ -2520,8 +2541,8 @@
 		"iconPath": "/images/perks/scourge-hook-hangmans-trick.webp",
 		"id": "scourge-hook-hangmans-trick",
 		"name": "Scourge Hook: Hangman's Trick",
-		"owner": null,
-		"ownerName": null,
+		"owner": "pig",
+		"ownerName": "The Pig",
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
 		"tierValues": [
@@ -2616,8 +2637,8 @@
 		"iconPath": "/images/perks/scourge-hook-weeping-wounds.webp",
 		"id": "scourge-hook-weeping-wounds",
 		"name": "Scourge Hook: Weeping Wounds",
-		"owner": "ghoul",
-		"ownerName": "The Ghoul",
+		"owner": "cenobite",
+		"ownerName": "The Cenobite",
 		"role": "killer",
 		"tags": ["Aura Reading", "Scourge Hook"],
 		"tierValues": [
@@ -2658,6 +2679,33 @@
 		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Secret_Project"
 	},
 	{
+		"aliases": ["Play with Your Food"],
+		"chapter": null,
+		"description": "Losing your Obsession in a chase grants +1 Token (max 3 Tokens); performing a Basic or Special Attack with the potential to damage a Survivor consumes -1 Token. While having at least 1 Token, you gain a stack-able {percentage}% Haste Status Effect per Token, up to a maximum of {percentage2}%. Has a cool-down of 10 seconds between gaining additional Tokens. You can only be obsessed with one Survivor at a time.",
+		"iconPath": "/images/perks/see-how-they-run.webp",
+		"id": "see-how-they-run",
+		"name": "See How They Run",
+		"owner": "shape",
+		"ownerName": "The Shape",
+		"role": "killer",
+		"tags": ["Haste", "Obsession"],
+		"tierValues": [
+			{
+				"percentage": 3,
+				"percentage2": 9
+			},
+			{
+				"percentage": 4,
+				"percentage2": 12
+			},
+			{
+				"percentage": 5,
+				"percentage2": 15
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/Play_with_Your_Food"
+	},
+	{
 		"aliases": [],
 		"chapter": "CHAPTER 24: Roots of Dread",
 		"description": "Whenever a Survivor performs a Healing action while inside your Terror Radius, they suffer from the Blindness and Exhausted Status Effects. These linger for {duration} seconds after the Healing action is interrupted.",
@@ -2688,8 +2736,8 @@
 		"iconPath": "/images/perks/shadowborn.webp",
 		"id": "shadowborn",
 		"name": "Shadowborn",
-		"owner": null,
-		"ownerName": null,
+		"owner": "wraith",
+		"ownerName": "The Wraith",
 		"role": "killer",
 		"tags": ["Haste"],
 		"tierValues": [
@@ -2929,37 +2977,13 @@
 	},
 	{
 		"aliases": [],
-		"chapter": "CHAPTER 19: All-Kill",
-		"description": "Start the Trial with 3 Tokens. Whenever you break a Breakable Wall or a dropped Pallet, THWACK! consumes -1 Token: all Survivors within 36 metres of your location scream and their Auras are revealed for {duration} seconds. Whenever you hook a Survivor, THWACK! gains +1 Token.",
-		"iconPath": "/images/perks/starstruck.webp",
-		"id": "thwack",
-		"name": "THWACK!",
-		"owner": "trickster",
-		"ownerName": "The Trickster",
-		"role": "killer",
-		"tags": ["Aura Reading"],
-		"tierValues": [
-			{
-				"duration": 4
-			},
-			{
-				"duration": 5
-			},
-			{
-				"duration": 6
-			}
-		],
-		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/THWACK!"
-	},
-	{
-		"aliases": [],
 		"chapter": "CHAPTER 20: Resident Evil",
 		"description": "Once the Exit Gates are powered, all injured, dying, or hooked Survivors suffer from the Broken Status Effect. Lasts until an Exit Gate is opened, then lingers for another {duration} seconds.",
 		"iconPath": "/images/perks/terminus.webp",
 		"id": "terminus",
 		"name": "Terminus",
-		"owner": "nemesis",
-		"ownerName": "The Nemesis",
+		"owner": "mastermind",
+		"ownerName": "The Mastermind",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -3055,6 +3079,30 @@
 	},
 	{
 		"aliases": [],
+		"chapter": "CHAPTER 19: All-Kill",
+		"description": "Start the Trial with 3 Tokens. Whenever you break a Breakable Wall or a dropped Pallet, THWACK! consumes -1 Token: all Survivors within 36 metres of your location scream and their Auras are revealed for {duration} seconds. Whenever you hook a Survivor, THWACK! gains +1 Token.",
+		"iconPath": "/images/perks/starstruck.webp",
+		"id": "thwack",
+		"name": "THWACK!",
+		"owner": "skull-merchant",
+		"ownerName": "The Skull Merchant",
+		"role": "killer",
+		"tags": ["Aura Reading"],
+		"tierValues": [
+			{
+				"duration": 4
+			},
+			{
+				"duration": 5
+			},
+			{
+				"duration": 6
+			}
+		],
+		"wikiUrl": "https://deadbydaylight.wiki.gg/wiki/THWACK!"
+	},
+	{
+		"aliases": [],
 		"chapter": "Base Game",
 		"description": "Whenever a Generator reaches 70 % repair, a Loud Noise Notification triggers at that Generator revealing its location, and you gain the Undetectable Status Effect for the next {duration} seconds. Can only trigger once per Generator per Trial.",
 		"iconPath": "/images/perks/tinkerer.webp",
@@ -3132,8 +3180,8 @@
 		"iconPath": "/images/perks/ultimate-weapon.webp",
 		"id": "ultimate-weapon",
 		"name": "Ultimate Weapon",
-		"owner": "unknown",
-		"ownerName": "The Unknown",
+		"owner": "xenomorph",
+		"ownerName": "The Xenomorph",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -3180,8 +3228,8 @@
 		"iconPath": "/images/perks/undone.webp",
 		"id": "undone",
 		"name": "Undone",
-		"owner": "houndmaster",
-		"ownerName": "The Houndmaster",
+		"owner": "unknown",
+		"ownerName": "The Unknown",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -3210,8 +3258,8 @@
 		"iconPath": "/images/perks/unforeseen.webp",
 		"id": "unforeseen",
 		"name": "Unforeseen",
-		"owner": "mastermind",
-		"ownerName": "The Mastermind",
+		"owner": "unknown",
+		"ownerName": "The Unknown",
 		"role": "killer",
 		"tags": ["Undetectable"],
 		"tierValues": [
@@ -3234,8 +3282,8 @@
 		"iconPath": "/images/perks/unnerving-presence.webp",
 		"id": "unnerving-presence",
 		"name": "Unnerving Presence",
-		"owner": null,
-		"ownerName": null,
+		"owner": "trapper",
+		"ownerName": "The Trapper",
 		"role": "killer",
 		"tags": [],
 		"tierValues": [
@@ -3306,8 +3354,8 @@
 		"iconPath": "/images/perks/weave-attunement.webp",
 		"id": "weave-attunement",
 		"name": "Weave Attunement",
-		"owner": "dark-lord",
-		"ownerName": "The Dark Lord",
+		"owner": "lich",
+		"ownerName": "The Lich",
 		"role": "killer",
 		"tags": ["Aura Reading"],
 		"tierValues": [
