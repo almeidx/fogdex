@@ -1,3 +1,4 @@
+.astro/
 .playwright-mcp/
 .wrangler/
 node_modules/

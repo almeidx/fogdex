@@ -9,7 +9,7 @@ function formatDate(iso: string): string {
 
 export function SurvivorRow({ survivor, priority }: { survivor: Survivor; priority: boolean }) {
 	return (
-		<tr className="border-b border-border/50 transition-colors hover:bg-surface-light/50">
+		<tr className="border-b border-border/50 transition-colors hover:bg-surface-light/50" id={survivor.id}>
 			<td className="py-2 px-2">
 				<img
 					alt=""
@@ -65,7 +65,7 @@ export function SurvivorRow({ survivor, priority }: { survivor: Survivor; priori
 
 export function SurvivorCard({ survivor, priority }: { survivor: Survivor; priority: boolean }) {
 	return (
-		<div className="flex gap-3 rounded-lg border border-border bg-surface p-3">
+		<div className="flex gap-3 rounded-lg border border-border bg-surface p-3" id={`card-${survivor.id}`}>
 			<img
 				alt=""
 				className="size-16 shrink-0 rounded bg-surface-light object-cover"

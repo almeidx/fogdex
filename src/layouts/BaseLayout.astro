@@ -1,0 +1,66 @@
+---
+import { Footer } from "../components/Footer.tsx";
+import NavBar from "../components/NavBar.astro";
+import "../index.css";
+
+interface Props {
+	description: string;
+	h1?: string;
+	jsonLd?: unknown;
+	ogImage?: string;
+	title: string;
+}
+
+const { title, description, h1, ogImage = "/og-image.png", jsonLd } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#0a0a0f" />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Fogdex" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		{
+			jsonLd && (
+				<script
+					type="application/ld+json"
+					is:inline
+					set:html={JSON.stringify(jsonLd)}
+				/>
+			)
+		}
+	</head>
+	<body>
+		<div class="min-h-screen flex flex-col">
+			<NavBar />
+			{h1 && <h1 class="sr-only">{h1}</h1>}
+			<slot />
+			<Footer />
+		</div>
+	</body>
+</html>

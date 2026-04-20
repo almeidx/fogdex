@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Page Not Found — Fogdex";
+const description = "The page you were looking for could not be found.";
+---
+
+<BaseLayout title={title} description={description} h1="Page not found">
+	<main class="mx-auto w-full max-w-xl flex-1 px-6 py-20 text-center">
+		<p class="text-6xl font-bold text-accent">404</p>
+		<p class="mt-4 text-lg text-text">This page does not exist.</p>
+		<p class="mt-2 text-sm text-text-muted">
+			It may have been moved or removed. Try one of the pages below.
+		</p>
+		<ul class="mt-8 flex flex-wrap justify-center gap-4 text-sm">
+			<li><a class="text-accent hover:text-accent-light underline" href="/">Killers</a></li>
+			<li><a class="text-accent hover:text-accent-light underline" href="/survivors">Survivors</a></li>
+			<li><a class="text-accent hover:text-accent-light underline" href="/perks/killer">Killer Perks</a></li>
+			<li><a class="text-accent hover:text-accent-light underline" href="/perks/survivor">Survivor Perks</a></li>
+		</ul>
+	</main>
+</BaseLayout>

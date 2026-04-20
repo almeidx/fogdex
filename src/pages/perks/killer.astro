@@ -1,0 +1,29 @@
+---
+import killerPerksData from "../../data/killer-perks.json";
+import { PerksIsland } from "../../islands/PerksIsland.tsx";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { Perk } from "../../types/perk.ts";
+
+const perks = killerPerksData as unknown as Perk[];
+
+const title = "Killer Perks — Fogdex";
+const description =
+	"Filterable reference for every Dead by Daylight killer perk — searchable descriptions, tier values, owners, and chapter.";
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	itemListElement: perks.map((p, i) => ({
+		"@type": "ListItem",
+		name: p.name,
+		position: i + 1,
+		url: `https://fogdex.almeidx.dev/perks/killer#${p.id}`,
+	})),
+	name: "Dead by Daylight Killer Perks",
+	numberOfItems: perks.length,
+};
+---
+
+<BaseLayout title={title} description={description} h1="Dead by Daylight Killer Perks" jsonLd={jsonLd}>
+	<PerksIsland perks={perks} client:load />
+</BaseLayout>

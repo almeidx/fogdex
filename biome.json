@@ -17,7 +17,7 @@
 		}
 	},
 	"files": {
-		"includes": ["**", "!**/dist", "!**/node_modules", "!**/src/data/killers.json"]
+		"includes": ["**", "!**/dist", "!**/node_modules", "!**/src/data/killers.json", "!**/*.astro"]
 	},
 	"formatter": {
 		"indentStyle": "tab",

@@ -1,0 +1,34 @@
+---
+import killersData from "../data/killers.json";
+import { KillersIsland } from "../islands/KillersIsland.tsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { Killer } from "../types/killer.ts";
+
+const killers = killersData as Killer[];
+
+const title = "Fogdex — Dead by Daylight Killer Reference";
+const description =
+	"Filterable, sortable stats for every Dead by Daylight killer — speed, terror radius, height, attack type, chapter, and terror radius audio.";
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	description: "Dead by Daylight killer, survivor, and perk reference",
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: killers.map((k, i) => ({
+			"@type": "ListItem",
+			name: k.displayName,
+			position: i + 1,
+			url: `https://fogdex.almeidx.dev/#${k.id}`,
+		})),
+		numberOfItems: killers.length,
+	},
+	name: "Fogdex",
+	url: "https://fogdex.almeidx.dev",
+};
+---
+
+<BaseLayout title={title} description={description} h1="Dead by Daylight Killers" jsonLd={jsonLd}>
+	<KillersIsland killers={killers} client:load />
+</BaseLayout>

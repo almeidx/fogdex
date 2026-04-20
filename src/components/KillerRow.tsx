@@ -85,7 +85,7 @@ function AttackBadge({ category, detail }: { category: AttackCategory; detail: s
 
 export function KillerRow({ killer, priority }: { killer: Killer; priority: boolean }) {
 	return (
-		<tr className="border-b border-border/50 transition-colors hover:bg-surface-light/50">
+		<tr className="border-b border-border/50 transition-colors hover:bg-surface-light/50" id={killer.id}>
 			<td className="py-2 px-2">
 				<img
 					alt=""
@@ -159,7 +159,7 @@ export function KillerRow({ killer, priority }: { killer: Killer; priority: bool
 
 export function KillerCard({ killer, priority }: { killer: Killer; priority: boolean }) {
 	return (
-		<div className="flex gap-3 rounded-lg border border-border bg-surface p-3">
+		<div className="flex gap-3 rounded-lg border border-border bg-surface p-3" id={`card-${killer.id}`}>
 			<img
 				alt=""
 				className="size-16 shrink-0 rounded bg-surface-light object-cover"

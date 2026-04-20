@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Disclaimer — Fogdex";
+const description =
+	"Fogdex is a non-commercial fan project. Dead by Daylight content belongs to Behaviour Interactive Inc.";
+
+const sections: { title: string; body: string }[] = [
+	{
+		body: "Fogdex is a fan-made, non-commercial project created for educational and informational purposes. It serves as a quick-reference tool for Dead by Daylight statistics.",
+		title: "Purpose",
+	},
+	{
+		body: "Dead by Daylight is a registered trademark of Behaviour Interactive Inc. All character names, portraits, perk icons, terror radius audio, and related game content are the property of Behaviour Interactive Inc.",
+		title: "Copyright",
+	},
+	{
+		body: "This site is not affiliated with, endorsed by, or connected to Behaviour Interactive Inc. or any of its subsidiaries or affiliates in any way.",
+		title: "Affiliation",
+	},
+];
+---
+
+<BaseLayout title={title} description={description}>
+	<main class="mx-auto w-full max-w-2xl flex-1 px-6 py-10">
+		<h1 class="text-2xl font-bold text-text">Disclaimer</h1>
+
+		<div class="mt-6 divide-y divide-border/50">
+			{
+				sections.map((section) => (
+					<div class="py-4">
+						<h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">{section.title}</h3>
+						<p class="mt-1.5 text-sm leading-relaxed text-text/80">{section.body}</p>
+					</div>
+				))
+			}
+
+			<div class="py-4">
+				<h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Content Sources</h3>
+				<p class="mt-1.5 text-sm leading-relaxed text-text/80">
+					Data, images, and audio files are sourced from the{" "}
+					<a
+						class="text-accent hover:text-accent-light underline underline-offset-2"
+						href="https://deadbydaylight.wiki.gg"
+						rel="noopener noreferrer"
+						target="_blank">Dead by Daylight Wiki</a
+					>, which hosts this content under a fair use claim for encyclopedic purposes.
+				</p>
+			</div>
+
+			<div class="py-4">
+				<h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Takedown</h3>
+				<p class="mt-1.5 text-sm leading-relaxed text-text/80">
+					If you are a rights holder and believe any content on this site infringes your copyright, please open an issue
+					on the{" "}
+					<a
+						class="text-accent hover:text-accent-light underline underline-offset-2"
+						href="https://github.com/almeidx/fogdex"
+						rel="noopener noreferrer"
+						target="_blank">GitHub repository</a
+					>
+					{" "}and the content will be promptly removed.
+				</p>
+			</div>
+
+			<div class="py-4">
+				<h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Site License</h3>
+				<p class="mt-1.5 text-sm leading-relaxed text-text/80">
+					The source code for this site is licensed under{" "}
+					<a
+						class="text-accent hover:text-accent-light underline underline-offset-2"
+						href="https://www.gnu.org/licenses/agpl-3.0.html"
+						rel="noopener noreferrer"
+						target="_blank">AGPL-3.0</a
+					>. This license applies only to the code, not to any Dead by Daylight game content.
+				</p>
+			</div>
+		</div>
+	</main>
+</BaseLayout>

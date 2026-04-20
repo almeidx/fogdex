@@ -20,7 +20,7 @@ export function PerkCard({ perk, priority }: { perk: Perk; priority: boolean }) 
 	const portraitSrc = ownerPortraitPath(perk);
 
 	return (
-		<div className="flex flex-col rounded-lg border border-border bg-surface p-4">
+		<div className="flex flex-col rounded-lg border border-border bg-surface p-4" id={perk.id}>
 			<div className="flex items-start gap-3">
 				<img
 					alt=""
