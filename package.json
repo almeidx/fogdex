@@ -25,12 +25,12 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.8",
 		"@biomejs/biome": "^2.4.13",
-		"@tailwindcss/vite": "^4.2.4",
+		"@tailwindcss/vite": "^4.2.2",
 		"@types/node": "^25.6.0",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"sharp": "^0.34.5",
-		"tailwindcss": "^4.2.4",
+		"tailwindcss": "^4.2.2",
 		"typescript": "~6.0.3",
 		"wrangler": "^4.85.0",
 		"zod": "^4.3.6"
