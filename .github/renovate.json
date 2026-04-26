@@ -18,11 +18,6 @@
 			"schedule": ["* 5-9 * * *", "* * * * SAT,SUN"]
 		},
 		{
-			"groupName": "tailwind",
-			"groupSlug": "tailwind",
-			"matchPackageNames": ["tailwindcss", "@tailwindcss/**"]
-		},
-		{
 			"enabled": false,
 			"matchDepTypes": ["engines"]
 		}
