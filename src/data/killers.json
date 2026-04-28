@@ -228,7 +228,7 @@
 			"unit": "m/s",
 			"percentage": 115
 		},
-		"speedNotes": "Chainsaw Sweep: 5.35 m/s (133.75%); Chainsaw Dash: 5.45 m/s",
+		"speedNotes": "Chainsaw Sweep: 5.45 m/s (136.25%); Chainsaw Dash: 5.45 m/s",
 		"terrorRadius": 32,
 		"terrorRadiusNotes": null,
 		"attackCategory": "Melee",
@@ -444,7 +444,7 @@
 			"unit": "m/s",
 			"percentage": 115
 		},
-		"speedNotes": "Of the Abyss: 3.86 m/s; Shred: 18.4 m/s; Upside Down: 32 m/s",
+		"speedNotes": "Of the Abyss: 3.86 m/s; Shred: 19 m/s; Upside Down: 32 m/s",
 		"terrorRadius": 32,
 		"terrorRadiusNotes": null,
 		"attackCategory": "Ranged",
@@ -548,9 +548,9 @@
 		"gender": "Man",
 		"origin": "Scotland",
 		"speed": {
-			"base": 4.6,
+			"base": 4.4,
 			"unit": "m/s",
-			"percentage": 115
+			"percentage": 110
 		},
 		"speedNotes": "Rush: 9.2 m/s (230%)",
 		"terrorRadius": 40,
@@ -741,7 +741,7 @@
 			"unit": "m/s",
 			"percentage": 115
 		},
-		"speedNotes": "The Gloaming: 3.8 m/s; teleport: 19 m/s (day) / 38 m/s (night)",
+		"speedNotes": "The Gloaming: 4 m/s; teleport: 19 m/s (day) / 38 m/s (night)",
 		"terrorRadius": 32,
 		"terrorRadiusNotes": null,
 		"attackCategory": "Melee",

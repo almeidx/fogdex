@@ -1598,7 +1598,7 @@
 	{
 		"aliases": [],
 		"chapter": "CHAPTER 19: All-Kill",
-		"description": "Whenever a Survivor other than yourself is hooked, Fast Track is granted {tokens} Token(s), up to a maximum of 9. Succeeding a Great Repair Skill Check consumes all accumulated Tokens, permanently reducing the Repair Charges requirement of that Generator by 2 charges per Token.",
+		"description": "Whenever you unhook another Survivor, you earn 1 Token(s), up to {tokens}. While repairing, whenever you hit a great basic Skill Check, spend all Tokens. For each Token spent, the Generator gains 5% permanent progress.",
 		"iconPath": "/images/perks/fast-track.webp",
 		"id": "fast-track",
 		"name": "Fast Track",
