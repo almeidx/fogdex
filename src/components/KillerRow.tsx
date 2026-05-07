@@ -2,8 +2,24 @@ import { useEffect, useState } from "react";
 import type { AttackCategory, Killer } from "../types/killer.ts";
 
 const CDN_URL = import.meta.env.VITE_CDN_URL;
+const VOLUME_KEY = "fogdex.tr.volume";
 
 let currentAudio: HTMLAudioElement | null = null;
+let currentVolume = 0.25;
+
+if (typeof window !== "undefined") {
+	try {
+		const stored = localStorage.getItem(VOLUME_KEY);
+		if (stored !== null) {
+			const n = Number(stored);
+			if (Number.isFinite(n) && n >= 0 && n <= 1) currentVolume = n;
+		}
+	} catch {}
+	document.addEventListener("tr-volume-change", (e) => {
+		currentVolume = (e as CustomEvent<number>).detail;
+		if (currentAudio) currentAudio.volume = currentVolume;
+	});
+}
 
 function stopAudio() {
 	if (currentAudio) {
@@ -31,6 +47,7 @@ function PlayButton({ killerId }: { killerId: string }) {
 		} else {
 			stopAudio();
 			const audio = new Audio(`${CDN_URL}/audio/tr/${killerId}.ogg`);
+			audio.volume = currentVolume;
 			currentAudio = audio;
 			audio.play();
 			document.dispatchEvent(new CustomEvent("tr-audio-change", { detail: killerId }));
