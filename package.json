@@ -19,8 +19,8 @@
 		"@astrojs/sitemap": "^3.7.2",
 		"astro": "^6.2.2",
 		"nuqs": "^2.8.9",
-		"react": "^19.2.5",
-		"react-dom": "^19.2.5"
+		"react": "^19.2.6",
+		"react-dom": "^19.2.6"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
@@ -35,5 +35,5 @@
 		"wrangler": "^4.88.0",
 		"zod": "^4.4.3"
 	},
-	"packageManager": "pnpm@11.0.6"
+	"packageManager": "pnpm@11.0.7"
 }
