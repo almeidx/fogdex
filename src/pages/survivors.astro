@@ -1,0 +1,47 @@
+---
+import { SurvivorsIsland } from "../islands/SurvivorsIsland.tsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Legend from "../components/Legend.astro";
+import { loadDataFile } from "../data/load.ts";
+import type { Survivor } from "../types/survivor.ts";
+
+const survivors = await loadDataFile<Survivor[]>("survivors.json");
+
+const title = "Survivors — Fogdex";
+const description =
+	"Filterable, sortable reference for every Dead by Daylight survivor — gender, origin, chapter, and licensed status.";
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	itemListElement: survivors.map((s, i) => ({
+		"@type": "ListItem",
+		name: s.displayName,
+		position: i + 1,
+		url: `https://fogdex.almeidx.dev/survivors#${s.slug}`,
+	})),
+	name: "Dead by Daylight Survivors",
+	numberOfItems: survivors.length,
+};
+---
+
+<BaseLayout title={title} description={description} h1="Dead by Daylight Survivors" jsonLd={jsonLd}>
+	<SurvivorsIsland survivors={survivors} client:load />
+	<Legend
+		items={[
+			{
+				term: "Origin",
+				definition: "The fictional world, franchise, or setting the survivor comes from.",
+			},
+			{
+				term: "Chapter",
+				definition: "The Dead by Daylight chapter or DLC the survivor released in.",
+			},
+			{
+				term: "Licensed / Original",
+				definition:
+					"Licensed survivors come from an outside franchise; Original survivors are made by Behaviour Interactive.",
+			},
+		]}
+	/>
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fogdex.almeidx.dev/sitemap-index.xml

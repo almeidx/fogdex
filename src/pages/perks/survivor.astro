@@ -1,0 +1,48 @@
+---
+import Legend from "../../components/Legend.astro";
+import { loadDataFile } from "../../data/load.ts";
+import { PerksIsland } from "../../islands/PerksIsland.tsx";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { Perk, StatusEffects } from "../../types/perk.ts";
+
+const perks = await loadDataFile<Perk[]>("survivor-perks.json");
+const statusEffects = await loadDataFile<StatusEffects>("status-effects.json");
+
+const title = "Survivor Perks — Fogdex";
+const description =
+	"Filterable reference for every Dead by Daylight survivor perk — searchable descriptions, tier values, owners, and chapter.";
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	itemListElement: perks.map((p, i) => ({
+		"@type": "ListItem",
+		name: p.name,
+		position: i + 1,
+		url: `https://fogdex.almeidx.dev/perks/survivor#${p.slug}`,
+	})),
+	name: "Dead by Daylight Survivor Perks",
+	numberOfItems: perks.length,
+};
+---
+
+<BaseLayout title={title} description={description} h1="Dead by Daylight Survivor Perks" jsonLd={jsonLd}>
+	<PerksIsland perks={perks} statusEffects={statusEffects} client:load />
+	<Legend
+		items={[
+			{
+				term: "Tier values (e.g. 3 / 4 / 5)",
+				definition:
+					"A perk's value at tier 1 / tier 2 / tier 3. A single number means it is the same at every tier.",
+			},
+			{
+				term: "Status effects",
+				definition: "Bolded terms in a perk's description. Hover or focus one for its meaning.",
+			},
+			{
+				term: "Owner",
+				definition: "The character who unlocks the perk, or Universal if every character can use it.",
+			},
+		]}
+	/>
+</BaseLayout>

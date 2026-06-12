@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+	--color-bg: #0a0a0f;
+	--color-surface: #141420;
+	--color-surface-light: #1c1c30;
+	--color-border: #252540;
+	--color-text: #e0e0e8;
+	--color-text-muted: #84849a;
+	--color-accent: #c41e3a;
+	--color-accent-light: #f25a6e;
+	--color-accent-text: #ef4a60;
+	--color-gold: #d4a017;
+	--color-steel: #c3c8d4;
+	--color-azure: #8cb6ea;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	background-image:
+		radial-gradient(ellipse at 20% 50%, rgba(196, 30, 58, 0.04) 0%, transparent 50%),
+		radial-gradient(ellipse at 80% 20%, rgba(212, 160, 23, 0.03) 0%, transparent 50%);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	margin: 0;
+	-webkit-appearance: none;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+@media (pointer: coarse) {
+	.touch-target {
+		min-width: 2.5rem;
+		min-height: 2.5rem;
+	}
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+	outline: 2px solid var(--color-accent-text);
+	outline-offset: 2px;
+}

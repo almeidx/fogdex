@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"resolveJsonModule": true,
+		"rewriteRelativeImportExtensions": true,
+		"types": ["node", "astro/client"]
+	},
+	"exclude": ["dist"],
+	"extends": "astro/tsconfigs/strict",
+	"include": [".astro/types.d.ts", "scripts", "src"]
+}

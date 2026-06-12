@@ -1,0 +1,56 @@
+---
+import { KillersIsland } from "../islands/KillersIsland.tsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Legend from "../components/Legend.astro";
+import { loadDataFile } from "../data/load.ts";
+import type { Killer } from "../types/killer.ts";
+
+const killers = await loadDataFile<Killer[]>("killers.json");
+
+const title = "Fogdex — Dead by Daylight Killer Reference";
+const description =
+	"Filterable, sortable stats for every Dead by Daylight killer — speed, terror radius, height, attack type, chapter, and terror radius audio.";
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	description: "Dead by Daylight killer, survivor, and perk reference",
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: killers.map((k, i) => ({
+			"@type": "ListItem",
+			name: k.displayName,
+			position: i + 1,
+			url: `https://fogdex.almeidx.dev/#${k.slug}`,
+		})),
+		numberOfItems: killers.length,
+	},
+	name: "Fogdex",
+	url: "https://fogdex.almeidx.dev",
+};
+---
+
+<BaseLayout title={title} description={description} h1="Dead by Daylight Killers" jsonLd={jsonLd}>
+	<KillersIsland killers={killers} client:load />
+	<Legend
+		items={[
+			{
+				term: "Speed",
+				definition: "Movement speed in metres per second. The percentage is relative to the 4.6 m/s baseline.",
+			},
+			{
+				term: "Terror Radius (TR)",
+				definition: "The range at which the killer's heartbeat warning becomes audible to survivors.",
+			},
+			{ term: "Lullaby", definition: "A secondary audio cue some killers emit, with its own separate radius." },
+			{
+				term: "Attack: Melee / Ranged",
+				definition: "Whether the killer's basic attack is a close-range lunge or a projectile.",
+			},
+			{
+				term: "Licensed / Original",
+				definition: "Licensed killers come from an outside franchise; Original killers are made by Behaviour Interactive.",
+			},
+		]}
+	/>
+</BaseLayout>

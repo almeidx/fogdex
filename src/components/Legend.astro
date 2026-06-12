@@ -1,0 +1,22 @@
+---
+interface Props {
+	items: { term: string; definition: string }[];
+	title?: string;
+}
+
+const { items, title = "Legend" } = Astro.props;
+---
+
+<section aria-labelledby="legend-heading" class="mx-auto w-full max-w-350 border-t border-border px-4 py-6">
+	<h2 class="text-sm font-semibold text-text" id="legend-heading">{title}</h2>
+	<dl class="mt-3 grid grid-cols-1 gap-x-8 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-3">
+		{
+			items.map((item) => (
+				<div>
+					<dt class="font-medium text-text">{item.term}</dt>
+					<dd class="mt-0.5 text-text-muted">{item.definition}</dd>
+				</div>
+			))
+		}
+	</dl>
+</section>
