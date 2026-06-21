@@ -35,5 +35,5 @@
 		"wrangler": "^4.103.0",
 		"zod": "^4.4.3"
 	},
-	"packageManager": "pnpm@11.5.2"
+	"packageManager": "pnpm@11.8.0"
 }
