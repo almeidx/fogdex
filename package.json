@@ -23,7 +23,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
-		"@aws-sdk/client-s3": "^3.1085.0",
+		"@aws-sdk/client-s3": "^3.1086.0",
 		"@biomejs/biome": "^2.5.3",
 		"@tailwindcss/vite": "^4.3.2",
 		"@types/node": "^25.9.5",
@@ -35,5 +35,5 @@
 		"wrangler": "^4.110.0",
 		"zod": "^4.4.3"
 	},
-	"packageManager": "pnpm@11.11.0"
+	"packageManager": "pnpm@11.13.0"
 }
