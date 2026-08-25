@@ -1,5 +1,5 @@
 ---
-const path = Astro.url.pathname;
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
 const links: { href: string; label: string }[] = [
 	{ href: "/", label: "Killers" },
@@ -23,6 +23,7 @@ function isActive(href: string): boolean {
 			{
 				links.map((link) => (
 					<a
+						aria-current={isActive(link.href) ? "page" : undefined}
 						class:list={[
 							"text-sm py-1.5 transition-colors",
 							isActive(link.href) ? "text-accent-text font-medium" : "text-text-muted hover:text-text",
