@@ -6,7 +6,7 @@ import {
 	parseAsStringLiteral,
 	useQueryStates,
 } from "nuqs";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Filters, Height, Killer, SortState } from "../types/killer.ts";
 import {
 	ATTACK_CATEGORIES,
@@ -120,30 +120,24 @@ export function useFilters(killers: Killer[]) {
 	const [filterParams, setFilterParams] = useQueryStates(filterParsers, { history: "replace" });
 	const [sortParams, setSortParams] = useQueryStates(sortParsers, { history: "replace" });
 
-	const realFilters: Filters = useMemo(
-		() => ({
-			attackCategories: filterParams.attack,
-			genders: filterParams.gender,
-			hasLullaby: filterParams.lullaby,
-			heights: filterParams.height,
-			licensed: filterParams.licensed,
-			origins: filterParams.origin,
-			search: filterParams.q,
-			speedMax: filterParams.speed_max ?? null,
-			speedMin: filterParams.speed_min ?? null,
-			trMax: filterParams.tr_max ?? null,
-			trMin: filterParams.tr_min ?? null,
-		}),
-		[filterParams],
-	);
+	const realFilters: Filters = {
+		attackCategories: filterParams.attack,
+		genders: filterParams.gender,
+		hasLullaby: filterParams.lullaby,
+		heights: filterParams.height,
+		licensed: filterParams.licensed,
+		origins: filterParams.origin,
+		search: filterParams.q,
+		speedMax: filterParams.speed_max ?? null,
+		speedMin: filterParams.speed_min ?? null,
+		trMax: filterParams.tr_max ?? null,
+		trMin: filterParams.tr_min ?? null,
+	};
 
-	const realSort: SortState = useMemo(
-		() => ({
-			column: sortParams.sort,
-			direction: sortParams.order,
-		}),
-		[sortParams],
-	);
+	const realSort: SortState = {
+		column: sortParams.sort,
+		direction: sortParams.order,
+	};
 
 	const [mounted, setMounted] = useState(false);
 	useEffect(() => {
@@ -153,34 +147,28 @@ export function useFilters(killers: Killer[]) {
 	const filters = mounted ? realFilters : DEFAULT_FILTERS;
 	const sort = mounted ? realSort : DEFAULT_SORT;
 
-	const setFilter = useCallback(
-		<K extends keyof Filters>(key: K, value: Filters[K]) => {
-			const paramMap: Record<string, string> = {
-				attackCategories: "attack",
-				genders: "gender",
-				hasLullaby: "lullaby",
-				heights: "height",
-				licensed: "licensed",
-				origins: "origin",
-				search: "q",
-				speedMax: "speed_max",
-				speedMin: "speed_min",
-				trMax: "tr_max",
-				trMin: "tr_min",
-			};
-			setFilterParams({ [paramMap[key]]: value });
-		},
-		[setFilterParams],
-	);
+	const setFilter = <K extends keyof Filters>(key: K, value: Filters[K]) => {
+		const paramMap: Record<string, string> = {
+			attackCategories: "attack",
+			genders: "gender",
+			hasLullaby: "lullaby",
+			heights: "height",
+			licensed: "licensed",
+			origins: "origin",
+			search: "q",
+			speedMax: "speed_max",
+			speedMin: "speed_min",
+			trMax: "tr_max",
+			trMin: "tr_min",
+		};
+		setFilterParams({ [paramMap[key]]: value });
+	};
 
-	const setSort = useCallback(
-		(newSort: SortState) => {
-			setSortParams({ order: newSort.direction, sort: newSort.column });
-		},
-		[setSortParams],
-	);
+	const setSort = (newSort: SortState) => {
+		setSortParams({ order: newSort.direction, sort: newSort.column });
+	};
 
-	const clearFilters = useCallback(() => {
+	const clearFilters = () => {
 		setFilterParams({
 			attack: [],
 			gender: [],
@@ -195,11 +183,9 @@ export function useFilters(killers: Killer[]) {
 			tr_min: null as unknown as number,
 		});
 		setSortParams({ order: "asc", sort: "name" });
-	}, [setFilterParams, setSortParams]);
+	};
 
-	const filteredKillers = useMemo(() => {
-		return sortKillers(filterKillers(killers, filters), sort);
-	}, [killers, filters, sort]);
+	const filteredKillers = sortKillers(filterKillers(killers, filters), sort);
 
 	return { clearFilters, filteredKillers, filters, setFilter, setSort, sort };
 }

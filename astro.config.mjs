@@ -5,7 +5,7 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
 	integrations: [
-		react(),
+		react({ compiler: true }),
 		sitemap({
 			serialize(item) {
 				return { ...item, lastmod: new Date().toISOString() };

@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 interface MultiSelectProps<T extends string> {
 	label: string;
@@ -53,14 +53,13 @@ export function MultiSelect<T extends string>({
 		}
 	}, [open, searchable]);
 
-	const filtered = useMemo(() => {
-		if (!search) return options;
-		const q = search.toLowerCase();
-		return options.filter((o) => {
-			const text = labelFn ? labelFn(o) : o;
-			return text.toLowerCase().includes(q);
-		});
-	}, [options, search, labelFn]);
+	const q = search.toLowerCase();
+	const filtered = search
+		? options.filter((o) => {
+				const text = labelFn ? labelFn(o) : o;
+				return text.toLowerCase().includes(q);
+			})
+		: options;
 
 	const toggle = (option: T) => {
 		if (selected.includes(option)) {

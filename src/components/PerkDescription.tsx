@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import type { Perk, StatusEffects } from "../types/perk.ts";
 import { StatusEffectTooltip } from "./StatusEffectTooltip.tsx";
 
@@ -86,10 +85,8 @@ export function PerkDescription({
 	statusEffects: StatusEffects;
 	tierValues: Perk["tierValues"];
 }) {
-	const segments = useMemo(() => {
-		const resolved = resolveDescription(description, tierValues);
-		return segmentDescription(resolved, collectTierPatterns(tierValues), statusEffects);
-	}, [description, statusEffects, tierValues]);
+	const resolved = resolveDescription(description, tierValues);
+	const segments = segmentDescription(resolved, collectTierPatterns(tierValues), statusEffects);
 
 	return (
 		<p className="text-sm leading-relaxed text-text/80">
