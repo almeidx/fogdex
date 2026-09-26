@@ -16,24 +16,24 @@
 	"dependencies": {
 		"@astrojs/react": "^6.0.6",
 		"@astrojs/sitemap": "^3.7.4",
-		"astro": "^7.3.3",
+		"astro": "^7.3.5",
 		"nuqs": "^2.10.1",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.10",
-		"@aws-sdk/client-s3": "^3.1135.0",
+		"@aws-sdk/client-s3": "^3.1140.0",
 		"@biomejs/biome": "^2.5.14",
 		"@tailwindcss/vite": "^4.3.3",
-		"@types/node": "^25.9.7",
+		"@types/node": "^25.9.8",
 		"@types/react": "^19.3.0",
 		"@types/react-dom": "^19.3.0",
 		"sharp": "^0.35.4",
 		"tailwindcss": "^4.3.3",
 		"typescript": "~6.0.3",
-		"wrangler": "^4.134.0",
+		"wrangler": "^4.139.0",
 		"zod": "^4.6.5"
 	},
-	"packageManager": "pnpm@12.4.2"
+	"packageManager": "pnpm@12.6.0"
 }
