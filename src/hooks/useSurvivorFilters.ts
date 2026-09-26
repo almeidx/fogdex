@@ -1,5 +1,5 @@
 import { parseAsArrayOf, parseAsString, parseAsStringLiteral, useQueryStates } from "nuqs";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { GENDERS, LICENSED_OPTIONS, SORT_DIRECTIONS } from "../types/killer.ts";
 import type { Survivor, SurvivorFilters, SurvivorSortState } from "../types/survivor.ts";
 import { SURVIVOR_SORT_COLUMNS } from "../types/survivor.ts";
@@ -73,23 +73,17 @@ export function useSurvivorFilters(survivors: Survivor[]) {
 	const [filterParams, setFilterParams] = useQueryStates(filterParsers, { history: "replace" });
 	const [sortParams, setSortParams] = useQueryStates(sortParsers, { history: "replace" });
 
-	const realFilters: SurvivorFilters = useMemo(
-		() => ({
-			genders: filterParams.gender,
-			licensed: filterParams.licensed,
-			origins: filterParams.origin,
-			search: filterParams.q,
-		}),
-		[filterParams],
-	);
+	const realFilters: SurvivorFilters = {
+		genders: filterParams.gender,
+		licensed: filterParams.licensed,
+		origins: filterParams.origin,
+		search: filterParams.q,
+	};
 
-	const realSort: SurvivorSortState = useMemo(
-		() => ({
-			column: sortParams.sort,
-			direction: sortParams.order,
-		}),
-		[sortParams],
-	);
+	const realSort: SurvivorSortState = {
+		column: sortParams.sort,
+		direction: sortParams.order,
+	};
 
 	const [mounted, setMounted] = useState(false);
 	useEffect(() => {
@@ -99,27 +93,21 @@ export function useSurvivorFilters(survivors: Survivor[]) {
 	const filters = mounted ? realFilters : DEFAULT_FILTERS;
 	const sort = mounted ? realSort : DEFAULT_SORT;
 
-	const setFilter = useCallback(
-		<K extends keyof SurvivorFilters>(key: K, value: SurvivorFilters[K]) => {
-			const paramMap: Record<string, string> = {
-				genders: "gender",
-				licensed: "licensed",
-				origins: "origin",
-				search: "q",
-			};
-			setFilterParams({ [paramMap[key]]: value });
-		},
-		[setFilterParams],
-	);
+	const setFilter = <K extends keyof SurvivorFilters>(key: K, value: SurvivorFilters[K]) => {
+		const paramMap: Record<string, string> = {
+			genders: "gender",
+			licensed: "licensed",
+			origins: "origin",
+			search: "q",
+		};
+		setFilterParams({ [paramMap[key]]: value });
+	};
 
-	const setSort = useCallback(
-		(newSort: SurvivorSortState) => {
-			setSortParams({ order: newSort.direction, sort: newSort.column });
-		},
-		[setSortParams],
-	);
+	const setSort = (newSort: SurvivorSortState) => {
+		setSortParams({ order: newSort.direction, sort: newSort.column });
+	};
 
-	const clearFilters = useCallback(() => {
+	const clearFilters = () => {
 		setFilterParams({
 			gender: [],
 			licensed: "all",
@@ -127,11 +115,9 @@ export function useSurvivorFilters(survivors: Survivor[]) {
 			q: "",
 		});
 		setSortParams({ order: "asc", sort: "name" });
-	}, [setFilterParams, setSortParams]);
+	};
 
-	const filteredSurvivors = useMemo(() => {
-		return sortSurvivors(filterSurvivors(survivors, filters), sort);
-	}, [survivors, filters, sort]);
+	const filteredSurvivors = sortSurvivors(filterSurvivors(survivors, filters), sort);
 
 	return { clearFilters, filteredSurvivors, filters, setFilter, setSort, sort };
 }

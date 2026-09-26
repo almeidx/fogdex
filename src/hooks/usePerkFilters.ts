@@ -1,5 +1,5 @@
 import { parseAsArrayOf, parseAsString, parseAsStringLiteral, useQueryStates } from "nuqs";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { SORT_DIRECTIONS } from "../types/killer.ts";
 import type { Perk, PerkFilters, PerkSortState } from "../types/perk.ts";
 import { PERK_SORT_COLUMNS } from "../types/perk.ts";
@@ -75,23 +75,17 @@ export function usePerkFilters(perks: Perk[]) {
 	const [filterParams, setFilterParams] = useQueryStates(filterParsers, { history: "replace" });
 	const [sortParams, setSortParams] = useQueryStates(sortParsers, { history: "replace" });
 
-	const realFilters: PerkFilters = useMemo(
-		() => ({
-			chapters: filterParams.chapter,
-			owners: filterParams.owner,
-			search: filterParams.q,
-			tags: filterParams.tag,
-		}),
-		[filterParams],
-	);
+	const realFilters: PerkFilters = {
+		chapters: filterParams.chapter,
+		owners: filterParams.owner,
+		search: filterParams.q,
+		tags: filterParams.tag,
+	};
 
-	const realSort: PerkSortState = useMemo(
-		() => ({
-			column: sortParams.sort,
-			direction: sortParams.order,
-		}),
-		[sortParams],
-	);
+	const realSort: PerkSortState = {
+		column: sortParams.sort,
+		direction: sortParams.order,
+	};
 
 	const [mounted, setMounted] = useState(false);
 	useEffect(() => {
@@ -101,27 +95,21 @@ export function usePerkFilters(perks: Perk[]) {
 	const filters = mounted ? realFilters : DEFAULT_FILTERS;
 	const sort = mounted ? realSort : DEFAULT_SORT;
 
-	const setFilter = useCallback(
-		<K extends keyof PerkFilters>(key: K, value: PerkFilters[K]) => {
-			const paramMap: Record<string, string> = {
-				chapters: "chapter",
-				owners: "owner",
-				search: "q",
-				tags: "tag",
-			};
-			setFilterParams({ [paramMap[key]]: value });
-		},
-		[setFilterParams],
-	);
+	const setFilter = <K extends keyof PerkFilters>(key: K, value: PerkFilters[K]) => {
+		const paramMap: Record<string, string> = {
+			chapters: "chapter",
+			owners: "owner",
+			search: "q",
+			tags: "tag",
+		};
+		setFilterParams({ [paramMap[key]]: value });
+	};
 
-	const setSort = useCallback(
-		(newSort: PerkSortState) => {
-			setSortParams({ order: newSort.direction, sort: newSort.column });
-		},
-		[setSortParams],
-	);
+	const setSort = (newSort: PerkSortState) => {
+		setSortParams({ order: newSort.direction, sort: newSort.column });
+	};
 
-	const clearFilters = useCallback(() => {
+	const clearFilters = () => {
 		setFilterParams({
 			chapter: [],
 			owner: [],
@@ -129,11 +117,9 @@ export function usePerkFilters(perks: Perk[]) {
 			tag: [],
 		});
 		setSortParams({ order: "asc", sort: "name" });
-	}, [setFilterParams, setSortParams]);
+	};
 
-	const filteredPerks = useMemo(() => {
-		return sortPerks(filterPerks(perks, filters), sort);
-	}, [perks, filters, sort]);
+	const filteredPerks = sortPerks(filterPerks(perks, filters), sort);
 
 	return { clearFilters, filteredPerks, filters, setFilter, setSort, sort };
 }

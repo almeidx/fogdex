@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Perk, PerkFilters, PerkSortColumn, PerkSortState } from "../types/perk.ts";
 import { PERK_SORT_COLUMNS } from "../types/perk.ts";
 import { MultiSelect } from "./MultiSelect.tsx";
@@ -39,9 +39,9 @@ export function PerkFilterBar({
 	const [mounted, setMounted] = useState(false);
 	const searchRef = useRef<HTMLInputElement>(null);
 
-	const allTags = useMemo(() => [...new Set(perks.flatMap((p) => p.tags))].sort(), [perks]);
+	const allTags = [...new Set(perks.flatMap((p) => p.tags))].sort();
 
-	const ownerOptions = useMemo(() => {
+	const ownerOptions = (() => {
 		const owners = new Map<string, string>();
 		for (const p of perks) {
 			if (p.ownerName) {
@@ -51,12 +51,9 @@ export function PerkFilterBar({
 		const sorted = [...owners.entries()].sort((a, b) => a[1].localeCompare(b[1]));
 		sorted.push(["__universal__", "Universal"]);
 		return sorted;
-	}, [perks]);
+	})();
 
-	const chapterOptions = useMemo(
-		() => [...new Set(perks.map((p) => p.chapter).filter((c): c is string => c !== null))].sort(),
-		[perks],
-	);
+	const chapterOptions = [...new Set(perks.map((p) => p.chapter).filter((c): c is string => c !== null))].sort();
 
 	const searchValueRef = useRef(filters.search);
 	searchValueRef.current = filters.search;
