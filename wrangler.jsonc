@@ -5,11 +5,5 @@
 		"not_found_handling": "404-page"
 	},
 	"compatibility_date": "2026-04-14",
-	"name": "fogdex",
-	"observability": {
-		"enabled": true,
-		"logs": {
-			"enabled": true
-		}
-	}
+	"name": "fogdex"
 }
