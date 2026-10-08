@@ -59,7 +59,7 @@ function PlayButton({ killer }: { killer: Killer }) {
 			const audio = new Audio(`${CDN_URL}/audio/tr/${killer.slug}.ogg`);
 			audio.volume = currentVolume;
 			currentAudio = audio;
-			audio.play();
+			void audio.play();
 			const payload: TrAudioPayload = {
 				audio,
 				displayName: killer.displayName,

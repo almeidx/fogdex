@@ -1,8 +1,8 @@
 import { parseAsArrayOf, parseAsString, parseAsStringLiteral, useQueryStates } from "nuqs";
-import { useEffect, useState } from "react";
 import { SORT_DIRECTIONS } from "../types/killer.ts";
 import type { Perk, PerkFilters, PerkSortState } from "../types/perk.ts";
 import { PERK_SORT_COLUMNS } from "../types/perk.ts";
+import { useHydrated } from "./useHydrated.ts";
 
 const filterParsers = {
 	chapter: parseAsArrayOf(parseAsString).withDefault([]),
@@ -87,10 +87,7 @@ export function usePerkFilters(perks: Perk[]) {
 		direction: sortParams.order,
 	};
 
-	const [mounted, setMounted] = useState(false);
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	const mounted = useHydrated();
 
 	const filters = mounted ? realFilters : DEFAULT_FILTERS;
 	const sort = mounted ? realSort : DEFAULT_SORT;
@@ -102,21 +99,21 @@ export function usePerkFilters(perks: Perk[]) {
 			search: "q",
 			tags: "tag",
 		};
-		setFilterParams({ [paramMap[key]]: value });
+		void setFilterParams({ [paramMap[key]]: value });
 	};
 
 	const setSort = (newSort: PerkSortState) => {
-		setSortParams({ order: newSort.direction, sort: newSort.column });
+		void setSortParams({ order: newSort.direction, sort: newSort.column });
 	};
 
 	const clearFilters = () => {
-		setFilterParams({
+		void setFilterParams({
 			chapter: [],
 			owner: [],
 			q: "",
 			tag: [],
 		});
-		setSortParams({ order: "asc", sort: "name" });
+		void setSortParams({ order: "asc", sort: "name" });
 	};
 
 	const filteredPerks = sortPerks(filterPerks(perks, filters), sort);

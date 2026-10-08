@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useHydrated } from "../hooks/useHydrated.ts";
 import type { Gender, LicensedOption } from "../types/killer.ts";
 import { GENDERS } from "../types/killer.ts";
 import type { Survivor, SurvivorFilters } from "../types/survivor.ts";
@@ -24,12 +25,9 @@ export function SurvivorFilterBar({
 	totalCount,
 }: SurvivorFilterBarProps) {
 	const [mobileOpen, setMobileOpen] = useState(false);
-	const [mounted, setMounted] = useState(false);
 	const searchRef = useRef<HTMLInputElement>(null);
 	const origins = [...new Set(survivors.map((s) => s.origin))].sort();
-
-	const searchValueRef = useRef(filters.search);
-	searchValueRef.current = filters.search;
+	const mounted = useHydrated();
 
 	useEffect(() => {
 		function handleKeyDown(e: KeyboardEvent) {
@@ -38,7 +36,7 @@ export function SurvivorFilterBar({
 				searchRef.current?.focus();
 			}
 			if (e.key === "Escape" && document.activeElement === searchRef.current) {
-				if (searchValueRef.current) {
+				if (filters.search) {
 					onFilterChange("search", "");
 				} else {
 					searchRef.current?.blur();
@@ -47,11 +45,7 @@ export function SurvivorFilterBar({
 		}
 		document.addEventListener("keydown", handleKeyDown);
 		return () => document.removeEventListener("keydown", handleKeyDown);
-	}, [onFilterChange]);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	}, [filters.search, onFilterChange]);
 
 	const chips: { key: string; label: string; onRemove: () => void }[] = [];
 	if (filters.search) {

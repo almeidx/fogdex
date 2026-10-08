@@ -1,0 +1,20 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"options": {
+		"typeAware": true
+	},
+	"plugins": ["eslint", "typescript", "unicorn", "oxc", "react"],
+	"categories": {
+		"correctness": "error"
+	},
+	"env": {
+		"builtin": true
+	},
+	"ignorePatterns": [".astro/**", ".wrangler/**", "dist/**", ".fogdex-data/**", "**/*.astro"],
+	"rules": {
+		"react/immutability": "warn",
+		"react/refs": "warn",
+		"react/set-state-in-effect": "warn",
+		"typescript/no-floating-promises": "warn"
+	}
+}

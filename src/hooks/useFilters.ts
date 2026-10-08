@@ -6,7 +6,6 @@ import {
 	parseAsStringLiteral,
 	useQueryStates,
 } from "nuqs";
-import { useEffect, useState } from "react";
 import type { Filters, Height, Killer, SortState } from "../types/killer.ts";
 import {
 	ATTACK_CATEGORIES,
@@ -16,6 +15,7 @@ import {
 	SORT_COLUMNS,
 	SORT_DIRECTIONS,
 } from "../types/killer.ts";
+import { useHydrated } from "./useHydrated.ts";
 
 const filterParsers = {
 	attack: parseAsArrayOf(parseAsStringLiteral(ATTACK_CATEGORIES)).withDefault([]),
@@ -139,10 +139,7 @@ export function useFilters(killers: Killer[]) {
 		direction: sortParams.order,
 	};
 
-	const [mounted, setMounted] = useState(false);
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	const mounted = useHydrated();
 
 	const filters = mounted ? realFilters : DEFAULT_FILTERS;
 	const sort = mounted ? realSort : DEFAULT_SORT;
@@ -161,15 +158,15 @@ export function useFilters(killers: Killer[]) {
 			trMax: "tr_max",
 			trMin: "tr_min",
 		};
-		setFilterParams({ [paramMap[key]]: value });
+		void setFilterParams({ [paramMap[key]]: value });
 	};
 
 	const setSort = (newSort: SortState) => {
-		setSortParams({ order: newSort.direction, sort: newSort.column });
+		void setSortParams({ order: newSort.direction, sort: newSort.column });
 	};
 
 	const clearFilters = () => {
-		setFilterParams({
+		void setFilterParams({
 			attack: [],
 			gender: [],
 			height: [],
@@ -182,7 +179,7 @@ export function useFilters(killers: Killer[]) {
 			tr_max: null as unknown as number,
 			tr_min: null as unknown as number,
 		});
-		setSortParams({ order: "asc", sort: "name" });
+		void setSortParams({ order: "asc", sort: "name" });
 	};
 
 	const filteredKillers = sortKillers(filterKillers(killers, filters), sort);

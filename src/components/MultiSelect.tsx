@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 
 interface MultiSelectProps<T extends string> {
 	label: string;
@@ -23,33 +23,35 @@ export function MultiSelect<T extends string>({
 	const searchRef = useRef<HTMLInputElement>(null);
 	const panelId = useId();
 
+	const close = useCallback(() => {
+		setOpen(false);
+		setSearch("");
+	}, []);
+
 	useEffect(() => {
 		function handleClickOutside(e: MouseEvent) {
 			if (ref.current && !ref.current.contains(e.target as Node)) {
-				setOpen(false);
+				close();
 			}
 		}
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => document.removeEventListener("mousedown", handleClickOutside);
-	}, []);
+	}, [close]);
 
 	useEffect(() => {
 		if (!open) return;
 		function handleKeyDown(e: KeyboardEvent) {
 			if (e.key === "Escape") {
-				setOpen(false);
+				close();
 			}
 		}
 		document.addEventListener("keydown", handleKeyDown);
 		return () => document.removeEventListener("keydown", handleKeyDown);
-	}, [open]);
+	}, [close, open]);
 
 	useEffect(() => {
 		if (open && searchable) {
 			searchRef.current?.focus();
-		}
-		if (!open) {
-			setSearch("");
 		}
 	}, [open, searchable]);
 
@@ -77,7 +79,7 @@ export function MultiSelect<T extends string>({
 				aria-haspopup="true"
 				aria-label={`${label} filter`}
 				className="flex items-center gap-1.5 rounded border border-border bg-surface px-3 py-1.5 text-sm text-text-muted hover:border-accent/50 hover:text-text transition-colors"
-				onClick={() => setOpen(!open)}
+				onClick={() => (open ? close() : setOpen(true))}
 				type="button"
 			>
 				{label}

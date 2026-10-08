@@ -24,37 +24,36 @@ function formatTime(seconds: number): string {
 }
 
 export function TrPlayer() {
-	const [payload, setPayload] = useState<TrAudioPayload | null>(null);
+	const [meta, setMeta] = useState<Omit<TrAudioPayload, "audio"> | null>(null);
 	const [playing, setPlaying] = useState(false);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
-	const [volume, setVolume] = useState(DEFAULT_VOLUME);
+	const [volume, setVolume] = useState(readStoredVolume);
+	const audioRef = useRef<HTMLAudioElement | null>(null);
 	const playerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const v = readStoredVolume();
-		setVolume(v);
-		document.dispatchEvent(new CustomEvent("tr-volume-change", { detail: v }));
+		document.dispatchEvent(new CustomEvent("tr-volume-change", { detail: volume }));
+	}, [volume]);
 
+	useEffect(() => {
 		function handleAudio(e: Event) {
-			setPayload((e as CustomEvent<TrAudioPayload | null>).detail);
+			const next = (e as CustomEvent<TrAudioPayload | null>).detail;
+			audioRef.current = next?.audio ?? null;
+			setMeta(
+				next ? { displayName: next.displayName, killerId: next.killerId, portraitPath: next.portraitPath } : null,
+			);
+			setPlaying(next ? !next.audio.paused : false);
+			setCurrentTime(next ? next.audio.currentTime : 0);
+			setDuration(next && Number.isFinite(next.audio.duration) ? next.audio.duration : 0);
 		}
 		document.addEventListener("tr-audio-change", handleAudio);
 		return () => document.removeEventListener("tr-audio-change", handleAudio);
 	}, []);
 
 	useEffect(() => {
-		if (!payload) {
-			setPlaying(false);
-			setCurrentTime(0);
-			setDuration(0);
-			return;
-		}
-		const { audio } = payload;
-		setPlaying(!audio.paused);
-		setCurrentTime(audio.currentTime);
-		setDuration(Number.isFinite(audio.duration) ? audio.duration : 0);
-
+		const audio = audioRef.current;
+		if (!meta || !audio) return;
 		const onPlay = () => setPlaying(true);
 		const onPause = () => setPlaying(false);
 		const onTime = () => setCurrentTime(audio.currentTime);
@@ -73,10 +72,10 @@ export function TrPlayer() {
 			audio.removeEventListener("loadedmetadata", onDuration);
 			audio.removeEventListener("durationchange", onDuration);
 		};
-	}, [payload]);
+	}, [meta]);
 
 	useEffect(() => {
-		if (!payload) {
+		if (!meta) {
 			document.documentElement.style.setProperty("--tr-player-h", "0px");
 			return;
 		}
@@ -87,18 +86,22 @@ export function TrPlayer() {
 		});
 		observer.observe(el);
 		return () => observer.disconnect();
-	}, [payload]);
+	}, [meta]);
 
-	if (!payload) return null;
+	if (!meta) return null;
 
 	const handlePlayPause = () => {
-		if (playing) payload.audio.pause();
-		else payload.audio.play();
+		const audio = audioRef.current;
+		if (!audio) return;
+		if (playing) audio.pause();
+		else void audio.play();
 	};
 
 	const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const t = Number(e.target.value);
-		payload.audio.currentTime = t;
+		const audio = audioRef.current;
+		if (!audio) return;
+		audio.currentTime = t;
 		setCurrentTime(t);
 	};
 
@@ -129,12 +132,12 @@ export function TrPlayer() {
 					alt=""
 					className="size-10 shrink-0 rounded bg-surface-light object-cover sm:size-12"
 					height={256}
-					src={`${CDN_URL}${payload.portraitPath}`}
+					src={`${CDN_URL}${meta.portraitPath}`}
 					width={256}
 				/>
 
 				<div className="hidden min-w-0 flex-col sm:flex sm:w-40 sm:shrink-0">
-					<div className="truncate text-sm font-medium text-text">{payload.displayName}</div>
+					<div className="truncate text-sm font-medium text-text">{meta.displayName}</div>
 					<div className="text-xs text-text-muted">Terror Radius</div>
 				</div>
 
@@ -159,7 +162,7 @@ export function TrPlayer() {
 					</button>
 
 					<div className="flex min-w-0 flex-1 flex-col gap-0.5 sm:hidden">
-						<div className="truncate text-xs font-medium text-text">{payload.displayName}</div>
+						<div className="truncate text-xs font-medium text-text">{meta.displayName}</div>
 						<input
 							aria-label="Seek"
 							className="w-full accent-accent"

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useHydrated } from "../hooks/useHydrated.ts";
 import type { AttackCategory, Filters, Gender, Height, Killer } from "../types/killer.ts";
 import { ATTACK_CATEGORIES, GENDERS, HEIGHTS } from "../types/killer.ts";
 import { MultiSelect } from "./MultiSelect.tsx";
@@ -72,12 +73,9 @@ export function FilterBar({
 	totalCount,
 }: FilterBarProps) {
 	const [mobileOpen, setMobileOpen] = useState(false);
-	const [mounted, setMounted] = useState(false);
 	const searchRef = useRef<HTMLInputElement>(null);
 	const origins = [...new Set(killers.map((k) => k.origin))].sort();
-
-	const searchValueRef = useRef(filters.search);
-	searchValueRef.current = filters.search;
+	const mounted = useHydrated();
 
 	useEffect(() => {
 		function handleKeyDown(e: KeyboardEvent) {
@@ -86,7 +84,7 @@ export function FilterBar({
 				searchRef.current?.focus();
 			}
 			if (e.key === "Escape" && document.activeElement === searchRef.current) {
-				if (searchValueRef.current) {
+				if (filters.search) {
 					onFilterChange("search", "");
 				} else {
 					searchRef.current?.blur();
@@ -95,11 +93,7 @@ export function FilterBar({
 		}
 		document.addEventListener("keydown", handleKeyDown);
 		return () => document.removeEventListener("keydown", handleKeyDown);
-	}, [onFilterChange]);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	}, [filters.search, onFilterChange]);
 
 	const chips: { key: string; label: string; onRemove: () => void }[] = [];
 	if (filters.search) {

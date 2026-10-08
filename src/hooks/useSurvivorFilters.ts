@@ -1,8 +1,8 @@
 import { parseAsArrayOf, parseAsString, parseAsStringLiteral, useQueryStates } from "nuqs";
-import { useEffect, useState } from "react";
 import { GENDERS, LICENSED_OPTIONS, SORT_DIRECTIONS } from "../types/killer.ts";
 import type { Survivor, SurvivorFilters, SurvivorSortState } from "../types/survivor.ts";
 import { SURVIVOR_SORT_COLUMNS } from "../types/survivor.ts";
+import { useHydrated } from "./useHydrated.ts";
 
 const filterParsers = {
 	gender: parseAsArrayOf(parseAsStringLiteral(GENDERS)).withDefault([]),
@@ -85,10 +85,7 @@ export function useSurvivorFilters(survivors: Survivor[]) {
 		direction: sortParams.order,
 	};
 
-	const [mounted, setMounted] = useState(false);
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	const mounted = useHydrated();
 
 	const filters = mounted ? realFilters : DEFAULT_FILTERS;
 	const sort = mounted ? realSort : DEFAULT_SORT;
@@ -100,21 +97,21 @@ export function useSurvivorFilters(survivors: Survivor[]) {
 			origins: "origin",
 			search: "q",
 		};
-		setFilterParams({ [paramMap[key]]: value });
+		void setFilterParams({ [paramMap[key]]: value });
 	};
 
 	const setSort = (newSort: SurvivorSortState) => {
-		setSortParams({ order: newSort.direction, sort: newSort.column });
+		void setSortParams({ order: newSort.direction, sort: newSort.column });
 	};
 
 	const clearFilters = () => {
-		setFilterParams({
+		void setFilterParams({
 			gender: [],
 			licensed: "all",
 			origin: [],
 			q: "",
 		});
-		setSortParams({ order: "asc", sort: "name" });
+		void setSortParams({ order: "asc", sort: "name" });
 	};
 
 	const filteredSurvivors = sortSurvivors(filterSurvivors(survivors, filters), sort);

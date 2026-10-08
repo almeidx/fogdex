@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useHydrated } from "../hooks/useHydrated.ts";
 import type { Perk, PerkFilters, PerkSortColumn, PerkSortState } from "../types/perk.ts";
 import { PERK_SORT_COLUMNS } from "../types/perk.ts";
 import { MultiSelect } from "./MultiSelect.tsx";
@@ -36,8 +37,8 @@ export function PerkFilterBar({
 	totalCount,
 }: PerkFilterBarProps) {
 	const [mobileOpen, setMobileOpen] = useState(false);
-	const [mounted, setMounted] = useState(false);
 	const searchRef = useRef<HTMLInputElement>(null);
+	const mounted = useHydrated();
 
 	const allTags = [...new Set(perks.flatMap((p) => p.tags))].sort();
 
@@ -55,9 +56,6 @@ export function PerkFilterBar({
 
 	const chapterOptions = [...new Set(perks.map((p) => p.chapter).filter((c): c is string => c !== null))].sort();
 
-	const searchValueRef = useRef(filters.search);
-	searchValueRef.current = filters.search;
-
 	useEffect(() => {
 		function handleKeyDown(e: KeyboardEvent) {
 			if (e.key === "/" && !(e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement)) {
@@ -65,7 +63,7 @@ export function PerkFilterBar({
 				searchRef.current?.focus();
 			}
 			if (e.key === "Escape" && document.activeElement === searchRef.current) {
-				if (searchValueRef.current) {
+				if (filters.search) {
 					onFilterChange("search", "");
 				} else {
 					searchRef.current?.blur();
@@ -74,11 +72,7 @@ export function PerkFilterBar({
 		}
 		document.addEventListener("keydown", handleKeyDown);
 		return () => document.removeEventListener("keydown", handleKeyDown);
-	}, [onFilterChange]);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+	}, [filters.search, onFilterChange]);
 
 	const chips: { key: string; label: string; onRemove: () => void }[] = [];
 	if (filters.search) {
