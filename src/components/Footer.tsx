@@ -2,7 +2,7 @@ export function Footer() {
 	return (
 		<footer className="border-t border-border px-6 py-8 text-center text-sm text-text-muted">
 			<p>
-				Dead by Daylight is a trademark of Behaviour Interactive Inc. Data sourced from the{" "}
+				Dead by Daylight is a trademark of Behaviour Interactive Inc. Some data may be sourced from the{" "}
 				<a
 					className="text-accent-text hover:text-accent-light underline"
 					href="https://deadbydaylight.wiki.gg"
