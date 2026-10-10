@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import { resolve } from "node:path";
 
 export const DATA_FILE_NAMES = [
@@ -10,6 +10,8 @@ export const DATA_FILE_NAMES = [
 ] as const;
 
 export type DataFileName = (typeof DATA_FILE_NAMES)[number];
+
+export const UPDATED_AT_FILE_NAME = "updated-at.json";
 
 export function getDataDir(): string {
 	return resolve(process.cwd(), process.env.FOGDEX_DATA_DIR ?? ".fogdex-data");
@@ -34,4 +36,28 @@ export async function loadDataFile<T>(fileName: DataFileName): Promise<T> {
 
 		throw error;
 	}
+}
+
+export async function getDataUpdatedAt(): Promise<Date> {
+	const updatedAtPath = resolve(getDataDir(), UPDATED_AT_FILE_NAME);
+
+	try {
+		const { updatedAt } = JSON.parse(await readFile(updatedAtPath, "utf8")) as { updatedAt: string };
+		const parsed = new Date(updatedAt);
+		if (!Number.isNaN(parsed.getTime())) {
+			return parsed;
+		}
+
+		console.warn(`Invalid timestamp in ${updatedAtPath}; falling back to data file timestamps.`);
+	} catch (error) {
+		if (error instanceof SyntaxError) {
+			console.warn(`Invalid JSON in ${updatedAtPath}; falling back to data file timestamps.`);
+		} else if (!(error && typeof error === "object" && "code" in error && error.code === "ENOENT")) {
+			throw error;
+		}
+	}
+
+	const stats = await Promise.all(DATA_FILE_NAMES.map((fileName) => stat(resolve(getDataDir(), fileName))));
+
+	return stats.reduce((latest, { mtime }) => (mtime > latest ? mtime : latest), new Date(0));
 }

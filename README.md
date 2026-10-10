@@ -13,6 +13,7 @@ A filterable reference site for [Dead by Daylight](https://deadbydaylight.com) k
 - Active filter chips with one-click removal
 - Sortable columns and shareable filter state in the URL
 - Cross-linking between characters and their perks
+- Game data last-updated date in the footer
 - Responsive layouts for desktop and mobile
 
 ## Development

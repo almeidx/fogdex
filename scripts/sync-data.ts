@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import { DATA_FILE_NAMES, getDataDir } from "../src/data/load.ts";
+import { DATA_FILE_NAMES, getDataDir, UPDATED_AT_FILE_NAME } from "../src/data/load.ts";
 
 const action = process.argv[2];
 
@@ -36,7 +36,7 @@ const s3 = new S3Client({
 	region: "auto",
 });
 
-async function fetchObject(fileName: string): Promise<Uint8Array> {
+async function fetchObject(fileName: string): Promise<{ body: Uint8Array; lastModified: Date | undefined }> {
 	const response = await s3.send(
 		new GetObjectCommand({
 			Bucket: bucket,
@@ -48,7 +48,7 @@ async function fetchObject(fileName: string): Promise<Uint8Array> {
 		throw new Error(`Failed to download ${fileName}: response body was empty.`);
 	}
 
-	return response.Body.transformToByteArray();
+	return { body: await response.Body.transformToByteArray(), lastModified: response.LastModified };
 }
 
 async function putObject(fileName: string, body: Buffer): Promise<void> {
@@ -62,15 +62,33 @@ async function putObject(fileName: string, body: Buffer): Promise<void> {
 	);
 }
 
+const lastModifiedDates: Date[] = [];
+
 for (const fileName of DATA_FILE_NAMES) {
 	const localPath = resolve(dataDir, fileName);
 
 	if (action === "pull") {
 		console.log(`Downloading ${fileName} from ${bucket}.`);
 		await mkdir(dirname(localPath), { recursive: true });
-		await writeFile(localPath, await fetchObject(fileName));
+		const { body, lastModified } = await fetchObject(fileName);
+		await writeFile(localPath, body);
+		if (lastModified) {
+			lastModifiedDates.push(lastModified);
+		}
 	} else {
 		console.log(`Uploading ${fileName} to ${bucket}.`);
 		await putObject(fileName, await readFile(localPath));
 	}
+}
+
+if (action === "pull") {
+	if (lastModifiedDates.length !== DATA_FILE_NAMES.length) {
+		console.error("R2 did not report a last-modified timestamp for every data file.");
+		process.exit(1);
+	}
+
+	const updatedAt = lastModifiedDates.reduce((latest, date) => (date > latest ? date : latest));
+	const updatedAtPath = resolve(dataDir, UPDATED_AT_FILE_NAME);
+	console.log(`Writing ${updatedAtPath}.`);
+	await writeFile(updatedAtPath, `${JSON.stringify({ updatedAt: updatedAt.toISOString() }, null, "\t")}\n`);
 }

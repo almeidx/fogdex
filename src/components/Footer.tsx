@@ -1,4 +1,4 @@
-export function Footer() {
+export function Footer({ dataUpdatedAt }: { dataUpdatedAt: string }) {
 	return (
 		<footer className="border-t border-border px-6 py-8 text-center text-sm text-text-muted">
 			<p>
@@ -13,6 +13,7 @@ export function Footer() {
 				</a>
 				. This site is not affiliated with Behaviour Interactive.
 			</p>
+			<p className="mt-2">Game data last updated {dataUpdatedAt}.</p>
 			<p className="mt-2">
 				<a
 					className="text-accent-text hover:text-accent-light underline"
