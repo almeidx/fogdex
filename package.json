@@ -14,29 +14,29 @@
 		"validate-data": "node --env-file-if-exists=.env scripts/validate-data.ts"
 	},
 	"dependencies": {
-		"@astrojs/react": "^7.1.0",
+		"@astrojs/react": "^7.1.1",
 		"@astrojs/sitemap": "^3.7.4",
-		"astro": "^7.4.0",
+		"astro": "^7.4.2",
 		"nuqs": "^2.10.2",
 		"react": "^19.3.1",
 		"react-dom": "^19.3.1"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.10",
-		"@aws-sdk/client-s3": "^3.1152.0",
+		"@astrojs/check": "^0.9.12",
+		"@aws-sdk/client-s3": "^3.1156.0",
 		"@tailwindcss/vite": "^4.3.3",
 		"@types/node": "^25.9.9",
 		"@types/react": "^19.3.0",
 		"@types/react-dom": "^19.3.0",
-		"oxc-transform-react": "^0.154.0",
-		"oxfmt": "^0.73.0",
-		"oxlint": "^1.88.0",
-		"oxlint-tsgolint": "^7.0.2004",
+		"oxc-transform-react": "^0.155.0",
+		"oxfmt": "^0.74.0",
+		"oxlint": "^1.89.0",
+		"oxlint-tsgolint": "^7.0.2005",
 		"sharp": "^0.35.5",
 		"tailwindcss": "^4.3.3",
 		"typescript": "~6.0.3",
-		"wrangler": "^4.151.0",
+		"wrangler": "^4.152.0",
 		"zod": "^4.6.7"
 	},
-	"packageManager": "pnpm@12.14.0"
+	"packageManager": "pnpm@12.15.0"
 }
