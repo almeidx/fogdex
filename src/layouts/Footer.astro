@@ -1,0 +1,30 @@
+---
+import { getDataUpdatedAt } from "../data/load.ts";
+import { DISCLAIMER_PATH, REPO_URL, WIKI_URL } from "../routes.ts";
+
+const dataUpdatedAt = (await getDataUpdatedAt()).toLocaleDateString("en-US", {
+	day: "numeric",
+	month: "long",
+	timeZone: "UTC",
+	year: "numeric",
+});
+---
+
+<footer class="border-t border-border px-6 py-8 text-center text-sm text-text-muted">
+	<p>
+		Dead by Daylight is a trademark of Behaviour Interactive Inc. Some data may be sourced from the{" "}
+		<a class="text-accent-text hover:text-accent-light underline" href={WIKI_URL} rel="noopener noreferrer" target="_blank">
+			Dead by Daylight Wiki
+		</a>. This site is not affiliated with Behaviour Interactive.
+	</p>
+	<p class="mt-2">Game data last updated {dataUpdatedAt}.</p>
+	<p class="mt-2">
+		<a class="text-accent-text hover:text-accent-light underline" href={REPO_URL} rel="noopener noreferrer" target="_blank">
+			Source Code
+		</a>
+		{" \u00b7 "}
+		AGPL-3.0
+		{" \u00b7 "}
+		<a class="text-accent-text hover:text-accent-light underline" href={DISCLAIMER_PATH}>Disclaimer</a>
+	</p>
+</footer>

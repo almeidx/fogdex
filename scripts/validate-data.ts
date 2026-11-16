@@ -1,183 +1,71 @@
-import { z } from "zod";
-import { getDataDir, loadDataFile } from "../src/data/load.ts";
-import { ATTACK_CATEGORIES, GENDERS, HEIGHTS } from "../src/types/killer.ts";
-import { PERK_ROLES } from "../src/types/perk.ts";
-
-const killerSchema = z.object({
-	aliases: z.array(z.string()),
-	attackCategory: z.enum(ATTACK_CATEGORIES),
-	attackDetail: z.string().min(1),
-	chapter: z.string().min(1),
-	displayName: z.string().min(1),
-	gameTags: z.array(z.string().min(1)),
-	gender: z.enum(GENDERS),
-	height: z.enum(HEIGHTS),
-	id: z.string().regex(/^K\d{2}$/),
-	licensed: z.boolean(),
-	lullabyNotes: z.string().nullable(),
-	lullabyRadius: z.number().nonnegative().nullable(),
-	origin: z.string().min(1),
-	portraitPath: z.string(),
-	powerName: z.string().min(1),
-	realName: z.string().nullable(),
-	releaseDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-	slug: z.string().regex(/^[a-z0-9-]+$/),
-	speed: z.number().nonnegative(),
-	speedNotes: z.string().nullable(),
-	terrorRadius: z.number().nonnegative(),
-	terrorRadiusNotes: z.string().nullable(),
-	weapon: z.string().min(1),
-	wikiUrl: z.url(),
-});
-
-const survivorSchema = z.object({
-	aliases: z.array(z.string()),
-	chapter: z.string().min(1),
-	displayName: z.string().min(1),
-	gameTags: z.array(z.string().min(1)),
-	gender: z.enum(GENDERS),
-	id: z.string().regex(/^S\d{2}$/),
-	licensed: z.boolean(),
-	origin: z.string().min(1),
-	portraitPath: z.string(),
-	realName: z.string().nullable(),
-	releaseDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-	slug: z.string().regex(/^[a-z0-9-]+$/),
-	wikiUrl: z.url(),
-});
-
-const tierValueEntry = z.record(z.string(), z.union([z.number(), z.string()]));
-const tierValuesSchema = z.tuple([tierValueEntry, tierValueEntry, tierValueEntry]);
-
-const perkSchema = z.object({
-	aliases: z.array(z.string()),
-	chapter: z.string().nullable(),
-	description: z.string().min(1),
-	iconPath: z.string(),
-	name: z.string().min(1),
-	owner: z
-		.string()
-		.regex(/^[a-z0-9-]+$/)
-		.nullable(),
-	ownerName: z.string().nullable(),
-	role: z.enum(PERK_ROLES),
-	slug: z.string().regex(/^[a-z0-9-]+$/),
-	tags: z.array(z.string()),
-	tierValues: tierValuesSchema,
-	wikiUrl: z.url(),
-});
-
-const statusEffectsSchema = z.record(z.string().min(1), z.string().min(1));
+import { charactersFile, DATA_FILE_NAMES, DATA_FILES, getDataDir, loadDataFile, perksFile } from "../src/data/load.ts";
+import { PLACEHOLDER_NAME, splitDescription } from "../src/perks/description.ts";
+import type { Perk } from "../src/perks/schema.ts";
+import { ROLES } from "../src/roles.ts";
 
 let hasErrors = false;
 
-function validate<T>(name: string, schema: z.ZodType<T>, data: unknown): T | null {
-	const result = schema.safeParse(data);
-	if (result.success) {
-		const count =
-			typeof result.data === "object" && result.data !== null
-				? Object.keys(result.data).length
-				: Number(Boolean(result.data));
-		console.log(`Valid: ${count} ${name} passed schema validation.`);
-		return result.data;
-	} else {
-		hasErrors = true;
-		console.error(`${name} validation errors:`);
-		for (const issue of result.error.issues) {
-			console.error(`  ${issue.path.join(".")}: ${issue.message}`);
-		}
-		return null;
-	}
-}
-
-function validatePerkOwners(
-	name: string,
-	perks: Array<{ owner: string | null; slug: string }>,
-	owners: Array<{ slug: string }>,
-) {
-	const ownerSlugs = new Set(owners.map((owner) => owner.slug));
-	const invalid = perks.filter((perk) => perk.owner !== null && !ownerSlugs.has(perk.owner));
-	if (invalid.length === 0) {
-		console.log(`Valid: ${name} owner slugs all reference known characters.`);
+function report(subject: string, errors: string[]) {
+	if (errors.length === 0) {
+		console.log(`Valid: ${subject}.`);
 		return;
 	}
-
 	hasErrors = true;
-	console.error(`${name} owner reference errors:`);
-	for (const perk of invalid) {
-		console.error(`  ${perk.slug}: unknown owner slug ${perk.owner}`);
-	}
+	console.error(`Invalid: ${subject}:`);
+	for (const error of errors) console.error(`  ${error}`);
 }
 
-function validatePerkTierPlaceholders(
-	name: string,
-	perks: Array<{
-		description: string;
-		slug: string;
-		tierValues: [Record<string, number | string>, Record<string, number | string>, Record<string, number | string>];
-	}>,
-) {
+function tierValueErrors(perk: Perk): string[] {
+	const placeholders = new Set(
+		splitDescription(perk.description).flatMap((part) => ("placeholder" in part ? [part.placeholder] : [])),
+	);
 	const errors: string[] = [];
 
-	for (const perk of perks) {
-		const placeholders = new Set([...perk.description.matchAll(/\{([^{}]+)\}/g)].map((match) => match[1]));
-		const tierValueKeys = new Set(perk.tierValues.flatMap((tier) => Object.keys(tier)));
-
-		for (const placeholder of placeholders) {
-			if (!/^[a-zA-Z][a-zA-Z0-9]*$/.test(placeholder)) {
-				errors.push(`${perk.slug}: invalid placeholder {${placeholder}}`);
-				continue;
-			}
-
-			for (let tier = 0; tier < perk.tierValues.length; tier++) {
-				if (!(placeholder in perk.tierValues[tier])) {
-					errors.push(`${perk.slug}: missing tier ${tier + 1} value for {${placeholder}}`);
-				}
-			}
+	for (const placeholder of placeholders) {
+		if (!PLACEHOLDER_NAME.test(placeholder)) {
+			errors.push(`${perk.slug}: invalid placeholder {${placeholder}}`);
+			continue;
 		}
-
-		for (const tierValueKey of tierValueKeys) {
-			if (!placeholders.has(tierValueKey)) {
-				errors.push(`${perk.slug}: unused tier value ${tierValueKey}`);
-			}
-		}
+		perk.tierValues.forEach((tier, i) => {
+			if (!(placeholder in tier)) errors.push(`${perk.slug}: missing tier ${i + 1} value for {${placeholder}}`);
+		});
 	}
-
-	if (errors.length === 0) {
-		console.log(`Valid: ${name} descriptions and tier values are aligned.`);
-		return;
+	for (const key of new Set(perk.tierValues.flatMap((tier) => Object.keys(tier)))) {
+		if (!placeholders.has(key)) errors.push(`${perk.slug}: unused tier value ${key}`);
 	}
-
-	hasErrors = true;
-	console.error(`${name} tier value errors:`);
-	for (const error of errors) {
-		console.error(`  ${error}`);
-	}
+	return errors;
 }
 
 console.log(`Validating private data from ${getDataDir()}`);
 
-const killers = validate("killer(s)", z.array(killerSchema), await loadDataFile<unknown>("killers.json"));
-
-const survivors = validate("survivor(s)", z.array(survivorSchema), await loadDataFile<unknown>("survivors.json"));
-
-const killerPerks = validate("killer perk(s)", z.array(perkSchema), await loadDataFile<unknown>("killer-perks.json"));
-if (killerPerks && killers) {
-	validatePerkOwners("killer perk(s)", killerPerks, killers);
-	validatePerkTierPlaceholders("killer perk(s)", killerPerks);
+const schemaValid = new Set<string>();
+for (const fileName of DATA_FILE_NAMES) {
+	const result = DATA_FILES[fileName].safeParse(await loadDataFile(fileName));
+	const count = result.success ? Object.keys(result.data).length : 0;
+	report(
+		`${fileName} schema (${count} entries)`,
+		result.error?.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`) ?? [],
+	);
+	if (result.success) schemaValid.add(fileName);
 }
 
-const survivorPerks = validate(
-	"survivor perk(s)",
-	z.array(perkSchema),
-	await loadDataFile<unknown>("survivor-perks.json"),
-);
-if (survivorPerks && survivors) {
-	validatePerkOwners("survivor perk(s)", survivorPerks, survivors);
-	validatePerkTierPlaceholders("survivor perk(s)", survivorPerks);
-}
+for (const role of ROLES) {
+	if (!schemaValid.has(perksFile(role)) || !schemaValid.has(charactersFile(role))) continue;
 
-validate("status effect(s)", statusEffectsSchema, await loadDataFile<unknown>("status-effects.json"));
+	const perks = await loadDataFile(perksFile(role));
+	const owners = new Set((await loadDataFile(charactersFile(role))).map((character) => character.slug));
+	report(
+		`${perksFile(role)} owners exist in ${charactersFile(role)}`,
+		perks.flatMap((perk) =>
+			perk.owner !== null && !owners.has(perk.owner) ? [`${perk.slug}: unknown owner slug ${perk.owner}`] : [],
+		),
+	);
+	report(
+		`${perksFile(role)} perks are ${role} perks`,
+		perks.flatMap((perk) => (perk.role === role ? [] : [`${perk.slug}: role is ${perk.role}`])),
+	);
+	report(`${perksFile(role)} descriptions match tier values`, perks.flatMap(tierValueErrors));
+}
 
 if (hasErrors) {
 	process.exit(1);

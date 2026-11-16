@@ -4,5 +4,5 @@
 	"printWidth": 120,
 	"sortImports": { "newlinesBetween": false },
 	"sortPackageJson": { "sortScripts": true },
-	"ignorePatterns": [".astro/**", ".wrangler/**", "dist/**", ".fogdex-data/**", "src/data/*.json", "**/*.astro"]
+	"ignorePatterns": [".astro/**", ".wrangler/**", "dist/**", ".fogdex-data/**", "**/*.astro"]
 }

@@ -1,0 +1,57 @@
+---
+import type { GetStaticPaths } from "astro";
+import { charactersFile, loadDataFile, perksFile } from "../../data/load.ts";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { itemListJsonLd } from "../../layouts/jsonLd.ts";
+import Legend from "../../layouts/Legend.astro";
+import { PerksIsland } from "../../perks/PerksIsland.tsx";
+import { ROLE_LABELS, ROLES, type Role } from "../../roles.ts";
+import { perksPath } from "../../routes.ts";
+
+export const getStaticPaths = (() => ROLES.map((role) => ({ params: { role }, props: { role } }))) satisfies GetStaticPaths;
+
+interface Props {
+	role: Role;
+}
+
+const { role } = Astro.props;
+const roleLabel = ROLE_LABELS[role];
+const perks = await loadDataFile(perksFile(role));
+const characters = await loadDataFile(charactersFile(role));
+const statusEffects = await loadDataFile("status-effects.json");
+const ownerPortraits = Object.fromEntries(characters.map((c) => [c.slug, c.portraitPath]));
+
+const title = `${roleLabel} Perks — Fogdex`;
+const description = `Filterable reference for every Dead by Daylight ${role} perk — searchable descriptions, tier values, owners, and chapter.`;
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	...itemListJsonLd(
+		Astro.site,
+		perksPath(role),
+		perks.map((p) => ({ name: p.name, slug: p.slug })),
+	),
+	name: `Dead by Daylight ${roleLabel} Perks`,
+};
+---
+
+<BaseLayout title={title} description={description} h1={`Dead by Daylight ${roleLabel} Perks`} jsonLd={jsonLd}>
+	<PerksIsland ownerPortraits={ownerPortraits} perks={perks} statusEffects={statusEffects} client:load />
+	<Legend
+		items={[
+			{
+				term: "Tier values (e.g. 3 / 4 / 5)",
+				definition:
+					"A perk's value at tier 1 / tier 2 / tier 3. A single number means it is the same at every tier.",
+			},
+			{
+				term: "Status effects",
+				definition: "Bolded terms in a perk's description. Hover or focus one for its meaning.",
+			},
+			{
+				term: "Owner",
+				definition: "The character who unlocks the perk, or Universal if every character can use it.",
+			},
+		]}
+	/>
+</BaseLayout>

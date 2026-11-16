@@ -6,5 +6,3 @@ node_modules/
 dist/
 .DS_Store
 .env
-/src/data/*.json
-!/src/data/*.schema.json

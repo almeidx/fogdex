@@ -1,27 +1,20 @@
 ---
-import { getDataUpdatedAt } from "../data/load.ts";
-import { Footer } from "../components/Footer.tsx";
-import NavBar from "../components/NavBar.astro";
+import { BOTTOM_BAR_HEIGHT_VAR } from "../ui/layoutVars.ts";
+import Footer from "./Footer.astro";
+import NavBar from "./NavBar.astro";
 import "../index.css";
 
 interface Props {
 	description: string;
 	h1?: string;
 	jsonLd?: unknown;
-	ogImage?: string;
 	title: string;
 }
 
-const { title, description, h1, ogImage = "/og-image.png", jsonLd } = Astro.props;
+const { title, description, h1, jsonLd } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
-const ogImageUrl = new URL(ogImage, Astro.site).toString();
-const dataUpdatedAt = (await getDataUpdatedAt()).toLocaleDateString("en-US", {
-	day: "numeric",
-	month: "long",
-	timeZone: "UTC",
-	year: "numeric",
-});
+const ogImageUrl = new URL("/og-image.png", Astro.site).toString();
 ---
 
 <!doctype html>
@@ -63,11 +56,11 @@ const dataUpdatedAt = (await getDataUpdatedAt()).toLocaleDateString("en-US", {
 		}
 	</head>
 	<body>
-		<div class="min-h-screen flex flex-col" style="padding-bottom: var(--tr-player-h, 0px)">
+		<div class="min-h-screen flex flex-col" style={`padding-bottom: var(${BOTTOM_BAR_HEIGHT_VAR}, 0px)`}>
 			<NavBar />
 			{h1 && <h1 class="sr-only">{h1}</h1>}
 			<slot />
-			<Footer dataUpdatedAt={dataUpdatedAt} />
+			<Footer />
 		</div>
 	</body>
 </html>

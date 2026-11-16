@@ -1,11 +1,13 @@
 ---
-import { KillersIsland } from "../islands/KillersIsland.tsx";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Legend from "../components/Legend.astro";
 import { loadDataFile } from "../data/load.ts";
-import type { Killer } from "../types/killer.ts";
+import { SURVIVOR_RUN_SPEED } from "../killers/killer.ts";
+import { KillersIsland } from "../killers/KillersIsland.tsx";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { itemListJsonLd } from "../layouts/jsonLd.ts";
+import Legend from "../layouts/Legend.astro";
+import { charactersPath } from "../routes.ts";
 
-const killers = await loadDataFile<Killer[]>("killers.json");
+const killers = await loadDataFile("killers.json");
 
 const title = "Fogdex — Dead by Daylight Killer Reference";
 const description =
@@ -15,18 +17,13 @@ const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
 	description: "Dead by Daylight killer, survivor, and perk reference",
-	mainEntity: {
-		"@type": "ItemList",
-		itemListElement: killers.map((k, i) => ({
-			"@type": "ListItem",
-			name: k.displayName,
-			position: i + 1,
-			url: `https://fogdex.almeidx.dev/#${k.slug}`,
-		})),
-		numberOfItems: killers.length,
-	},
+	mainEntity: itemListJsonLd(
+		Astro.site,
+		charactersPath("killer"),
+		killers.map((k) => ({ name: k.displayName, slug: k.slug })),
+	),
 	name: "Fogdex",
-	url: "https://fogdex.almeidx.dev",
+	url: Astro.site,
 };
 ---
 
@@ -36,7 +33,7 @@ const jsonLd = {
 		items={[
 			{
 				term: "Speed",
-				definition: "Movement speed in metres per second. The percentage is relative to the 4.6 m/s baseline.",
+				definition: `Movement speed in metres per second. The percentage is relative to the ${SURVIVOR_RUN_SPEED} m/s survivor running speed.`,
 			},
 			{
 				term: "Terror Radius (TR)",

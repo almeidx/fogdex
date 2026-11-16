@@ -1,11 +1,12 @@
 ---
-import { SurvivorsIsland } from "../islands/SurvivorsIsland.tsx";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Legend from "../components/Legend.astro";
 import { loadDataFile } from "../data/load.ts";
-import type { Survivor } from "../types/survivor.ts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { itemListJsonLd } from "../layouts/jsonLd.ts";
+import Legend from "../layouts/Legend.astro";
+import { charactersPath } from "../routes.ts";
+import { SurvivorsIsland } from "../survivors/SurvivorsIsland.tsx";
 
-const survivors = await loadDataFile<Survivor[]>("survivors.json");
+const survivors = await loadDataFile("survivors.json");
 
 const title = "Survivors — Fogdex";
 const description =
@@ -13,15 +14,12 @@ const description =
 
 const jsonLd = {
 	"@context": "https://schema.org",
-	"@type": "ItemList",
-	itemListElement: survivors.map((s, i) => ({
-		"@type": "ListItem",
-		name: s.displayName,
-		position: i + 1,
-		url: `https://fogdex.almeidx.dev/survivors#${s.slug}`,
-	})),
+	...itemListJsonLd(
+		Astro.site,
+		charactersPath("survivor"),
+		survivors.map((s) => ({ name: s.displayName, slug: s.slug })),
+	),
 	name: "Dead by Daylight Survivors",
-	numberOfItems: survivors.length,
 };
 ---
 
